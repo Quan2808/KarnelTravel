@@ -11098,11 +11098,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nhote\\OneDrive\\Máy tính\\testweb\\KarnelTravel\\WebApp\\WebApp.csproj",
+      "projectUniqueName": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\WebApp.csproj",
       "projectName": "WebApp",
-      "projectPath": "C:\\Users\\nhote\\OneDrive\\Máy tính\\testweb\\KarnelTravel\\WebApp\\WebApp.csproj",
+      "projectPath": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\WebApp.csproj",
       "packagesPath": "C:\\Users\\nhote\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nhote\\OneDrive\\Máy tính\\testweb\\KarnelTravel\\WebApp\\obj\\",
+      "outputPath": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nhote\\AppData\\Roaming\\NuGet\\NuGet.Config",

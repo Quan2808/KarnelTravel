@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fAn2ftopaHPMg5M9h/OtoXH0Z8VItHpeMaPnr88haNIq+jbbPlljuYpE20GJipYI6k0eCtibQ9X3BeOnqE2gnw==",
+  "dgSpecHash": "zF91QvsCsRsAAujoSnvr4b5FghBeSlveekm0ZSj3nPD6TvW86A+H8Cec23o3nBGtdRBYiU+gTZqQlonfhU8Iiw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nhote\\OneDrive\\Máy tính\\testweb\\KarnelTravel\\WebApp\\WebApp.csproj",
+  "projectFilePath": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\WebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nhote\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\nhote\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
