@@ -1,0 +1,271 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+@*<h1 class="text-bg-danger text-center">Mệt quá nên làm biếng r, chúc mng một ngày thật vui vẻ</h1>*@
+@section Banner{
+<div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel" data-mdb-carousel-init>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="bg-image" style="background-image: url('@Url.Content("~/assets/images/slide/home-page-slide.jpg")');
+            height: 50vh;">
+                <div class="d-flex align-items-center h-100">
+                    <div class="text-white">
+                        <h2 class="p-2 bg-teal fw-bold">Welcome To</h2>
+                        <h1 class="p-2 bg-teal">KarnelTravels</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="bg-image" style="background-image: url('@Url.Content("~/assets/images/slide/home-page-slide.jpg")');
+            height: 50vh;">
+                <div class="d-flex  align-items-center h-100">
+                    <div class="text-white">
+                        <h3 class="p-2 bg-teal fw-bold">Discover Amazing Destinations</h3>
+                        <h4 class="p-2 bg-teal">Embark on a journey to explore breathtaking places and create unforgettable memories.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    }
+<section id="wrapper">
+    <div class="card mt-3 mb-4 p-5">
+        <ul class="nav nav-tabs nav-justified mb-3" id="menu" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a data-mdb-tab-init class="nav-link fw-bold active" id="menu-tab-1" href="#menu-tabs-1" role="tab"
+                   aria-controls="menu-tabs-1" aria-selected="true"><i class="fas fa-bed fa-fw me-2"></i>Hotels</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a data-mdb-tab-init class="nav-link fw-bold" id="menu-tab-2" href="#menu-tabs-2" role="tab"
+                   aria-controls="menu-tabs-2" aria-selected="false"><i class="fas fa-utensils fa-fw me-2"></i>Restaurants</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a data-mdb-tab-init class="nav-link fw-bold" id="menu-tab-3" href="#menu-tabs-3" role="tab"
+                   aria-controls="menu-tabs-3" aria-selected="false"><i class="fas fa-tree fa-fw me-2"></i>Resorts</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="menu-content">
+            <div class="tab-pane fade show active" id="menu-tabs-1" role="tabpanel" aria-labelledby="menu-tab-1">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Hotel Name:</label>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Enter a destination or hotel name">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Check-In:</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Check-Out:</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Adult:</label>
+                            <select class="form-select">
+                                <option selected disabled>Select room</option>
+                                @for (int i = 1; i <= 8; i++)
+                                {
+
+                                    <option value="i">
+                                        Room for @i adult
+                                    </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                        Search
+                        <i class="fa-solid fa-right-long fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="menu-tabs-2" role="tabpanel" aria-labelledby="menu-tab-2">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Restaurant Name:</label>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Enter a destination or restaurant name">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Check-In:</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Check-Out:</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Adult:</label>
+                            <select class="form-select">
+                                <option selected disabled>Select room</option>
+                                @for (int i = 1; i <= 8; i++)
+                                {
+
+                                    <option value="i">
+                                        Room for @i adult
+                                    </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                        Search
+                        <i class="fa-solid fa-right-long fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="menu-tabs-3" role="tabpanel" aria-labelledby="menu-tab-3">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Resort Name:</label>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Enter a destination or Resort name">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Check-In:</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Check-Out:</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Adult:</label>
+                            <select class="form-select">
+                                <option selected disabled>Select room</option>
+                                @for (int i = 1; i <= 8; i++)
+                                {
+
+                                    <option value="i">
+                                        Room for @i adult
+                                    </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                        Search
+                        <i class="fa-solid fa-right-long fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="why-us" class="mt-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-heading fw-bold mb-4">WHY CHOOSE US</h2>
+                <p class="text-muted">
+                    At Karnel Travels, we take pride in being your premier choice for travel and tourism.
+                </p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-4">
+                <div class="icon-box text-center">
+                    <i class="fas fa-globe fa-2x"></i>
+                    <h3>Extensive Network</h3>
+                    <p class="text-muted">
+                        Our extensive network ensures that you have access to a wide range of destinations, from popular tourist spots to hidden gems.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="icon-box text-center">
+                    <i class="fas fa-suitcase fa-2x"></i>
+                    <h3>Complete Travel Solutions</h3>
+                    <p class="text-muted">
+                        We offer complete travel solutions, including transportation, accommodation, and packages, making your journey hassle-free and memorable.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="icon-box text-center">
+                    <i class="fas fa-heart fa-2x"></i>
+                    <h3>Customer-Centric Approach</h3>
+                    <p class="text-muted">
+                        Our customer-centric approach ensures that your needs and preferences are our top priority, providing you with a personalized and delightful experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="tourist-spots" class="mt-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-heading mb-4 fw-bold">Explore Captivating Tourist Spots</h2>
+                <p class="text-muted">Discover the beauty of our country with Karnel Travels. We take you on a journey to some of the most mesmerizing tourist spots that will leave you with unforgettable memories.</p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            @for (int i = 1; i <= 3; i++)
+            {
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Name of item @i" />
+                        <div class="card-body">
+                            <h5 class="card-title">Name of item @i</h5>
+                            <p class="card-text">
+                                Description of item @i
+                            </p>
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <div class="ratings">
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <h5 class="review-count">12 Reviews</h5>
+                                </div>
+                                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

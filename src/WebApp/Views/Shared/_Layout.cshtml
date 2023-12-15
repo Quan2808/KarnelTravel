@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Karnel Travels</title>
+    <partial name="Sections/_Styles" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <partial name="Sections/Header/_Navbar" />
+    @await RenderSectionAsync("Banner", required: false)
+    <main class="container">
+        @RenderBody()
+    </main>
+    <partial name="Sections/_BackToTop" />
+    <partial name="Sections/_Footer" />
+    <partial name="Sections/_Scripts" />
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

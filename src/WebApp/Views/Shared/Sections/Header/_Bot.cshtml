@@ -1,0 +1,98 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@{
+    var actionName = ViewContext.RouteData.Values["action"] as string;
+    var controllerName = ViewContext.RouteData.Values["controller"] as string;
+
+    string GetActiveClass(string currentAction, string currentController) =>
+         actionName == currentAction && controllerName == currentController ? "active fw-bold" : "";
+}
+<section id="_navbot">
+    <nav class="navbar navbar-expand-lg p-3">
+        <div class="container">
+            <div class="navbar-brand">
+                <img src="~/assets/images/logo-brand.png"
+                     class="me-2"
+                     height="130"
+                     alt="Kanel Travels Brand Logo"
+                     loading="lazy" />
+            </div>
+            <button data-mdb-collapse-init
+                    class="navbar-toggler btn btn-outline-vjppro"
+                    type="button"
+                    data-mdb-target="#headNavbar"
+                    aria-controls="headNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    onclick="toggleIcon()">
+                <i class="fas fa-align-justify" id="toggleIcon"></i>
+            </button>
+
+            <div class=" collapse navbar-collapse" id="headNavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 @GetActiveClass("Index", "Home")" asp-action="index" asp-controller="home" asp-area="">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 @GetActiveClass("Introduction", "Home")" asp-action="introduction" asp-controller="home" asp-area="">
+                            Introduction
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link mx-2 dropdown-toggle"
+                           href="#" role="button"
+                           id="serveice"
+                           data-mdb-dropdown-init
+                           aria-expanded="false">
+                            Karnel Travels Service
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="serveice">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Tourist Spots
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Travel Information
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Hotel Information
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Restaurant Information
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Resorts Information
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="#">
+                            Contact Us
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link mx-2 dropdown-toggle"
+                           href="#" role="button"
+                           id="clone"
+                           data-mdb-dropdown-init
+                           aria-expanded="false">
+                            Account
+                        </a>
+                        <partial name="Sections/Header/_LoginPartial" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
