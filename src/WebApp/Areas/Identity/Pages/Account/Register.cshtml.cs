@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using WebApp.Areas.Identity.Data;
 
@@ -119,21 +120,21 @@ namespace WebApp.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                var existingUserWithPhoneNumber = _userManager.GetPhoneNumberAsync(user);
-
-                if (existingUserWithPhoneNumber != null)
+                var existingUser = await _userManager.Users.FirstOrDefaultAsync(u => u.PhoneNumber == Input.PhoneNumber);
+                if (existingUser != null)
                 {
-                    ModelState.AddModelError(string.Empty, "Phone number has been registered.");
+                    ModelState.AddModelError(string.Empty, "Phone number has been registered with another account.");
                     return Page();
                 }
 
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
                 user.Address = Input.Address;
-                
+
                 await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-                await _userStore.SetUserNameAsync(user, Input.Username, CancellationToken.None);
+                await _userManager.SetUserNameAsync(user, Input.Username);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)

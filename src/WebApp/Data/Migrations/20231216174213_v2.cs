@@ -8,22 +8,6 @@ namespace WebApp.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropIndex(
-                name: "IX_Users_PhoneNumber",
-                table: "Users");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "PhoneNumber",
-                table: "Users",
-                type: "nvarchar(max)",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(450)",
-                oldNullable: true);
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
             migrationBuilder.AlterColumn<string>(
                 name: "PhoneNumber",
                 table: "Users",
@@ -39,6 +23,22 @@ namespace WebApp.Data.Migrations
                 column: "PhoneNumber",
                 unique: true,
                 filter: "[PhoneNumber] IS NOT NULL");
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropIndex(
+                name: "IX_Users_PhoneNumber",
+                table: "Users");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "PhoneNumber",
+                table: "Users",
+                type: "nvarchar(max)",
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(450)",
+                oldNullable: true);
         }
     }
 }

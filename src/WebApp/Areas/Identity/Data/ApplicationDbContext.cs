@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection.Emit;
 using WebApp.Areas.Identity.Data;
 
 namespace WebApp.Areas.Identity.Data;
@@ -29,6 +30,10 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         builder.Entity<ApplicationUser>()
             .Property(u => u.PasswordHash)
             .HasColumnName("Password");
+
+        builder.Entity<ApplicationUser>()
+            .HasIndex(b => b.PhoneNumber)
+            .IsUnique();
 
         builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
     }
