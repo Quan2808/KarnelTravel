@@ -30,9 +30,9 @@ function toggleIcon() {
     // Kiểm tra lớp của biểu tượng và thay đổi nó
     if (icon.classList.contains('fa-align-justify')) {
         icon.classList.remove('fa-align-justify');
-        icon.classList.add('fa-bars-staggered');
+        icon.classList.add('fa-x');
     } else {
-        icon.classList.remove('fa-bars-staggered');
+        icon.classList.remove('fa-x');
         icon.classList.add('fa-align-justify');
     }
 }

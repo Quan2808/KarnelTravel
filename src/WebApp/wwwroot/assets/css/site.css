@@ -68,7 +68,7 @@
     transition: transform 0.5s ease;
 }
 
-.fa-bars-staggered {
+.fa-x {
     transform: rotate(360deg);
 }
 
