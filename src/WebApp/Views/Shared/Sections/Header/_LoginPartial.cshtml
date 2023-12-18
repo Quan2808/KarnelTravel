@@ -2,7 +2,6 @@
 @using WebApp.Data;
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-
 <ul class="dropdown-menu" aria-labelledby="clone">
     @if (SignInManager.IsSignedIn(User))
     {

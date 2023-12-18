@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WebApp.Data;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var user = await UserManager.FindByNameAsync(SignInManager.Context.User.Identity.Name);
+
+    var roles = await UserManager.GetRolesAsync(user);
+}
+
+@if (roles != null && roles.Contains("Admin"))
+{
+    <button type="button"
+            class="btn btn-danger btn-floating btn-lg"
+            id="admin">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+}
