@@ -7,6 +7,32 @@ window.onscroll = function () {
     scrollFunction();
 };
 
+document.addEventListener('DOMContentLoaded', function () {
+    new mdb.Ripple(document.getElementById('btn-go-to-dashboard'));
+
+    new mdb.Popover(document.getElementById('btn-go-to-dashboard'), {
+        trigger: 'hover',
+        content: 'Go to Dashboard'
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var buttonElement = document.getElementById('btn-go-to-dashboard');
+
+    buttonElement.addEventListener('click', function () {
+        window.location.href = '/admin';
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    new mdb.Ripple(document.getElementById('btn-back-to-top'));
+
+    new mdb.Popover(document.getElementById('btn-back-to-top'), {
+        trigger: 'hover',
+        content: 'Back to top'
+    });
+});
+
 function scrollFunction() {
     if (
         document.body.scrollTop > 20 ||
@@ -54,9 +80,7 @@ $(document).ready(function () {
         $(target).collapse("toggle");
     });
 
-    // Event listener to handle hidden.bs.collapse event
     $("[id^='_']").on("hidden.bs.collapse", function () {
-        // Remove the "show" class from the toggle link when a collapse is hidden
         var targetLink = $(".toggle-collapse[data-target='#" + this.id + "']");
         targetLink.removeClass("show");
     });

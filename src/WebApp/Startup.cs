@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using WebApp.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp
 {
@@ -15,21 +16,15 @@ namespace WebApp
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration.GetConnectionString("ConnectToDtb") ?? throw new InvalidOperationException("Connection string 'ConnectToDtb' not found.");
+            var connectionString = Configuration.GetConnectionString("ConnectToDtb");
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
-
-            //services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-            //    .AddEntityFrameworkStores<ApplicationDbContext>()
-            //    .AddDefaultTokenProviders();
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
-
-            //services.AddRazorPages();
 
             services.AddControllersWithViews();
         }
@@ -56,8 +51,13 @@ namespace WebApp
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                   name: "areas",
+                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
                 endpoints.MapRazorPages();
             });
         }

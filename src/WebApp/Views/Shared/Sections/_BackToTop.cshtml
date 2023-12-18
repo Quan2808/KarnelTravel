@@ -1,5 +1,15 @@
-﻿<button type="button"
-        class="btn btn-danger btn-floating btn-lg"
-        id="btn-back-to-top">
+﻿@using Microsoft.AspNetCore.Identity
+@using WebApp.Data;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (User.IsInRole("Admin"))
+{
+    <button type="button" class="btn btn-success btn-floating btn-lg" id="btn-go-to-dashboard">
+        <i class="fa-solid fa-gear"></i>
+    </button>
+}
+
+<button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
 </button>
