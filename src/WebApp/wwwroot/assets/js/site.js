@@ -38,7 +38,7 @@ function toggleIcon() {
 }
 
 var myCarousel = document.querySelector('#introCarousel')
-var carousel = new bootstrap.Carousel(myCarousel, {
+var carousel = new mdb.Carousel(myCarousel, {
     interval: 2,
     wrap: false
 })

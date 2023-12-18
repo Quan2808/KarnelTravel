@@ -74,14 +74,14 @@
 
 .btn-outline-vjppro {
     --mdb-btn-bg: transparent;
-    --mdb-btn-color: #1cbbb4; /* Thay đổi màu chữ */
+    --mdb-btn-color: #1cbbb4;
     --mdb-btn-hover-bg: #f3faf6;
-    --mdb-btn-hover-color: #1cbbb4; /* Màu chữ hover */
+    --mdb-btn-hover-color: #1cbbb4;
     --mdb-btn-focus-bg: #f3faf6;
-    --mdb-btn-focus-color: #1cbbb4; /* Màu chữ focus */
+    --mdb-btn-focus-color: #1cbbb4;
     --mdb-btn-active-bg: #f3faf6;
-    --mdb-btn-active-color: #1cbbb4; /* Màu chữ active */
-    --mdb-btn-outline-border-color: #1cbbb4; /* Màu border */
+    --mdb-btn-active-color: #1cbbb4;
+    --mdb-btn-outline-border-color: #1cbbb4;
     --mdb-btn-outline-focus-border-color: #10833e;
     --mdb-btn-outline-hover-border-color: #10833e;
 }
