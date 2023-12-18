@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.Reflection.Emit;
-using WebApp.Areas.Identity.Data;
 
-namespace WebApp.Areas.Identity.Data;
+namespace WebApp.Data;
 
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
@@ -45,7 +44,6 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             builder.Property(u => u.FirstName).HasMaxLength(50);
             builder.Property(u => u.LastName).HasMaxLength(50);
             builder.Property(u => u.Address).HasMaxLength(255);
-            builder.Property(u => u.Subscribe);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApp.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
+using WebApp.Data;
 
 namespace WebApp
 {

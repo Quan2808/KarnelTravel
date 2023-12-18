@@ -20,7 +20,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using WebApp.Areas.Identity.Data;
+using WebApp.Data;
 
 namespace WebApp.Areas.Identity.Pages.Account
 {
