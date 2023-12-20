@@ -18,6 +18,7 @@ namespace WebApp.Areas.Admin.Controllers
             _roleManager = roleManager;
             _dbContext = dbContext;
         }
+<<<<<<< Updated upstream
 
         public async Task<IActionResult> IndexAsync()
         {
@@ -33,6 +34,22 @@ namespace WebApp.Areas.Admin.Controllers
                             }).ToListAsync();
 
             return View(u);
+=======
+        public async Task<IActionResult> Index()
+        {
+            var users = await (from user in _userManager.Users
+            join userRole in _dbContext.UserRoles on user.Id equals userRole.UserId
+                                        join role in _roleManager.Roles on userRole.RoleId equals role.Id
+                                        select new
+                                        {
+                                            Phone = user.PhoneNumber,
+                                            Email = user.Email,
+                                            FullName = user.LastName + " " + user.FirstName,
+                                            Role = role.Name
+                                        }).ToListAsync();
+
+            return View(users);
+>>>>>>> Stashed changes
         }
     }
 }

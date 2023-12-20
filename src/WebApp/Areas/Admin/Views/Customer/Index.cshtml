@@ -3,6 +3,7 @@
     ViewData["Title"] = "Index";
 }
 
+<<<<<<< Updated upstream
 <h1>Index</h1>
 
 <div class="card">
@@ -30,3 +31,26 @@
         </table>
     </div>
 </div>
+=======
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.FullName</td>
+                <td>@user.Email</td>
+                <td>@user.Phone</td>
+                <td>@user.Role</td>
+            </tr>
+        }
+    </tbody>
+</table>
+>>>>>>> Stashed changes
