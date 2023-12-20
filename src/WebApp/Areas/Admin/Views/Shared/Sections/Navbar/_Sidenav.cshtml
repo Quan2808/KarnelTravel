@@ -5,7 +5,7 @@
     string GetActiveClass(string currentAction, string currentController) =>
         actionName == currentAction && controllerName == currentController ? " active" : "";
 
-    string GetActiveOpenClass(string currentController) => 
+    string GetActiveOpenClass(string currentController) =>
         controllerName == currentController ? " active" : "";
 }
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
@@ -64,12 +64,20 @@
     <div class="menu-inner-shadow"></div>
     <ul class="menu-inner py-1">
         <li class='menu-item@(GetActiveClass("Index", "Home"))'>
-            <a asp-action="Index" asp-controller="Home" asp-area="Admin" class="menu-link">
+            <a asp-action="index" asp-controller="home" asp-area="admin" class="menu-link">
                 <i class="menu-icon fa-solid fa-house"></i>
                 Dashboard
             </a>
         </li>
-
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Management</span>
+        </li>
+        <li class='menu-item@(GetActiveClass("Index", "Customer"))'>
+            <a asp-action="index" asp-controller="customer" asp-area="admin" class="menu-link">
+                <i class="menu-icon fa-solid fa-users"></i>
+                Customer
+            </a>
+        </li>
         <li class="menu-item open" style="">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
@@ -103,13 +111,6 @@
                     </a>
                 </li>
             </ul>
-        </li>
-
-        <li class="menu-item">
-            <a href="#" class="menu-link">
-                <i class="menu-icon fa-solid fa-power-off"></i>
-                Log out
-            </a>
         </li>
     </ul>
 </aside>

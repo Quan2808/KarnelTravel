@@ -2,6 +2,7 @@
 
 namespace WebApp.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CustomerController : Controller
     {
         public IActionResult Index()

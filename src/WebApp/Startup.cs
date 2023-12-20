@@ -62,7 +62,8 @@ namespace WebApp
             {
                 endpoints.MapControllerRoute(
                    name: "areas",
-                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}")
+                    .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
 
                 endpoints.MapControllerRoute(
                     name: "default",
