@@ -33,7 +33,8 @@ namespace WebApp.Areas.Admin.Controllers
                                    Name = user.FirstName + " " + user.LastName,
                                    Email = user.Email,
                                    Phone = user.PhoneNumber,
-                                   Role = role.Name
+                                   Role = role.Name,
+                                   Locked = user.LockoutEnabled
                                }).ToListAsync();
             var availableRoles = await _roleManager.Roles.ToListAsync();
 
@@ -43,7 +44,8 @@ namespace WebApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ChangeRole(string userId, string selectedRole)
+        [HttpPost]
+        public async Task<IActionResult> ChangeRoleAndLocked(string userId, string selectedRole, bool locked)
         {
             var user = await _userManager.FindByIdAsync(userId);
 
@@ -56,10 +58,19 @@ namespace WebApp.Areas.Admin.Controllers
             var currentRole = currentRoles.FirstOrDefault();
 
             await _userManager.RemoveFromRoleAsync(user, currentRole);
-
             await _userManager.AddToRoleAsync(user, selectedRole);
+
+            await _userManager.SetLockoutEnabledAsync(user, locked);
+
+            if (locked)
+            {
+                // Nếu locked là true, thiết lập thời gian khoá người dùng (ví dụ: 1 ngày)
+                var lockoutEndDate = DateTimeOffset.Now.AddDays(1);
+                await _userManager.SetLockoutEndDateAsync(user, lockoutEndDate);
+            }
 
             return RedirectToAction("Index");
         }
+
     }
 }
