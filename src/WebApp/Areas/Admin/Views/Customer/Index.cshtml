@@ -6,7 +6,7 @@
 <div class="card p-3">
     <div class="table-responsive text-nowrap">
         <table class="table">
-            <thead>
+            <thead class="text-center">
                 <tr>
                     <th>Full Name</th>
                     <th>Email</th>
@@ -23,9 +23,18 @@
                         <td>@user.Name</td>
                         <td>@user.Email</td>
                         <td>@user.Phone</td>
-                        <td>@user.Role</td>
-                        <td>@(user.Locked ? "Unlocked" : "Locked")</td>
-                        <td>
+                        <td class="text-center">@user.Role</td>
+                        <td class="text-center">
+                            @if (user.Locked)
+                            {
+                                <i class="fa-solid fa-check"></i>
+                            }
+                            else
+                            {
+                                <i class="fa-solid fa-x"></i>
+                            }
+                        </td>
+                        <td class="text-center">
                             @if (currentUserId != user.UserName)
                             {
                                 <button type="button" class="btn btn-sm btn-icon item-edit" data-bs-toggle="modal" data-bs-target="#userModal@(user.UserId)">
