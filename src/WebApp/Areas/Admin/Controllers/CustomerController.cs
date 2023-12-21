@@ -52,7 +52,8 @@ namespace WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var currentRole = _userManager.GetRolesAsync(user).Result.FirstOrDefault();
+            var currentRoles = await _userManager.GetRolesAsync(user);
+            var currentRole = currentRoles.FirstOrDefault();
 
             await _userManager.RemoveFromRoleAsync(user, currentRole);
 

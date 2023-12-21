@@ -3,7 +3,6 @@
     ViewData["Title"] = "Index";
     var currentUserId = User.Identity.Name;
 }
-<p>@currentUserId</p>
 <div class="card p-3">
     <div class="table-responsive text-nowrap">
         <table class="table">
@@ -46,15 +45,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Change User Role</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="changeRoleForm" method="post" action="@Url.Action("ChangeRole")">
-                        <input type="hidden" name="userId" id="userId" value="@user.UserId" />
-                        <p>Current Role: <span id="currentRole">@user.Role</span></p>
+                    <form id="changeRoleForm@(user.UserId)" method="post" action="@Url.Action("ChangeRole")">
+                        <input type="hidden" name="userId" value="@user.UserId" />
+                        <p>Current Role: <span id="currentRole@(user.UserId)">@user.Role</span></p>
                         <div class="mb-3 row">
-                            <label for="staticEmail" class="col-sm-3 col-form-label">Select Role:</label>
+                            <label for="selectedRole@(user.UserId)" class="col-sm-3 col-form-label">Select Role:</label>
                             <div class="col-sm-9">
-                                <select class="form-select animation-dropdown" name="selectedRole" id="selectedRole">
+                                <select class="form-select animation-dropdown" name="selectedRole" id="selectedRole@(user.UserId)">
                                     @foreach (var role in ViewBag.AvailableRoles)
                                     {
                                         <option value="@role.Name">@role.Name</option>
@@ -67,7 +67,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="submitForm()">Save changes</button>
+                    <button type="button" class="btn btn-primary" onclick="submitForm('@user.UserId')">Save changes</button>
                 </div>
             </div>
         </div>
@@ -77,12 +77,10 @@
 @section Scripts
 {
     <script>
-        function submitForm() {
-            var selectedRole = $("#selectedRole").val();
-            $("#changeRoleForm").attr("action", "@Url.Action("ChangeRole")?userId=" + $("#userId").val() + "&selectedRole=" + selectedRole);
-            $("#changeRoleForm").submit();
-        }
+    function submitForm(userId) {
+      var selectedRole = $("#selectedRole" + userId).val();
+      $("#changeRoleForm" + userId).attr("action", "@Url.Action("ChangeRole")?userId=" + userId + "&selectedRole=" + selectedRole);
+      $("#changeRoleForm" + userId).submit();
+    }
     </script>
 }
-
-
