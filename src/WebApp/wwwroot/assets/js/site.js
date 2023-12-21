@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var buttonElement = document.getElementById('btn-go-to-dashboard');
 
     buttonElement.addEventListener('click', function () {
-        window.location.href = '/admin';
+        window.open('/admin', '_blank');
     });
 });
 
