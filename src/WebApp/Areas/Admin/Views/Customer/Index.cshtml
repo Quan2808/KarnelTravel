@@ -1,6 +1,88 @@
-﻿
+﻿@model IEnumerable<dynamic>
 @{
     ViewData["Title"] = "Index";
+    var currentUserId = User.Identity.Name;
+}
+<p>@currentUserId</p>
+<div class="card p-3">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone number</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@user.Phone</td>
+                        <td>@user.Role</td>
+                        <td>
+                            @if (currentUserId != user.UserName)
+                            {
+                                <button type="button" class="btn btn-sm btn-icon item-edit" data-bs-toggle="modal" data-bs-target="#userModal@(user.UserId)">
+                                    <i class="bx bxs-edit"></i>
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@foreach (var user in Model)
+{
+    <div class="modal fade" id="userModal@(user.UserId)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change User Role</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="changeRoleForm" method="post" action="@Url.Action("ChangeRole")">
+                        <input type="hidden" name="userId" id="userId" value="@user.UserId" />
+                        <p>Current Role: <span id="currentRole">@user.Role</span></p>
+                        <div class="mb-3 row">
+                            <label for="staticEmail" class="col-sm-3 col-form-label">Select Role:</label>
+                            <div class="col-sm-9">
+                                <select class="form-select animation-dropdown" name="selectedRole" id="selectedRole">
+                                    @foreach (var role in ViewBag.AvailableRoles)
+                                    {
+                                        <option value="@role.Name">@role.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="submitForm()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
-<h1>Index</h1>
+@section Scripts
+{
+    <script>
+        function submitForm() {
+            var selectedRole = $("#selectedRole").val();
+            $("#changeRoleForm").attr("action", "@Url.Action("ChangeRole")?userId=" + $("#userId").val() + "&selectedRole=" + selectedRole);
+            $("#changeRoleForm").submit();
+        }
+    </script>
+}
+
+
