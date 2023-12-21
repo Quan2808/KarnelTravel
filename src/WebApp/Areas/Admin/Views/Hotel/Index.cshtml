@@ -33,7 +33,9 @@
                     <tr>
                         <td>@i.Name</td>
                         <td>@i.Price</td>
-                        <td></td>
+                        <td>
+                            <a asp-controller="Hotel" asp-action="Details" asp-route-id="@i.Id">Details</a>
+                        </td>
                     </tr>
                 }
             </tbody>

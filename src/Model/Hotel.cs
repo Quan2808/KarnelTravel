@@ -12,7 +12,7 @@ namespace Model
         [StringLength(255)]
         public string Location { get; set; }
         [StringLength(255)]
-        public float Price { get; set; }
+        public int? Price { get; set; }
         public string Description { get; set; }
         public string? Image {  get; set; }
     }

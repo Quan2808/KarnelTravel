@@ -180,9 +180,9 @@ namespace WebApp.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<float>("Price")
+                    b.Property<int?>("Price")
                         .HasMaxLength(255)
-                        .HasColumnType("real");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

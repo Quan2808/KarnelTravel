@@ -20,13 +20,11 @@ namespace WebApp.Areas.Admin
             _context = context;
         }
 
-        // GET: Admin/Hotel
         public async Task<IActionResult> Index()
         {
               return View(await _context.Hotels.ToListAsync());
         }
 
-        // GET: Admin/Hotel/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Hotels == null)
@@ -52,18 +50,30 @@ namespace WebApp.Areas.Admin
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Location,Description,Image,Price")] Hotel hotel)
+        public async Task<IActionResult> Create(Hotel hotel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(hotel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(hotel);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it as appropriate for your application.
+                ModelState.AddModelError(string.Empty, "An error occurred while saving the hotel information.");
+                // You can log the exception details using a logging framework like Serilog or ILogger.
+                // Example: _logger.LogError(ex, "An error occurred while saving the hotel information.");
+            }
+
             return View(hotel);
         }
 
-        // GET: Admin/Hotel/Edit/5
+
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Hotels == null)
@@ -79,9 +89,6 @@ namespace WebApp.Areas.Admin
             return View(hotel);
         }
 
-        // POST: Admin/Hotel/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Location,Description,Image,Price")] Hotel hotel)
@@ -114,7 +121,6 @@ namespace WebApp.Areas.Admin
             return View(hotel);
         }
 
-        // GET: Admin/Hotel/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Hotels == null)
@@ -132,7 +138,6 @@ namespace WebApp.Areas.Admin
             return View(hotel);
         }
 
-        // POST: Admin/Hotel/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
