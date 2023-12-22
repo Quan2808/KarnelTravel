@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Fw4IfUL2pdQU1TeEd3JGZSxMztDYjx7uN4gErf1QLB0=",
+  "Hash": "BHKExdQ+Ml4bB9VHDGxu+zrIrYEouHsNyU97x9B2Cn8=",
   "Source": "WebApp",
   "BasePath": "_content/WebApp",
   "Mode": "Default",
@@ -2124,6 +2124,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\js\\pages-account-settings-account.js"
+    },
+    {
+      "Identity": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\admin\\js\\site.js",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "admin/js/site.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\js\\site.js"
     },
     {
       "Identity": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\admin\\js\\ui-modals.js",

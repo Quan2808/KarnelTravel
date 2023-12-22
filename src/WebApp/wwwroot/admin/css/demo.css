@@ -113,3 +113,12 @@
 .light-style .ql-snow .ql-editor {
      padding: 1.25rem; 
 }
+
+
+.ck.ck-balloon-panel.ck-powered-by-balloon[class*=position_border] {
+    display: none;
+}
+
+.ck-rounded-corners .ck.ck-editor__main > .ck-editor__editable, .ck.ck-editor__main > .ck-editor__editable.ck-rounded-corners {
+    height: 227px
+}

@@ -205,6 +205,10 @@
       "PackagePath": "staticwebassets\\admin\\js\\pages-account-settings-account.js"
     },
     {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\admin\\js\\site.js",
+      "PackagePath": "staticwebassets\\admin\\js\\site.js"
+    },
+    {
       "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\admin\\js\\ui-modals.js",
       "PackagePath": "staticwebassets\\admin\\js\\ui-modals.js"
     },
