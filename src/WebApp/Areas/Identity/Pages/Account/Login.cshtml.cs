@@ -78,6 +78,8 @@ namespace WebApp.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
+                var user = await _userManager.FindByNameAsync(Input.Username);
+
                 var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, Input.RememberMe, lockoutOnFailure: false);
 
                 if (result.Succeeded)
@@ -85,23 +87,17 @@ namespace WebApp.Areas.Identity.Pages.Account
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
+                else if (user.LockoutEnabled)
+                {
+                    _logger.LogWarning("Account locked out.");
+                    ModelState.AddModelError(string.Empty, "Your account has been locked. Please contact us for assistance in unlocking it.");
+                }
                 else
                 {
-                    var user = await _userManager.FindByNameAsync(Input.Username);
-
-                    if (user != null && user.LockoutEnabled)
-                    {
-                        _logger.LogWarning("Account locked out.");
-                        ModelState.AddModelError(string.Empty, "Your account has been locked. Please contact us for assistance in unlocking it.");
-                    }
-                    else
-                    {
-                        _logger.LogWarning("Login failed.");
-                        ModelState.AddModelError(string.Empty, "Invalid login attempt. Please check your username and password.");
-                    }
+                    _logger.LogWarning("Login failed.");
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt. Please check your username and password.");
                 }
             }
-
             return Page();
         }
     }

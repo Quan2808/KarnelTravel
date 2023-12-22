@@ -23,11 +23,12 @@ namespace WebApp
 
             services.Configure<IdentityOptions>(options =>
             {
+                options.Lockout.AllowedForNewUsers = false;
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequiredLength = 6; // minimum password length
+                options.Password.RequiredLength = 6;
             });
 
 
