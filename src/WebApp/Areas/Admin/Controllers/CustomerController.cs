@@ -44,7 +44,6 @@ namespace WebApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [HttpPost]
         public async Task<IActionResult> ChangeRoleAndLocked(string userId, string selectedRole, bool locked)
         {
             var user = await _userManager.FindByIdAsync(userId);
@@ -55,22 +54,38 @@ namespace WebApp.Areas.Admin.Controllers
             }
 
             var currentRoles = await _userManager.GetRolesAsync(user);
-            var currentRole = currentRoles.FirstOrDefault();
 
-            await _userManager.RemoveFromRoleAsync(user, currentRole);
-            await _userManager.AddToRoleAsync(user, selectedRole);
+            // Kiểm tra xem có vai trò nào không
+            if (currentRoles.Any())
+            {
+                var currentRole = currentRoles.First();
 
-            await _userManager.SetLockoutEnabledAsync(user, locked);
+                if (!string.Equals(selectedRole, currentRole, StringComparison.OrdinalIgnoreCase))
+                {
+                    // Chỉ thực hiện cập nhật vai trò nếu selectedRole khác currentRole
+                    await _userManager.RemoveFromRoleAsync(user, currentRole);
+                    await _userManager.AddToRoleAsync(user, selectedRole);
+
+                    // Cập nhật dấu nhận bảo mật
+                    await _userManager.UpdateSecurityStampAsync(user);
+                }
+            }
+
 
             if (locked)
             {
-                // Nếu locked là true, thiết lập thời gian khoá người dùng (ví dụ: 1 ngày)
-                var lockoutEndDate = DateTimeOffset.Now.AddDays(1);
-                await _userManager.SetLockoutEndDateAsync(user, lockoutEndDate);
+                var lockoutEndDate = DateTimeOffset.MaxValue;
+                user.LockoutEnabled = true;
+                user.LockoutEnd = lockoutEndDate;
+            }
+            else
+            {
+                user.LockoutEnabled = false;
+                user.LockoutEnd = null;
             }
 
+            await _userManager.UpdateAsync(user);
             return RedirectToAction("Index");
         }
-
     }
 }
