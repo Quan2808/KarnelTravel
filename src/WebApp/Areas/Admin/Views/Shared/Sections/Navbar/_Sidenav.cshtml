@@ -5,7 +5,7 @@
     string GetActiveClass(string currentAction, string currentController) =>
         actionName == currentAction && controllerName == currentController ? " active" : "";
 
-    string GetActiveOpenClass(string currentController) =>
+    string GetActiveClassController(string currentController) =>
         controllerName == currentController ? " active" : "";
 }
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
@@ -78,39 +78,12 @@
                 Customer
             </a>
         </li>
-        <li class="menu-item open" style="">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Layouts</div>
-            </a>
 
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="layouts-without-menu.html" class="menu-link">
-                        <div data-i18n="Without menu">Without menu</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="layouts-without-navbar.html" class="menu-link">
-                        <div data-i18n="Without navbar">Without navbar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="layouts-container.html" class="menu-link">
-                        <div data-i18n="Container">Container</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="layouts-fluid.html" class="menu-link">
-                        <div data-i18n="Fluid">Fluid</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="layouts-blank.html" class="menu-link">
-                        <div data-i18n="Blank">Blank</div>
-                    </a>
-                </li>
-            </ul>
+        <li class='menu-item@(GetActiveClassController("Hotel"))'>
+            <a asp-action="index" asp-controller="hotel" asp-area="admin" class="menu-link">
+                <i class="menu-icon fa-solid fa-hotel"></i>
+                Hotel
+            </a>
         </li>
     </ul>
 </aside>

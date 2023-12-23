@@ -765,6 +765,8 @@ C:\Users\nhote\OneDrive\Máy tính\KarnelTravel\src\WebApp\obj\Debug\net6.0\refi
 C:\Users\nhote\OneDrive\Máy tính\KarnelTravel\src\WebApp\obj\Debug\net6.0\WebApp.pdb
 C:\Users\nhote\OneDrive\Máy tính\KarnelTravel\src\WebApp\obj\Debug\net6.0\WebApp.genruntimeconfig.cache
 C:\Users\nhote\OneDrive\Máy tính\KarnelTravel\src\WebApp\obj\Debug\net6.0\ref\WebApp.dll
+C:\Users\nhote\OneDrive\Máy tính\KarnelTravel\src\WebApp\bin\Debug\net6.0\Model.dll
+C:\Users\nhote\OneDrive\Máy tính\KarnelTravel\src\WebApp\bin\Debug\net6.0\Model.pdb
 C:\Users\nhote\OneDrive\Máy tính\KarnelTravel\src\WebApp\bin\Debug\net6.0\Microsoft.Data.Sqlite.dll
 C:\Users\nhote\OneDrive\Máy tính\KarnelTravel\src\WebApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Users\nhote\OneDrive\Máy tính\KarnelTravel\src\WebApp\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll

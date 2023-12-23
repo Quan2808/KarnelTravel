@@ -35,7 +35,7 @@ namespace WebApp.Migrations
             //KarnelTravel
             string adminPasswordHash = "AQAAAAEAACcQAAAAEEBL3QAwyibQirlDE0O0iTW2+CH6WRE9Bm1/H6pRPPLKa2sB0NwUIlcLP4Onr2bINA==";
 
-            migrationBuilder.Sql($@"Insert Into [dbo].[Users] ( [Id], [FirstName], [LastName], [Address], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [Password ], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount] ) Values ( '{AdminAccountId}', 'AdminFirstName', 'AdminLastName', 'AdminAddress', 'admin', 'ADMIN', 'karneltravel@info.com', 'KARNELTRAVEL@INFO.COM', 1, '{adminPasswordHash}', '{Guid.NewGuid()}', null, '1234567890', 1, 0, null, 1, 0 ); ");
+            migrationBuilder.Sql($@"Insert Into [dbo].[Users] ( [Id], [FirstName], [LastName], [Address], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [Password ], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount] ) Values ( '{AdminAccountId}', 'AdminFirstName', 'AdminLastName', 'AdminAddress', 'admin', 'ADMIN', 'karneltravel@info.com', 'KARNELTRAVEL@INFO.COM', 1, '{adminPasswordHash}', '{Guid.NewGuid()}', null, '1234567890', 1, 0, null, 0, 0 ); ");
         }   
 
         private void SeedSetAdminAccountRoleSQL(MigrationBuilder migrationBuilder)
