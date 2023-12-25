@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\WebApp.csproj": {}
+    "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\WebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\WebApp.csproj": {
+    "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\WebApp.csproj",
-        "packagesPath": "C:\\Users\\nhote\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\obj\\",
+        "projectPath": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\WebApp.csproj",
+        "packagesPath": "C:\\Users\\bests\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nhote\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bests\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

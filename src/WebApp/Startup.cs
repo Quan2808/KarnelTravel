@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using WebApp.Data;
 using Microsoft.AspNetCore.Authorization;
+using WebApp.Models;
 
 namespace WebApp
 {
@@ -19,6 +20,8 @@ namespace WebApp
             var connectionString = Configuration.GetConnectionString("ConnectToDtb");
 
             services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(connectionString));
+            services.AddDbContext<TestKT001Context>(options =>
                 options.UseSqlServer(connectionString));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
