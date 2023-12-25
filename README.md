@@ -9,7 +9,6 @@
 2. Lê Bá Thành (Student1409136)
 3. Nguyễn Trung Quân (Student1414325)
 4. Lê Thành Đạt (Student1414243)
-   
 =======================================
 Link: 
 https://github.com/Quan2808/KarnelTravel
