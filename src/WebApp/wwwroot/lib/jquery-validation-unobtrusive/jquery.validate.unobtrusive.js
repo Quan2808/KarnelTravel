@@ -54,6 +54,7 @@
             replaceAttrValue = container.attr("data-valmsg-replace"),
             replace = replaceAttrValue ? $.parseJSON(replaceAttrValue) !== false : null;
 
+
         container.removeClass("field-validation-valid").addClass("field-validation-error");
         error.data("unobtrusiveContainer", container);
 
@@ -66,9 +67,22 @@
         }
     }
 
+
     function onErrors(event, validator) {  // 'this' is the form element
         var container = $(this).find("[data-valmsg-summary=true]"),
             list = container.find("ul");
+
+        if (container) {
+            Swal.fire({
+                icon: "error",
+                title: "Registration Failed",
+                text: "Encountered an issue while processing your registration.",
+                footer: '<a href="#">Need help? Contact support</a>',
+                timer: 10000,
+                timerProgressBar: true,
+            });
+
+        }
 
         if (list && list.length && validator.errorList.length) {
             list.empty();

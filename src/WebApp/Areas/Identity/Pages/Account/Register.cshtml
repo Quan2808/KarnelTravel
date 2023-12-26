@@ -3,12 +3,11 @@
 @{
     ViewData["Title"] = "Register";
 }
-<div class="card">
-    <section class="w-100 p-4 d-flex justify-content-center pb-4">
-        <div class="col-md-4">
+<section class="w-100 d-flex justify-content-center pb-4 mt-5 mb-5">
+    <div class="card p-4">
+        <div class="col">
             <h4 class="text-center">Register new account</h4>
             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="row mb-4">
                     <div class="col">
                         <div data-mdb-input-init class="form-outline">
@@ -57,8 +56,9 @@
                 <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
             </form>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 }
