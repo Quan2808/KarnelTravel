@@ -54,7 +54,6 @@
             replaceAttrValue = container.attr("data-valmsg-replace"),
             replace = replaceAttrValue ? $.parseJSON(replaceAttrValue) !== false : null;
 
-
         container.removeClass("field-validation-valid").addClass("field-validation-error");
         error.data("unobtrusiveContainer", container);
 
@@ -75,13 +74,12 @@
         if (container) {
             Swal.fire({
                 icon: "error",
-                title: "Registration Failed",
-                text: "Encountered an issue while processing your registration.",
+                title: "Operation Failed",
+                text: "We encountered an issue while processing your information.",
                 footer: '<a href="#">Need help? Contact support</a>',
                 timer: 10000,
                 timerProgressBar: true,
             });
-
         }
 
         if (list && list.length && validator.errorList.length) {

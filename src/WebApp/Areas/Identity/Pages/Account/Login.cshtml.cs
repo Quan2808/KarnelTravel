@@ -80,7 +80,7 @@ namespace WebApp.Areas.Identity.Pages.Account
             {
                 var user = await _userManager.FindByNameAsync(Input.Username);
 
-                var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, true, false);
+                var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, Input.RememberMe, false);
 
                 if (result.Succeeded)
                 {
