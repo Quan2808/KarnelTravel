@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Model;
+using WebApp.Models;
 using WebApp.Data;
 
 namespace WebApp.Areas.Admin
@@ -22,7 +22,8 @@ namespace WebApp.Areas.Admin
 
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Hotels.ToListAsync());
+            return View(await _context.Hotels
+                .ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -33,7 +34,7 @@ namespace WebApp.Areas.Admin
             }
 
             var hotel = await _context.Hotels
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.HotelId == id);
             if (hotel == null)
             {
                 return NotFound();
@@ -93,7 +94,7 @@ namespace WebApp.Areas.Admin
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Location,Description,Image,Price")] Hotel hotel)
         {
-            if (id != hotel.Id)
+            if (id != hotel.HotelId)
             {
                 return NotFound();
             }
@@ -107,7 +108,7 @@ namespace WebApp.Areas.Admin
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!HotelExists(hotel.Id))
+                    if (!HotelExists(hotel.HotelId))
                     {
                         return NotFound();
                     }
@@ -129,7 +130,7 @@ namespace WebApp.Areas.Admin
             }
 
             var hotel = await _context.Hotels
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.HotelId == id);
             if (hotel == null)
             {
                 return NotFound();
@@ -151,14 +152,14 @@ namespace WebApp.Areas.Admin
             {
                 _context.Hotels.Remove(hotel);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool HotelExists(int id)
         {
-          return (_context.Hotels?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Hotels?.Any(e => e.HotelId == id)).GetValueOrDefault();
         }
     }
 }

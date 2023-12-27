@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Model.Hotel>
+﻿@model IEnumerable<WebApp.Models.Hotel>
 
 @{
     ViewData["Title"] = "Hotel List";
@@ -34,7 +34,7 @@
                         <td>@i.Name</td>
                         <td>@i.Price</td>
                         <td>
-                            <a asp-controller="Hotel" asp-action="Details" asp-route-id="@i.Id">Details</a>
+                            <a asp-controller="Hotel" asp-action="Details" asp-route-id="@i.HotelId">Details</a>
                         </td>
                     </tr>
                 }
