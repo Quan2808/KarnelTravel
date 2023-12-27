@@ -3,13 +3,18 @@
 @{
     ViewData["Title"] = "Create";
 }
-<form asp-action="Create" method="post">
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="d-flex container justify-content-between">
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
     <div class="card mb-3">
         <div class="card-header">
             Hotel Information
         </div>
         <div class="card-body">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="mb-3">
                 <label class="form-label">Name</label>
                 <input type="text" class="form-control" placeholder="Hotel name" asp-for="Name">
@@ -56,10 +61,11 @@
                         </div>
                         <div class="d-flex justify-content-center">
                             <div class="btn btn-primary btn-rounded">
-                                <label class="form-label text-white m-1" for="customFile1">Choose file</label>
-                                <input type="file" class="form-control d-none" id="customFile1" onchange="displaySelectedImage(event, 'selectedImage')" />
+                                <label class="form-label text-white m-1" for="thumbnail">Choose file</label>
+                                <input type="file" name="imageFile" class="form-control d-none" id="thumbnail" onchange="displaySelectedImage(event, 'selectedImage')" />
                             </div>
                         </div>
+                        <span asp-validation-for="Image" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -67,8 +73,8 @@
     </div>
 </form>
 
-<form action="/upload" class="dropzone" id="myDropzone"></form>
 @section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
     <script src="~/admin/js/site.js" asp-append-version="true"></script>
 }

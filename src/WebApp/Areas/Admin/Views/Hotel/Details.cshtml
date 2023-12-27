@@ -24,11 +24,17 @@
             <div class="col-3 fw-bold">Description:</div>
             <div class="col-9">@Html.Raw(Model.Description)</div>
         </div>
+        <div class="row mb-3">
+            <div class="col-3 fw-bold">Image:</div>
+            <div class="col-9">
+                <img src="@Html.DisplayFor(model => model.Image)"/>
+            </div>
+        </div>
     </div>
 
 </div>
 
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.ID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

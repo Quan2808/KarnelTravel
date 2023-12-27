@@ -2865,6 +2865,18 @@
       "PackagePath": "staticwebassets\\logo-brand.ico"
     },
     {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\1\\Hotel-962f0cc4-ad1f-4e27-8a11-6e95d7601a80.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\1\\Hotel-962f0cc4-ad1f-4e27-8a11-6e95d7601a80.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\1\\Hotel-cfd48395-5e36-4a0b-a4dc-9bb98b4b410d.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\1\\Hotel-cfd48395-5e36-4a0b-a4dc-9bb98b4b410d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\2\\Hotel-12f03edf-eb31-4f61-b9d5-cf64fb31e2c5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\2\\Hotel-12f03edf-eb31-4f61-b9d5-cf64fb31e2c5.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.WebApp.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
