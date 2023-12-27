@@ -2865,6 +2865,26 @@
       "PackagePath": "staticwebassets\\logo-brand.ico"
     },
     {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\1111\\Hotel-b575d835-b2d5-42ca-887f-b014b24580a8.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\1111\\Hotel-b575d835-b2d5-42ca-887f-b014b24580a8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\123\\Hotel-08b39c3b-aa40-4a7a-941f-33cd906cbf4d.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\123\\Hotel-08b39c3b-aa40-4a7a-941f-33cd906cbf4d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\123\\Hotel-34bbefb4-a979-4446-9a07-c08b44ff7ae2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\123\\Hotel-34bbefb4-a979-4446-9a07-c08b44ff7ae2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\123\\Hotel-892e5e00-f766-4fc8-92c7-73be54ac9cc9.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\123\\Hotel-892e5e00-f766-4fc8-92c7-73be54ac9cc9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\123\\Hotel-970de9f4-d0b3-41cf-829d-efb99ff3e4dc.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\123\\Hotel-970de9f4-d0b3-41cf-829d-efb99ff3e4dc.jpg"
+    },
+    {
       "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\1\\Hotel-962f0cc4-ad1f-4e27-8a11-6e95d7601a80.jpg",
       "PackagePath": "staticwebassets\\uploads\\Hotel\\1\\Hotel-962f0cc4-ad1f-4e27-8a11-6e95d7601a80.jpg"
     },
@@ -2875,6 +2895,26 @@
     {
       "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\2\\Hotel-12f03edf-eb31-4f61-b9d5-cf64fb31e2c5.jpg",
       "PackagePath": "staticwebassets\\uploads\\Hotel\\2\\Hotel-12f03edf-eb31-4f61-b9d5-cf64fb31e2c5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\98\\Hotel-651bc83d-d18a-4586-ba5d-1ae8622151cf.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\98\\Hotel-651bc83d-d18a-4586-ba5d-1ae8622151cf.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\Căn hộ LuxHomes Saigon – Vinhomes Central Park (LuxHomes Saigon - Vinhomes Central Park)\\Hotel-320f2a98-063f-4f16-85a7-a9554fd17d01.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\Căn hộ LuxHomes Saigon – Vinhomes Central Park (LuxHomes Saigon - Vinhomes Central Park)\\Hotel-320f2a98-063f-4f16-85a7-a9554fd17d01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\adsadsads\\Hotel-b7918afb-0158-4b6e-98e8-959f518aad51.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\adsadsads\\Hotel-b7918afb-0158-4b6e-98e8-959f518aad51.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\asdasd\\Hotel-ee99662a-4d81-453d-a3e5-860db565e768.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\asdasd\\Hotel-ee99662a-4d81-453d-a3e5-860db565e768.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\uploads\\Hotel\\test 001\\Hotel-9ffa4f86-db9e-491c-b696-596a099195ab.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Hotel\\test 001\\Hotel-9ffa4f86-db9e-491c-b696-596a099195ab.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.WebApp.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -84,6 +84,11 @@ namespace WebApp.Areas.Admin
             return $"/uploads/Hotel/{hotel.Name}/{uniqueFileName}";
         }
 
+        public IActionResult Discard()
+        {
+            return RedirectToAction(nameof(Index));
+        }
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Hotels == null)
@@ -131,23 +136,6 @@ namespace WebApp.Areas.Admin
             return View(hotel);
         }
 
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Hotels == null)
-            {
-                return NotFound();
-            }
-
-            var hotel = await _context.Hotels
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (hotel == null)
-            {
-                return NotFound();
-            }
-
-            return View(hotel);
-        }
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -161,7 +149,7 @@ namespace WebApp.Areas.Admin
             {
                 _context.Hotels.Remove(hotel);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
