@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using WebApp.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp
 {
@@ -30,7 +31,6 @@ namespace WebApp
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequiredLength = 6;
             });
-
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -68,7 +68,7 @@ namespace WebApp
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");  
 
                 endpoints.MapRazorPages();
             });

@@ -162,3 +162,7 @@
 .was-validated .form-control:invalid, .form-control.is-invalid {
      margin-bottom: 0; 
 }
+
+.card.p-4{
+    width: 30rem;
+}
