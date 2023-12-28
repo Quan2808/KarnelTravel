@@ -1,0 +1,110 @@
+﻿@model Model.Resort
+@{
+    ViewData["Title"] = "Create";
+}
+<section>
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+            <div class="d-flex flex-column justify-content-center">
+                <h4 class="mb-1 mt-3">Add a new Resort</h4>
+            </div>
+            <div class="d-flex align-content-center text-center flex-wrap gap-3">
+                <button type="button" class="btn btn-danger" id="discard">Discard</button>
+                <button type="submit" class="btn btn-primary">Publish</button>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header">
+                Resort Information
+            </div>
+            <div class="card-body">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" placeholder="Resort name" asp-for="Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control" placeholder="Resort address" asp-for="Location">
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Price</label>
+                        <input class="form-control" asp-for="Price">
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-8 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        Resort Description
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div id="_description"></div>
+                            <input type="hidden" asp-for="Description" id="Description">
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        Resort Thumbnail
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="mb-4 d-flex justify-content-center">
+                                <img id="selectedImage" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" alt="example placeholder" style="width: 300px;" />
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <div class="btn btn-primary btn-rounded">
+                                    <label class="form-label text-white m-1" for="thumbnail">Choose file</label>
+                                    <input type="file" name="imageFile" class="form-control d-none" id="thumbnail" onchange="displaySelectedImage(event, 'selectedImage')" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Image" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
+    <script src="~/admin/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('#discard').addEventListener('click', function () {
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: "Discarded!",
+                            text: "The Resort has been discarded.",
+                            icon: "success",
+                        }).then(() => {
+                            window.location.href = '@Url.Action("discard")';
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
