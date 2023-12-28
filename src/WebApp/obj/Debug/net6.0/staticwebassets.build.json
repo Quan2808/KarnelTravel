@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rhcHG+VbFP9XNjGrXt/gVtxVqnrR/ennCfshke2k1RU=",
+  "Hash": "PxJ9cGxOdj9KakMmj/jsyYOj+6JYLttwTp08EkWEdF8=",
   "Source": "WebApp",
   "BasePath": "_content/WebApp",
   "Mode": "Default",
@@ -2751,25 +2751,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\thumbails\\Hotel\\add\\Hotel-45ee1366-857d-4c20-8f00-f4ba226f545d.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\assets\\images\\thumbails\\Resort\\4\\Resort-061136ff-73bb-4f9c-91bb-3664d6f352ec.jpg",
-      "SourceId": "WebApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\",
-      "BasePath": "_content/WebApp",
-      "RelativePath": "assets/images/thumbails/Resort/4/Resort-061136ff-73bb-4f9c-91bb-3664d6f352ec.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\thumbails\\Resort\\4\\Resort-061136ff-73bb-4f9c-91bb-3664d6f352ec.jpg"
     },
     {
       "Identity": "C:\\Users\\nhote\\OneDrive\\Máy tính\\KarnelTravel\\src\\WebApp\\wwwroot\\assets\\js\\site.js",
