@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Model;
 using WebApp.Data;
 
@@ -20,7 +21,7 @@ namespace WebApp.Areas.Admin
 
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Hotels.ToListAsync());
+            return View(await _context.Hotels.ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -49,24 +50,115 @@ namespace WebApp.Areas.Admin
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Location,Price,Description")] Hotel hotel, IFormFile imageFile)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (imageFile != null && imageFile.Length > 0)
+                if (ModelState.IsValid)
                 {
-                    var imagePath = await SaveImageAsync(imageFile, hotel);
-                    hotel.Image = imagePath;
-                }
+                    if (imageFile != null && imageFile.Length > 0)
+                    {
+                        var imagePath = await SaveImageAsync(imageFile, hotel);
+                        hotel.Image = imagePath;
+                    }
 
-                _context.Add(hotel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                    _context.Add(hotel);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            catch
+            {
+                return View(hotel);
             }
             return View(hotel);
         }
 
+        public async Task<IActionResult> Edit(int? id)
+        {
+            var hotel = await _context.Hotels.FindAsync(id);
+            if (hotel == null)
+            {
+                return NotFound();
+            }
+            return View(hotel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Location,Price,Description")] Hotel hotel, IFormFile imageFile)
+        {
+            var existingHotel = await _context.Hotels.FindAsync(id);
+
+            try
+            {
+
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    var imagePath = await SaveImageAsync(imageFile, hotel);
+                    existingHotel.Image = imagePath;
+                }
+                else
+                {
+                    existingHotel.Image = existingHotel.Image;
+                }
+
+                existingHotel.Name = hotel.Name;
+                existingHotel.Location = hotel.Location;
+                existingHotel.Price = hotel.Price;
+                existingHotel.Description = hotel.Description;
+
+                _context.Update(existingHotel);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View(existingHotel);
+            }
+        }
+
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var existingHotel = await _context.Hotels.FindAsync(id);
+
+            if (existingHotel == null)
+            {
+                return NotFound();
+            }
+
+            var imagePath = existingHotel.Image.Substring(1);
+
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                var filePath = Path.Combine(_webHostEnvironment.WebRootPath, imagePath);
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+            }
+
+            _context.Hotels.Remove(existingHotel);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool HotelExists(int id)
+        {
+            return (_context.Hotels?.Any(e => e.ID == id)).GetValueOrDefault();
+        }
+
+        public IActionResult Discard()
+        {
+            return RedirectToAction(nameof(Index));
+        }
+
         private async Task<string> SaveImageAsync(IFormFile imageFile, Hotel hotel)
         {
-            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "Hotel", hotel.Name);
+            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "assets/images/thumbails", "Hotel", hotel.Name);
 
             if (!Directory.Exists(uploadsFolder))
             {
@@ -81,82 +173,7 @@ namespace WebApp.Areas.Admin
                 await imageFile.CopyToAsync(stream);
             }
 
-            return $"/uploads/Hotel/{hotel.Name}/{uniqueFileName}";
-        }
-
-        public IActionResult Discard()
-        {
-            return RedirectToAction(nameof(Index));
-        }
-
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Hotels == null)
-            {
-                return NotFound();
-            }
-
-            var hotel = await _context.Hotels.FindAsync(id);
-            if (hotel == null)
-            {
-                return NotFound();
-            }
-            return View(hotel);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Location,Description,Image,Price")] Hotel hotel)
-        {
-            if (id != hotel.ID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(hotel);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!HotelExists(hotel.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(hotel);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Hotels == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Hotels'  is null.");
-            }
-            var hotel = await _context.Hotels.FindAsync(id);
-            if (hotel != null)
-            {
-                _context.Hotels.Remove(hotel);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool HotelExists(int id)
-        {
-          return (_context.Hotels?.Any(e => e.ID == id)).GetValueOrDefault();
+            return $"/assets/images/thumbails/Hotel/{hotel.Name}/{uniqueFileName}";
         }
     }
 }
