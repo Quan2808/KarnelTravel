@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using WebApp.Data;
 using Microsoft.AspNetCore.Authorization;
-using WebApp.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
 
 namespace WebApp
 {
@@ -21,8 +22,16 @@ namespace WebApp
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
-            services.AddDbContext<TestKT001Context>(options =>
-                options.UseSqlServer(connectionString));
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Lockout.AllowedForNewUsers = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredLength = 6;
+            });
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -55,11 +64,12 @@ namespace WebApp
             {
                 endpoints.MapControllerRoute(
                    name: "areas",
-                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}")
+                    .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");  
 
                 endpoints.MapRazorPages();
             });

@@ -22,11 +22,13 @@ namespace WebApp.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _userManager = userManager;
         }
 
         [BindProperty]
@@ -76,21 +78,26 @@ namespace WebApp.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                var user = await _userManager.FindByNameAsync(Input.Username);
+
+                var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, Input.RememberMe, false);
 
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-
                     return LocalRedirect(returnUrl);
+                }
+                else if (user.LockoutEnabled)
+                {
+                    _logger.LogWarning("Account locked out.");
+                    ModelState.AddModelError(string.Empty, "Your account has been locked. Please contact us for assistance in unlocking it.");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "The Username you entered is not connected to any account.");
-                    return Page();
+                    _logger.LogWarning("Login failed.");
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt. Please check your username and password.");
                 }
             }
-
             return Page();
         }
     }

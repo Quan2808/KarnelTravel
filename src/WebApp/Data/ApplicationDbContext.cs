@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.Reflection.Emit;
+using Model;
 
 namespace WebApp.Data;
 
@@ -36,6 +37,13 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
         builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
     }
+
+    public DbSet<Hotel> Hotels { get; set; }
+    public DbSet<Resort> Resorts { get; set; }
+    public DbSet<Restaurant> Restaurants { get; set; }
+    public DbSet<TouristSpot> Tourists { get; set; }
+    public DbSet<TravelInfo> Travels { get; set; }
+
 
     public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {

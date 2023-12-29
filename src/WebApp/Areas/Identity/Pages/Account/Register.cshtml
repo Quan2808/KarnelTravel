@@ -3,12 +3,15 @@
 @{
     ViewData["Title"] = "Register";
 }
-<div class="card">
-    <section class="w-100 p-4 d-flex justify-content-center pb-4">
-        <div class="col-md-4">
-            <h4 class="text-center">Register new account</h4>
+<section class="w-100 d-flex justify-content-center pb-4 mt-5 mb-5">
+    <div class="card p-4">
+        <div class="col">
+            <div class="text-center mb-4">
+                <h4 class="fw-bold">Register new account</h4>
+                <p>Start your journey by signing up for a new account today.</p>
+            </div>
+            <hr class="hr hr-blurry" />
             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="row mb-4">
                     <div class="col">
                         <div data-mdb-input-init class="form-outline">
@@ -23,42 +26,45 @@
                         </div>
                     </div>
                 </div>
-
                 <div data-mdb-input-init class="form-outline mb-4">
                     <input asp-for="Input.Username" class="form-control" />
                     <label class="form-label">Username</label>
                 </div>
-
                 <div data-mdb-input-init class="form-outline mb-4">
                     <input asp-for="Input.Address" class="form-control" />
                     <label class="form-label">Address</label>
                 </div>
-
                 <div data-mdb-input-init class="form-outline mb-4">
                     <input asp-for="Input.Email" class="form-control" />
                     <label class="form-label">Email address</label>
                 </div>
-
                 <div data-mdb-input-init class="form-outline mb-4">
                     <input asp-for="Input.PhoneNumber" class="form-control" />
                     <label class="form-label">Phone Number</label>
                 </div>
-
                 <div data-mdb-input-init class="form-outline mb-4">
                     <input asp-for="Input.Password" class="form-control" />
                     <label class="form-label">Password</label>
                 </div>
-
                 <div data-mdb-input-init class="form-outline mb-4">
                     <input asp-for="Input.ConfirmPassword" class="form-control" />
                     <label class="form-label">Confirm Password</label>
                 </div>
-
-                <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Register</button>
+                <hr class="hr hr-blurry" />
+                <div class="text-center">
+                    <p>
+                        Not a member?
+                        <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">
+                            Login
+                        </a>
+                    </p>
+                </div>
             </form>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 }

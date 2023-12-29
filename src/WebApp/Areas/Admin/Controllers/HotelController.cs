@@ -1,158 +1,179 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.IO;
-using WebApp.Models;
-using WebApp.ViewModels;
+using Model;
+using WebApp.Data;
 
-namespace WebApp.Areas.Admin.Controllers
+namespace WebApp.Areas.Admin
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
     public class HotelController : Controller
     {
-        private readonly TestKT001Context db;
-        IWebHostEnvironment host;
-        public HotelController(TestKT001Context db, IWebHostEnvironment host)
+        private readonly ApplicationDbContext _context;
+
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public HotelController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
-            this.db = db;
-            this.host = host;
-        }
-        public IActionResult Index()
-        {
-            var model = db.Hotels.ToList();
-            return View(model);
+            _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
-        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Hotels.ToListAsync());
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || _context.Hotels == null)
+            {
+                return NotFound();
+            }
+
+            var hotel = await _context.Hotels
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (hotel == null)
+            {
+                return NotFound();
+            }
+
+            return View(hotel);
+        }
+
         public IActionResult Create()
-        {   
+        {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(HotelViewModel hotel1)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,Name,Location,Price,Description")] Hotel hotel, IFormFile imageFile)
         {
-            string fileName = "";
-            if (hotel1.Photo!=null)
+            try
             {
-                string uploadFolder = Path.Combine(host.WebRootPath, "imagesHotel");
-                fileName = Guid.NewGuid().ToString() + "_" + hotel1.Photo.FileName;
-                string filePath = Path.Combine(uploadFolder, fileName);
-                //hotel1.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                if (ModelState.IsValid)
                 {
-                    hotel1.Photo.CopyTo(stream);
-                    stream.Close();
+                    if (imageFile != null && imageFile.Length > 0)
+                    {
+                        var imagePath = await SaveImageAsync(imageFile, hotel);
+                        hotel.Image = imagePath;
+                    }
+
+                    _context.Add(hotel);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
             }
-            Hotel h = new Hotel
+            catch
             {
-                Id = hotel1.Id,
-                Name = hotel1.Name,
-                Description = hotel1.Description,
-                Price = hotel1.Price,
-                Location = hotel1.Location,
-                Image = fileName
-            };
-            db.Hotels!.Add(h);
-            db.SaveChanges();
-            TempData["AlertCreate"] = "Hotel Added";
-            return RedirectToAction("Index");
+                return View(hotel);
+            }
+            return View(hotel);
         }
 
-        [HttpGet]
-        public IActionResult Details(int id) 
+        public async Task<IActionResult> Edit(int? id)
         {
-            if (id == 0)
+            var hotel = await _context.Hotels.FindAsync(id);
+            if (hotel == null)
             {
                 return NotFound();
             }
-            var data  = db.Hotels.Where(h => h.Id == id).SingleOrDefault();
-            return View(data);
-        }
-
-        [HttpGet]
-        public IActionResult Update(int id)
-        {
-            if (id == 0)
-            {
-                return NotFound();
-            }
-            var data = db.Hotels.Where(h => h.Id == id).FirstOrDefault();
-            return View(data);
+            return View(hotel);
         }
 
         [HttpPost]
-        public IActionResult Update(int? id, Hotel hotel, IFormFile file)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Location,Price,Description")] Hotel hotel, IFormFile imageFile)
         {
-           if(id == null)
-           {
-                return NotFound();     
-           }
-           var h = db.Hotels.Where(x=>x.Id == id).FirstOrDefault();
-           if (h == null)
-           {
-                return NotFound();
-           }
+            var existingHotel = await _context.Hotels.FindAsync(id);
 
-           h.Name = hotel.Name;
-           h.Description = hotel.Description;
-           h.Price = hotel.Price;
-           h.Location = hotel.Location;
-           if (file != null)
-           {
-                string deleteFromFolder =Path.Combine(host.WebRootPath, "imagesHotel");
-                string currentImage = Path.Combine(Directory.GetCurrentDirectory(), deleteFromFolder, h.Image!);
-                if (currentImage != null)
+            try
+            {
+
+                if (imageFile != null && imageFile.Length > 0)
                 {
-                    if (System.IO.File.Exists(currentImage))
-                    {
-                        System.IO.File.Delete(currentImage);
-                    }
+                    var imagePath = await SaveImageAsync(imageFile, hotel);
+                    existingHotel.Image = imagePath;
+                }
+                else
+                {
+                    existingHotel.Image = existingHotel.Image;
                 }
 
-                string filename = Guid.NewGuid().ToString() + ".jpg";
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "imagesHotel", filename);
-                using (var stream = new FileStream(path, FileMode.Create))
-                { 
-                    file.CopyTo(stream);
-                    stream.Close();
-                }
-                h.Image = filename;
+                existingHotel.Name = hotel.Name;
+                existingHotel.Location = hotel.Location;
+                existingHotel.Price = hotel.Price;
+                existingHotel.Description = hotel.Description;
+
+                _context.Update(existingHotel);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
             }
-           db.SaveChanges();
-           TempData["AlertUpdate"] = "Hotel Updated";
-           return RedirectToAction("Index");
+            catch
+            {
+                return View(existingHotel);
+            }
         }
 
-        public IActionResult Delete(int id)
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (id == 0)
+            var existingHotel = await _context.Hotels.FindAsync(id);
+
+            if (existingHotel == null)
             {
                 return NotFound();
             }
-            else
+
+            var imagePath = existingHotel.Image.Substring(1);
+
+            if (!string.IsNullOrEmpty(imagePath))
             {
-                var data = db.Hotels.Where(h => h.Id == id).SingleOrDefault();
-                if (data != null)
+                var filePath = Path.Combine(_webHostEnvironment.WebRootPath, imagePath);
+                if (System.IO.File.Exists(filePath))
                 {
-                    string deleteFromFolder = Path.Combine(host.WebRootPath, "imagesHotel");
-                    string currentImage = Path.Combine(Directory.GetCurrentDirectory(), deleteFromFolder, data.Image!);
-                    if (currentImage != null)
-                    {
-                        if (System.IO.File.Exists(currentImage))
-                        {
-                            System.IO.File.Delete(currentImage);
-                        }
-                    }
-                    db.Hotels.Remove(data);
-                    db.SaveChanges();
-                    TempData["AlertDelete"] = "Deleted Hotel";
-                    return RedirectToAction("Index");
+                    System.IO.File.Delete(filePath);
                 }
             }
-            return RedirectToAction("Index");
+
+            _context.Hotels.Remove(existingHotel);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool HotelExists(int id)
+        {
+            return (_context.Hotels?.Any(e => e.ID == id)).GetValueOrDefault();
+        }
+
+        public IActionResult Discard()
+        {
+            return RedirectToAction(nameof(Index));
+        }
+
+        private async Task<string> SaveImageAsync(IFormFile imageFile, Hotel hotel)
+        {
+            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "assets/images/thumbails", "Hotel", hotel.Name);
+
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+            var uniqueFileName = $"Hotel-{Guid.NewGuid().ToString()}.jpg";
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await imageFile.CopyToAsync(stream);
+                stream.Close();
+            }
+
+            return $"/assets/images/thumbails/Hotel/{hotel.Name}/{uniqueFileName}";
         }
     }
 }

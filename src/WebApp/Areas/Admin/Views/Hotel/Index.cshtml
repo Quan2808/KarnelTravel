@@ -1,78 +1,40 @@
-﻿@model IEnumerable<WebApp.Models.Hotel>
-
+﻿@model IEnumerable<Model.Hotel>
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Hotel List";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    @if (TempData["AlertCreate"] != null)
-    {
-        <div>
-            <p style="color:green;">@TempData["AlertCreate"]</p>
+<div class="card p-3">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h3>Hotel List</h3>
+            <div class="dt-buttons d-flex flex-wrap">
+                <a asp-controller="hotel" asp-action="create" asp-area="admin" class="dt-button add-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button">
+                    <span>
+                        <i class="bx bx-plus me-0 me-sm-1"></i>
+                        <span class="d-none d-sm-inline-block">Add Hotel</span>
+                    </span>
+                </a>
+            </div>
         </div>
-    }
-    @if (TempData["AlertUpdate"] != null)
-    {
-        <div>
-            <p style="color:green;">@TempData["AlertUpdate"]</p>
-        </div>
-    }
-    @if (TempData["AlertDelete"] != null)
-    {
-        <div>
-            <p style="color:red;">@TempData["AlertDelete"]</p>
-        </div>
-    }
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                <img src="~/imagesHotel/@item.Image" alt="@item.Name" style="width:100px;height:auto"/>
-            </td>
-            <td>
-                <a asp-action="Update" asp-route-id="@item.Id">Update</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead class="text-center">
+                <tr>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.Name</td>
+                        <td class="text-center">
+                            <a asp-controller="hotel" asp-action="details" asp-route-id="@i.ID">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

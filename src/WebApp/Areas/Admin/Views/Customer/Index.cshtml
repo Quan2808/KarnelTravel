@@ -1,7 +1,134 @@
-﻿
+﻿@model IEnumerable<dynamic>
 @{
     ViewData["Title"] = "Index";
+    var currentUserId = User.Identity.Name;
+}
+<div asp-validation-summary="All"></div>
+<div class="card p-3">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead class="text-center">
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone number</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@user.Phone</td>
+                        <td class="text-center">@user.Role</td>
+                        <td class="text-center">
+                            @if (user.Locked)
+                            {
+                                <i class="fa-solid fa-x"></i>
+                            }
+                            else
+                            {
+                                <i class="fa-solid fa-check"></i>
+                            }
+                        </td>
+                        <td class="text-center">
+                            @if (currentUserId != user.UserName)
+                            {
+                                <button type="button" class="btn btn-sm btn-icon item-edit" data-bs-toggle="modal" data-bs-target="#userModal@(user.UserId)">
+                                    <i class="bx bxs-edit"></i>
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@foreach (var user in Model)
+{
+    <div class="modal fade" id="userModal@(user.UserId)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change User Role</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="changeForm@(user.UserId)" method="post" action="@Url.Action("ChangeRoleAndLocked")">
+                        <input type="hidden" name="userId" value="@user.UserId" />
+                        <p>
+                            Current Role:
+                            <span id="currentRole@(user.UserId)">@user.Role</span>
+                        </p>
+                        <p>
+                            Status:
+                            <span id="currentRole@(user.UserId)">@user.Locked</span>
+                        </p>
+
+                        <div class="mb-3 row">
+                            <label for="selectedRole@(user.UserId)" class="col-sm-3 col-form-label">Select Role:</label>
+                            <div class="col-sm-9">
+                                <select class="form-select animation-dropdown" name="selectedRole" id="selectedRole@(user.UserId)">
+                                    @foreach (var role in ViewBag.AvailableRoles)
+                                    {
+                                        if (role.Name == user.Role)
+                                        {
+                                            <option selected value="@role.Name">@role.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@role.Name">@role.Name</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="lockoutStatus@(user.UserId)" class="col-sm-3 col-form-label">Lockout Status:</label>
+                            <div class="col-sm-9">
+                                <select class="form-select animation-dropdown" name="locked" id="locked@(user.UserId)">
+                                    @if (user.Locked)
+                                    {
+                                        <option selected value="True">Locked</option>
+                                        <option value="False">Unlocked</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="True">Locked</option>
+                                        <option selected value="False">Unlocked</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="submitForm('@user.UserId')">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
-<h1>Index</h1>
+@section Scripts
+{
+    <script>
+        function submitForm(userId) {
+            var selectedRole = $("#selectedRole" + userId).val();
+            var locked = $("#locked" + userId).val();
 
+            $("#changeForm" + userId).attr("action", "@Url.Action("ChangeRoleAndLocked")?userId=" + userId + "&selectedRole=" + selectedRole + "&locked=" + locked);
+            $("#changeForm" + userId).submit();
+        }
+    </script>
+}

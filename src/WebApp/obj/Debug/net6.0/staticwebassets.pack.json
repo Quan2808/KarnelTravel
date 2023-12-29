@@ -205,6 +205,10 @@
       "PackagePath": "staticwebassets\\admin\\js\\pages-account-settings-account.js"
     },
     {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\admin\\js\\site.js",
+      "PackagePath": "staticwebassets\\admin\\js\\site.js"
+    },
+    {
       "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\admin\\js\\ui-modals.js",
       "PackagePath": "staticwebassets\\admin\\js\\ui-modals.js"
     },
@@ -329,24 +333,12 @@
       "PackagePath": "staticwebassets\\assets\\images\\slide\\HOME-PAGE-SLIDE.jpg"
     },
     {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\assets\\images\\thumbails\\Hotel\\add\\Hotel-45ee1366-857d-4c20-8f00-f4ba226f545d.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\thumbails\\Hotel\\add\\Hotel-45ee1366-857d-4c20-8f00-f4ba226f545d.jpg"
+    },
+    {
       "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\assets\\js\\site.js",
       "PackagePath": "staticwebassets\\assets\\js\\site.js"
-    },
-    {
-      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\imagesHotel\\025db40b-9d28-4a4c-b834-5460b0fddfc2.jpg",
-      "PackagePath": "staticwebassets\\imagesHotel\\025db40b-9d28-4a4c-b834-5460b0fddfc2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\imagesHotel\\92a4f22c-599f-4343-85b6-aab90baffd94.jpg",
-      "PackagePath": "staticwebassets\\imagesHotel\\92a4f22c-599f-4343-85b6-aab90baffd94.jpg"
-    },
-    {
-      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\imagesHotel\\a13f5e9f-256d-439b-9544-a37f8e04267f_8a656c87-389f-43e0-9856-e2b76f4e486d.jpg",
-      "PackagePath": "staticwebassets\\imagesHotel\\a13f5e9f-256d-439b-9544-a37f8e04267f_8a656c87-389f-43e0-9856-e2b76f4e486d.jpg"
-    },
-    {
-      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\imagesHotel\\cc417d93-9dbc-4580-84d7-312af416644d_21trAMD.jpg",
-      "PackagePath": "staticwebassets\\imagesHotel\\cc417d93-9dbc-4580-84d7-312af416644d_21trAMD.jpg"
     },
     {
       "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\bootstrap\\LICENSE",
@@ -535,6 +527,1310 @@
     {
       "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\CHANGES.md",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\CHANGES.md"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\README.md",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\SECURITY.md",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\SECURITY.md"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\adapters\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\adapters\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\build-config.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\build-config.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\ckeditor.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\ckeditor.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\config.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\config.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\contents.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\contents.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\af.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\af.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\ar.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\ar.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\az.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\az.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\bg.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\bg.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\bn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\bn.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\bs.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\bs.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\ca.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\ca.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\cs.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\cs.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\cy.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\cy.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\da.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\da.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\de-ch.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\de-ch.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\de.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\de.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\el.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\el.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\en-au.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\en-au.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\en-ca.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\en-ca.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\en-gb.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\en-gb.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\en.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\en.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\eo.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\eo.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\es-mx.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\es-mx.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\es.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\es.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\et.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\et.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\eu.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\eu.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\fa.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\fa.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\fi.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\fi.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\fo.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\fo.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\fr-ca.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\fr-ca.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\fr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\fr.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\gl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\gl.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\gu.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\gu.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\he.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\he.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\hi.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\hi.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\hr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\hr.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\hu.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\hu.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\id.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\id.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\is.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\is.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\it.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\it.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\ja.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\ja.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\ka.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\ka.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\km.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\km.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\ko.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\ko.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\ku.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\ku.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\lt.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\lt.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\lv.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\lv.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\mk.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\mk.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\mn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\mn.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\ms.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\ms.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\nb.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\nb.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\nl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\nl.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\no.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\no.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\oc.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\oc.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\pl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\pl.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\pt-br.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\pt-br.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\pt.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\pt.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\ro.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\ro.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\ru.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\ru.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\si.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\si.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\sk.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\sk.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\sl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\sl.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\sq.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\sq.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\sr-latn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\sr-latn.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\sr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\sr.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\sv.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\sv.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\th.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\th.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\tr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\tr.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\tt.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\tt.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\ug.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\ug.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\uk.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\uk.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\vi.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\vi.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\zh-cn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\zh-cn.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\lang\\zh.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\lang\\zh.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\a11yhelp.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\a11yhelp.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\_translationstatus.txt",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\_translationstatus.txt"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\af.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\af.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ar.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ar.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\az.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\az.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\bg.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\bg.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ca.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ca.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\cs.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\cs.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\cy.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\cy.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\da.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\da.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\de-ch.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\de-ch.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\de.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\de.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\el.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\el.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en-au.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en-au.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en-gb.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en-gb.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\eo.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\eo.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\es-mx.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\es-mx.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\es.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\es.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\et.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\et.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\eu.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\eu.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fa.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fa.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fi.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fi.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fo.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fo.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fr-ca.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fr-ca.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fr.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\gl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\gl.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\gu.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\gu.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\he.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\he.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hi.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hi.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hr.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hu.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hu.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\id.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\id.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\it.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\it.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ja.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ja.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\km.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\km.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ko.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ko.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ku.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ku.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\lt.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\lt.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\lv.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\lv.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\mk.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\mk.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\mn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\mn.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\nb.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\nb.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\nl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\nl.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\no.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\no.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\oc.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\oc.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pl.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pt-br.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pt-br.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pt.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pt.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ro.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ro.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ru.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ru.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\si.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\si.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sk.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sk.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sl.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sq.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sq.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sr-latn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sr-latn.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sr.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sv.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sv.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\th.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\th.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\tr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\tr.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\tt.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\tt.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ug.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ug.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\uk.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\uk.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\vi.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\vi.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\zh-cn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\zh-cn.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\zh.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\zh.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\about\\dialogs\\about.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\about\\dialogs\\about.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\about\\dialogs\\hidpi\\logo_ckeditor.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\about\\dialogs\\hidpi\\logo_ckeditor.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\about\\dialogs\\logo_ckeditor.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\about\\dialogs\\logo_ckeditor.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\clipboard\\dialogs\\paste.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\clipboard\\dialogs\\paste.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\dialog\\dialogDefinition.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\dialog\\dialogDefinition.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\dialog\\styles\\dialog.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\dialog\\styles\\dialog.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\icons.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\icons.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\icons_hidpi.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\icons_hidpi.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\image\\dialogs\\image.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\image\\dialogs\\image.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\image\\images\\noimage.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\image\\images\\noimage.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\link\\dialogs\\anchor.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\link\\dialogs\\anchor.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\link\\dialogs\\link.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\link\\dialogs\\link.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\link\\images\\anchor.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\link\\images\\anchor.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\link\\images\\hidpi\\anchor.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\link\\images\\hidpi\\anchor.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\magicline\\images\\hidpi\\icon-rtl.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\magicline\\images\\hidpi\\icon-rtl.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\magicline\\images\\hidpi\\icon.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\magicline\\images\\hidpi\\icon.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\magicline\\images\\icon-rtl.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\magicline\\images\\icon-rtl.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\magicline\\images\\icon.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\magicline\\images\\icon.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\pastefromgdocs\\filter\\default.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\pastefromgdocs\\filter\\default.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\pastefromlibreoffice\\filter\\default.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\pastefromlibreoffice\\filter\\default.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\pastefromword\\filter\\default.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\pastefromword\\filter\\default.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\pastetools\\filter\\common.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\pastetools\\filter\\common.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\pastetools\\filter\\image.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\pastetools\\filter\\image.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\scayt\\CHANGELOG.md",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\scayt\\CHANGELOG.md"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\scayt\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\scayt\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\scayt\\README.md",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\scayt\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\scayt\\dialogs\\dialog.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\scayt\\dialogs\\dialog.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\scayt\\dialogs\\options.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\scayt\\dialogs\\options.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\scayt\\dialogs\\toolbar.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\scayt\\dialogs\\toolbar.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\scayt\\skins\\moono-lisa\\scayt.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\scayt\\skins\\moono-lisa\\scayt.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\_translationstatus.txt",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\_translationstatus.txt"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\af.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\af.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ar.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ar.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\az.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\az.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\bg.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\bg.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ca.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ca.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\cs.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\cs.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\cy.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\cy.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\da.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\da.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\de-ch.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\de-ch.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\de.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\de.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\el.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\el.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-au.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-au.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-ca.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-ca.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-gb.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-gb.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\eo.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\eo.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\es-mx.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\es-mx.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\es.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\es.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\et.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\et.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\eu.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\eu.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fa.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fa.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fi.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fi.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fr-ca.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fr-ca.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fr.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\gl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\gl.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\he.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\he.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\hr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\hr.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\hu.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\hu.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\id.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\id.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\it.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\it.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ja.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ja.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\km.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\km.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ko.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ko.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ku.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ku.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\lt.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\lt.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\lv.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\lv.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\nb.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\nb.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\nl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\nl.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\no.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\no.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\oc.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\oc.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pl.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pt-br.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pt-br.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pt.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pt.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ro.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ro.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ru.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ru.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\si.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\si.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sk.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sk.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sl.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sq.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sq.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sr-latn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sr-latn.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sr.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sv.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sv.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\th.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\th.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\tr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\tr.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\tt.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\tt.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ug.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ug.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\uk.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\uk.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\vi.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\vi.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\zh-cn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\zh-cn.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\zh.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\zh.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\specialchar.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\specialchar\\dialogs\\specialchar.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\table\\dialogs\\table.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\table\\dialogs\\table.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\tableselection\\styles\\tableselection.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\tableselection\\styles\\tableselection.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\tabletools\\dialogs\\tableCell.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\tabletools\\dialogs\\tableCell.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\plugins\\widget\\images\\handle.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\plugins\\widget\\images\\handle.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\css\\samples.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\css\\samples.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\img\\github-top.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\img\\github-top.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\img\\header-bg.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\img\\header-bg.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\img\\header-separator.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\img\\header-separator.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\img\\logo.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\img\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\img\\logo.svg",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\img\\logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\img\\navigation-tip.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\img\\navigation-tip.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\index.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\js\\sample.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\js\\sample.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\js\\sf.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\js\\sf.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\ajax.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\ajax.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\api.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\api.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\appendto.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\appendto.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\assets\\inlineall\\logo.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\assets\\inlineall\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\assets\\outputxhtml\\outputxhtml.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\assets\\outputxhtml\\outputxhtml.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\assets\\posteddata.php",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\assets\\posteddata.php"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\assets\\sample.jpg",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\assets\\sample.jpg"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\assets\\uilanguages\\languages.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\assets\\uilanguages\\languages.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\datafiltering.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\datafiltering.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\dialog\\assets\\my_dialog.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\dialog\\assets\\my_dialog.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\dialog\\dialog.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\dialog\\dialog.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\divreplace.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\divreplace.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\enterkey\\enterkey.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\enterkey\\enterkey.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\htmlwriter\\outputhtml.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\htmlwriter\\outputhtml.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\index.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\inlineall.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\inlineall.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\inlinebycode.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\inlinebycode.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\inlinetextarea.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\inlinetextarea.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\jquery.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\jquery.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\magicline\\magicline.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\magicline\\magicline.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\readonly.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\readonly.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\replacebyclass.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\replacebyclass.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\replacebycode.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\replacebycode.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\sample.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\sample.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\sample.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\sample.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\sample_posteddata.php",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\sample_posteddata.php"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\tabindex.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\tabindex.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\toolbar\\toolbar.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\toolbar\\toolbar.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\uicolor.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\uicolor.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\uilanguages.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\uilanguages.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\wysiwygarea\\fullpage.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\wysiwygarea\\fullpage.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\old\\xhtmlstyle.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\old\\xhtmlstyle.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\css\\fontello.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\css\\fontello.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\font\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\font\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\font\\config.json",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\font\\config.json"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.eot",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.eot"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.svg",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.svg"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.ttf",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.ttf"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.woff",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.woff"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\index.html",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\js\\abstracttoolbarmodifier.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\js\\abstracttoolbarmodifier.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\js\\fulltoolbareditor.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\js\\fulltoolbareditor.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\js\\toolbarmodifier.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\js\\toolbarmodifier.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\js\\toolbartextmodifier.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\js\\toolbartextmodifier.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\codemirror.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\codemirror.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\codemirror.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\codemirror.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\javascript.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\javascript.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\neo.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\neo.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\show-hint.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\show-hint.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\show-hint.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\show-hint.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\dialog.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\dialog.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\dialog_ie.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\dialog_ie.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\dialog_ie8.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\dialog_ie8.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\dialog_iequirks.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\dialog_iequirks.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\editor.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\editor.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\editor_gecko.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\editor_gecko.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\editor_ie.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\editor_ie.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\editor_ie8.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\editor_ie8.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\editor_iequirks.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\editor_iequirks.css"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\icons.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\icons.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\icons_hidpi.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\icons_hidpi.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\images\\arrow.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\images\\arrow.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\images\\close.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\images\\close.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\close.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\close.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\lock-open.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\lock-open.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\lock.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\lock.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\refresh.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\refresh.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\images\\lock-open.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\images\\lock-open.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\images\\lock.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\images\\lock.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\images\\refresh.png",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\images\\refresh.png"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\images\\spinner.gif",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\images\\spinner.gif"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\skins\\moono-lisa\\readme.md",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\skins\\moono-lisa\\readme.md"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\styles.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\styles.js"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\ckeditor\\vendor\\promise.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\vendor\\promise.js"
     },
     {
       "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",

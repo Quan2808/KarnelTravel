@@ -3,15 +3,14 @@
   margin-top: 12px;
 }
 
-.app-brand-logo.demo svg {
-  width: 22px;
-  height: 38px;
+.app-brand-logo.demo img {
+    width: 22px;
+    height: 38px;
 }
 
 .app-brand-text.demo {
   font-size: 1.75rem;
   letter-spacing: -0.5px;
-  text-transform: lowercase;
 }
 
 .layout-navbar-fixed .layout-wrapper:not(.layout-horizontal):not(.layout-without-menu) .layout-page {
@@ -108,4 +107,17 @@
     bottom: 20px;
     right: 20px;
     display: none;
+}
+
+.light-style .ql-snow .ql-editor {
+     padding: 1.25rem; 
+}
+
+
+.ck.ck-balloon-panel.ck-powered-by-balloon[class*=position_border] {
+    display: none;
+}
+
+.ck-rounded-corners .ck.ck-editor__main > .ck-editor__editable, .ck.ck-editor__main > .ck-editor__editable.ck-rounded-corners {
+    height: 227px
 }
