@@ -1,9 +1,10 @@
 ﻿body {
     font-family: 'Quicksand', sans-serif;
-    user-select: none !important;
+        user-select: none !important;
 }
 
 ::-webkit-scrollbar {
+    background-color: #f3faf6;
     width: 7px;
 }
 
@@ -37,6 +38,7 @@
 
     .nav-link.active,
     .nav-link.mx-2.dropdown-toggle.show,
+    .dropdown-item.active,
     .nav-link:hover {
         color: #1cbbb4;
         opacity: 0.5;
@@ -58,7 +60,7 @@
 
 #btn-back-to-top {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
     display: none;
     z-index: 100;
@@ -66,10 +68,17 @@
 
 #btn-go-to-dashboard {
     position: fixed;
-    bottom: 80px;
+    bottom: 140px;
     right: 20px;
     z-index: 100;
-    animation: spin 2s infinite linear; /* 2s là thời gian một chu kỳ quay */
+    animation: spin 2s infinite linear;
+}
+
+#btn-add-to-cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
 }
 
 @keyframes spin {
@@ -121,14 +130,6 @@
     }
 }
 
-/*.bg-image {
-    position: relative;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}*/
-
 .bg-teal {
     --mdb-bg-opacity: 0.3;
     background-color: rgba(28, 187, 180, var(--mdb-bg-opacity)) !important;
@@ -160,9 +161,13 @@
 }
 
 .was-validated .form-control:invalid, .form-control.is-invalid {
-     margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
-.card.p-4{
+.card.p-4 {
     width: 30rem;
+}
+
+.icon-mr {
+    width: 13% !important;
 }
