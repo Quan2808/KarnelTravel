@@ -92,6 +92,17 @@ namespace WebApp.Areas.Admin
 
                 if (imageFile != null && imageFile.Length > 0)
                 {
+                    var imagePathDel = existingResort.Image.Substring(1);
+
+                    if (!string.IsNullOrEmpty(imagePathDel))
+                    {
+                        var filePath = Path.Combine(_webHostEnvironment.WebRootPath, imagePathDel);
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            System.IO.File.Delete(filePath);
+                        }
+                    }
+
                     var imagePath = await SaveImageAsync(imageFile, Resort);
                     existingResort.Image = imagePath;
                 }

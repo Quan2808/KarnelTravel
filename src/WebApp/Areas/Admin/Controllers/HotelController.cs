@@ -49,6 +49,7 @@ namespace WebApp.Areas.Admin
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Location,Price,Description")] Hotel hotel, IFormFile imageFile)
         {
+            System.Diagnostics.Debug.WriteLine("isValid:  " + ModelState.IsValid);
             try
             {
                 if (ModelState.IsValid)
@@ -92,6 +93,17 @@ namespace WebApp.Areas.Admin
 
                 if (imageFile != null && imageFile.Length > 0)
                 {
+                    var imagePathDel = existingHotel.Image.Substring(1);
+
+                    if (!string.IsNullOrEmpty(imagePathDel))
+                    {
+                        var filePath = Path.Combine(_webHostEnvironment.WebRootPath, imagePathDel);
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            System.IO.File.Delete(filePath);
+                        }
+                    }
+
                     var imagePath = await SaveImageAsync(imageFile, hotel);
                     existingHotel.Image = imagePath;
                 }

@@ -333,8 +333,20 @@
       "PackagePath": "staticwebassets\\assets\\images\\slide\\HOME-PAGE-SLIDE.jpg"
     },
     {
-      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\assets\\images\\thumbails\\Hotel\\add\\Hotel-45ee1366-857d-4c20-8f00-f4ba226f545d.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\thumbails\\Hotel\\add\\Hotel-45ee1366-857d-4c20-8f00-f4ba226f545d.jpg"
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\assets\\images\\thumbails\\Hotel\\Ke Ga Hotel\\Hotel-f837b8bf-0a6e-4c63-9fff-d02e6e9794a7.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\thumbails\\Hotel\\Ke Ga Hotel\\Hotel-f837b8bf-0a6e-4c63-9fff-d02e6e9794a7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\assets\\images\\thumbails\\Resort\\Ke Ga Resort\\Resort-3537378a-b9f3-4c11-8f82-0945f6963a92.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\thumbails\\Resort\\Ke Ga Resort\\Resort-3537378a-b9f3-4c11-8f82-0945f6963a92.jpg"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\assets\\images\\thumbails\\Restaurant\\Ke Ga Restaurant\\Restaurant-b868fa1e-2b62-4c49-9949-88ce2868abd8.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\thumbails\\Restaurant\\Ke Ga Restaurant\\Restaurant-b868fa1e-2b62-4c49-9949-88ce2868abd8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\assets\\images\\thumbails\\Restaurant\\Pho Co Restaurant\\Restaurant-6dc56764-8e30-4234-9f63-d0626b9cbce0.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\thumbails\\Restaurant\\Pho Co Restaurant\\Restaurant-6dc56764-8e30-4234-9f63-d0626b9cbce0.jpg"
     },
     {
       "Id": "C:\\Users\\bests\\Documents\\GitHub\\KarnelTravel\\src\\WebApp\\wwwroot\\assets\\js\\site.js",
