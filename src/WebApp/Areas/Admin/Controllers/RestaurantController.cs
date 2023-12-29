@@ -170,6 +170,7 @@ namespace WebApp.Areas.Admin
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await imageFile.CopyToAsync(stream);
+                stream.Close();
             }
 
             return $"/assets/images/thumbails/Restaurant/{Restaurant.Name}/{uniqueFileName}";
