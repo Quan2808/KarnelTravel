@@ -80,25 +80,33 @@ namespace WebApp.Areas.Identity.Pages.Account
             {
                 var user = await _userManager.FindByNameAsync(Input.Username);
 
-                var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, Input.RememberMe, false);
+                if (user != null)
+                {
+                    var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, Input.RememberMe, false);
 
-                if (result.Succeeded)
-                {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
-                }
-                else if (user.LockoutEnabled)
-                {
-                    _logger.LogWarning("Account locked out.");
-                    ModelState.AddModelError(string.Empty, "Your account has been locked. Please contact us for assistance in unlocking it.");
+                    if (result.Succeeded)
+                    {
+                        return LocalRedirect(returnUrl);
+                    }
+                    else if (user.LockoutEnabled)
+                    {
+                        ModelState.AddModelError(string.Empty, "Your account has been locked. Please contact us for assistance in unlocking it.");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Please check your username and password.");
+                    }
                 }
                 else
                 {
-                    _logger.LogWarning("Login failed.");
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt. Please check your username and password.");
+                    ModelState.AddModelError(string.Empty, "Please check your username and password.");
                 }
             }
+
+            ViewData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+
             return Page();
         }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿@page
 @model LoginModel
 @{
+    var errors = ViewData["Errors"] as IEnumerable<string>;
     ViewData["Title"] = "Log in";
 }
 <section class="w-100 d-flex justify-content-center pb-4 mt-5 mb-5">
@@ -49,8 +50,22 @@
         </div>
     </div>
 </section>
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (errors != null && errors.Any())
+    {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed',
+                    html: '@Html.Raw(string.Join("", errors))',
+                    footer: '<a href="#">Need help? Contact support</a>',
+                    timer: 10000,
+                    timerProgressBar: true,
+                });
+            });
+        </script>
+    }
 }
