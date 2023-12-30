@@ -26,6 +26,10 @@ namespace WebApp.Areas.Admin
 
         public async Task<IActionResult> Details(int? id)
         {
+            ViewBag.HotelID = new SelectList(_context.Hotels.ToList(), "ID", "Name");
+            ViewBag.ResortID = new SelectList(_context.Resorts.ToList(), "ID", "Name");
+            ViewBag.RestaurantID = new SelectList(_context.Restaurants.ToList(), "ID", "Name");
+
             if (id == null || _context.Tourists == null)
             {
                 return NotFound();
@@ -53,12 +57,12 @@ namespace WebApp.Areas.Admin
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Location,Description,HotelID,ResortID,RestaurantID")] TouristSpot touristSpot)
         {
-            System.Diagnostics.Debug.WriteLine("isValid:  " + ModelState.IsValid);
             try
             {
                 ViewBag.HotelID = new SelectList(_context.Hotels.ToList(), "ID", "Name", touristSpot.HotelID);
                 ViewBag.ResortID = new SelectList(_context.Resorts.ToList(), "ID", "Name", touristSpot.ResortID);
                 ViewBag.RestaurantID = new SelectList(_context.Restaurants.ToList(), "ID", "Name", touristSpot.RestaurantID);
+
                 if (ModelState.IsValid)
                 {
                     _context.Add(touristSpot);
@@ -76,6 +80,10 @@ namespace WebApp.Areas.Admin
 
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewBag.HotelID = new SelectList(_context.Hotels.ToList(), "ID", "Name");
+            ViewBag.ResortID = new SelectList(_context.Resorts.ToList(), "ID", "Name");
+            ViewBag.RestaurantID = new SelectList(_context.Restaurants.ToList(), "ID", "Name");
+
             var touristSpot = await _context.Tourists.FindAsync(id);
             if (touristSpot == null)
             {
@@ -88,6 +96,10 @@ namespace WebApp.Areas.Admin
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Location,Description,HotelID,ResortID,RestaurantID")] TouristSpot touristSpot)
         {
+            ViewBag.HotelID = new SelectList(_context.Hotels.ToList(), "ID", "Name", touristSpot.HotelID);
+            ViewBag.ResortID = new SelectList(_context.Resorts.ToList(), "ID", "Name", touristSpot.ResortID);
+            ViewBag.RestaurantID = new SelectList(_context.Restaurants.ToList(), "ID", "Name", touristSpot.RestaurantID);
+
             var exitingTourist = await _context.Tourists.FindAsync(id);
 
             try

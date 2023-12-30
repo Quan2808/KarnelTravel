@@ -25,6 +25,6 @@ namespace Model
         public string Description { get; set; }
 
         [ForeignKey("TouristSpotID")]
-        public TouristSpot TouristSpot { get; set; }
+        public TouristSpot? TouristSpot { get; set; }
     }
 }

@@ -49,7 +49,6 @@ namespace WebApp.Areas.Admin
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Location,Price,Description")] Hotel hotel, IFormFile imageFile)
         {
-            System.Diagnostics.Debug.WriteLine("isValid:  " + ModelState.IsValid);
             try
             {
                 if (ModelState.IsValid)
