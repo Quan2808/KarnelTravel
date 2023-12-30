@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using WebApp.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
 
 namespace WebApp
 {

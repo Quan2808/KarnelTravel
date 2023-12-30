@@ -1,0 +1,100 @@
+﻿@model Model.TravelInfo
+@{
+    ViewData["Title"] = "Create";
+}
+<section>
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+            <div class="d-flex flex-column justify-content-center">
+                <h4 class="mb-1 mt-3">Add a new Travel</h4>
+            </div>
+            <div class="d-flex align-content-center text-center flex-wrap gap-3">
+                <button type="button" class="btn btn-danger" id="discard">Discard</button>
+                <button type="submit" class="btn btn-primary">Publish</button>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header">
+                Travel Information
+            </div>
+            <div class="card-body">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" placeholder="Travel Name" asp-for="Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Price</label>
+                        <input class="form-control" asp-for="Price">
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">TouristSpot</label>
+                        <select asp-for="TouristSpotID" class="form-control" asp-items="ViewBag.TouristSpotID"></select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">StartDate</label>
+                        <input type="date" class="form-control" asp-for="StartingTime">
+                        <span asp-validation-for="StartingTime" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">EndDate</label>
+                        <input type="date" class="form-control" asp-for="EndingTime">
+                        <span asp-validation-for="EndingTime" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-8 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        TravelInfo Description
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div id="_description"></div>
+                            <input type="hidden" asp-for="Description" id="Description">
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
+    <script src="~/admin/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('#discard').addEventListener('click', function () {
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: "Discarded!",
+                            text: "The hotel has been discarded.",
+                            icon: "success",
+                        }).then(() => {
+                            window.location.href = '@Url.Action("discard")';
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -14,6 +14,7 @@ CKEDITOR.replace('_description', {
     height: 500,
     removeButtons: 'PasteFromWord'
 });
+
 function displaySelectedImage(event, elementId) {
     const selectedImage = document.getElementById(elementId);
     const fileInput = event.target;

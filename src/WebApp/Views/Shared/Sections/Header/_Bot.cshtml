@@ -6,16 +6,24 @@
 
     string GetActiveClass(string currentAction, string currentController) =>
          actionName == currentAction && controllerName == currentController ? "active fw-bold" : "";
+
+    string GetActiveControllerClass(string currentController) =>
+        controllerName == currentController ? "active fw-bold" : "";
+
+    string GetActiveControllerClassDropdown(string[] controllers) =>
+        controllers.Contains(controllerName) ? "active fw-bold show" : "";
 }
 <section id="_navbot">
     <nav class="navbar navbar-expand-lg p-3">
         <div class="container">
             <div class="navbar-brand">
-                <img src="~/assets/images/logo-brand.png"
-                     class="me-2"
-                     height="130"
-                     alt="Kanel Travels Brand Logo"
-                     loading="lazy" />
+                <a asp-action="index" asp-controller="home" asp-area="">
+                    <img src="~/assets/images/logo-brand.png"
+                         class="me-2"
+                         height="130"
+                         alt="Kanel Travels Brand Logo"
+                         loading="lazy" />
+                </a>
             </div>
             <button data-mdb-collapse-init
                     class="navbar-toggler btn btn-outline-vjppro"
@@ -41,7 +49,7 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link mx-2 dropdown-toggle"
+                        <a class="nav-link mx-2 dropdown-toggle @GetActiveControllerClassDropdown(new[] { "Tourist", "Travel", "Hotel", "Restaurant", "Resort" })"
                            href="#" role="button"
                            id="serveice"
                            data-mdb-dropdown-init
@@ -50,28 +58,28 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="serveice">
                             <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item @GetActiveControllerClass("Tourist")" asp-controller="tourist" asp-action="index" asp-area="">
                                     Tourist Spots
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item @GetActiveControllerClass("Travel")" asp-controller="travel" asp-action="index" asp-area="">
                                     Travel Information
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item @GetActiveClass("Index", "Hotel")" asp-action="index" asp-controller="hotel" asp-area="">
+                                <a class="dropdown-item @GetActiveControllerClass("Hotel")" asp-controller="hotel" asp-action="index" asp-area="">
                                     Hotel Information
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item @GetActiveControllerClass("Restaurant")" asp-controller="restaurant" asp-action="index" asp-area="">
                                     Restaurant Information
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">
-                                    Resorts Information
+                                <a class="dropdown-item @GetActiveControllerClass("Resort")" asp-controller="resort" asp-action="index" asp-area="">
+                                    Resort Information
                                 </a>
                             </li>
                         </ul>

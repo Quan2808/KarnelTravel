@@ -1,9 +1,7 @@
 ﻿@model IEnumerable<Model.Hotel>
-
 @{
     ViewData["Title"] = "Hotel List";
 }
-
 <div class="card p-3">
     <div class="card-header">
         <div class="d-flex justify-content-between">
@@ -23,7 +21,6 @@
             <thead class="text-center">
                 <tr>
                     <th>Name</th>
-                    <th>Price</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -32,9 +29,8 @@
                 {
                     <tr>
                         <td>@i.Name</td>
-                        <td>@i.Price</td>
-                        <td>
-                            <a asp-controller="Hotel" asp-action="Details" asp-route-id="@i.Id">Details</a>
+                        <td class="text-center">
+                            <a asp-controller="hotel" asp-action="details" asp-route-id="@i.ID">Details</a>
                         </td>
                     </tr>
                 }
@@ -42,4 +38,3 @@
         </table>
     </div>
 </div>
-

@@ -39,6 +39,11 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     }
 
     public DbSet<Hotel> Hotels { get; set; }
+    public DbSet<Resort> Resorts { get; set; }
+    public DbSet<Restaurant> Restaurants { get; set; }
+    public DbSet<TouristSpot> Tourists { get; set; }
+    public DbSet<TravelInfo> Travels { get; set; }
+
 
     public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {
