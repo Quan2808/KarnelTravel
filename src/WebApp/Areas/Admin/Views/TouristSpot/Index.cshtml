@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Model.TouristSpot>
+
+@{
+    ViewData["Title"] = "TouristSpot List";
+}
+<div class="card p-3">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h3>TouristSpot List</h3>
+            <div class="dt-buttons d-flex flex-wrap">
+                <a asp-controller="touristspot" asp-action="create" asp-area="admin" class="dt-button add-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button">
+                    <span>
+                        <i class="bx bx-plus me-0 me-sm-1"></i>
+                        <span class="d-none d-sm-inline-block">Add Tourist</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead class="text-center">
+                <tr>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.Name</td>
+                        <td class="text-center">
+                            <a asp-controller="TouristSpot" asp-action="details" asp-route-id="@i.ID">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

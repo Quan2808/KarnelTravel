@@ -56,5 +56,20 @@
                 Restaurant
             </a>
         </li>
+
+        <li class='menu-item@(GetActiveClassController("TouristSpot"))'>
+            <a asp-action="index" asp-controller="touristspot" asp-area="admin" class="menu-link">
+                <i class="menu-icon fa-solid fa-book"></i>
+                TouristSpot
+            </a>
+        </li>
+
+        <li class='menu-item@(GetActiveClassController("Travel"))'>
+            <a asp-action="index" asp-controller="travel" asp-area="admin" class="menu-link">
+                <i class="menu-icon fa-solid fa-compass"></i>
+                Travel
+            </a>
+        </li>
+
     </ul>
 </aside>

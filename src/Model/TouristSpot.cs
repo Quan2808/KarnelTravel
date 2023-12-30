@@ -26,12 +26,12 @@ namespace Model
         public string Description { get; set; }
 
         [ForeignKey("HotelID")]
-        public Hotel Hotel { get; set; }
+        public Hotel? Hotel { get; set; }
 
         [ForeignKey("ResortID")]
-        public Resort Resort { get; set; }
+        public Resort? Resort { get; set; }
 
         [ForeignKey("RestaurantID")]
-        public Restaurant Restaurant { get; set; }
+        public Restaurant? Restaurant { get; set; }
     }
 }

@@ -9,223 +9,255 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApp
 build_property.RootNamespace = WebApp
-build_property.ProjectDir = C:\Users\nhote\OneDrive\Máy tính\KarnelTravel\src\WebApp\
+build_property.ProjectDir = C:\Users\bests\Documents\GitHub\KarnelTravel\src\WebApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\nhote\OneDrive\Máy tính\KarnelTravel\src\WebApp
+build_property.MSBuildProjectDirectory = C:\Users\bests\Documents\GitHub\KarnelTravel\src\WebApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Customer/Index.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Customer/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Home/Index.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Hotel/Create.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Hotel/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG90ZWxcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Hotel/Details.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Hotel/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG90ZWxcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Hotel/Edit.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Hotel/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG90ZWxcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Hotel/Index.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Hotel/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG90ZWxcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Resort/Create.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Resort/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzb3J0XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Resort/Details.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Resort/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzb3J0XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Resort/Edit.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Resort/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzb3J0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Resort/Index.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Resort/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzb3J0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Restaurant/Create.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Restaurant/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzdGF1cmFudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Restaurant/Details.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Restaurant/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzdGF1cmFudFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Restaurant/Edit.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Restaurant/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzdGF1cmFudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Restaurant/Index.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Restaurant/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzdGF1cmFudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/Error.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/Sections/Navbar/_Sidenav.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/Sections/Navbar/_Sidenav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXFNlY3Rpb25zXE5hdmJhclxfU2lkZW5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/Sections/Navbar/_Topnav.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/Sections/Navbar/_Topnav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXFNlY3Rpb25zXE5hdmJhclxfVG9wbmF2LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/Sections/_Scripts.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/Sections/_Scripts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXFNlY3Rpb25zXF9TY3JpcHRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/Sections/_Styles.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/Sections/_Styles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXFNlY3Rpb25zXF9TdHlsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/_Layout.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/TouristSpot/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVG91cmlzdFNwb3RcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/TouristSpot/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVG91cmlzdFNwb3RcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/TouristSpot/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVG91cmlzdFNwb3RcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/TouristSpot/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVG91cmlzdFNwb3RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Travel/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHJhdmVsXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Travel/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHJhdmVsXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Travel/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHJhdmVsXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/Travel/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHJhdmVsXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Admin/Views/_ViewStart.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/Logout.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Home/Index.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Home/Introduction.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Home/Introduction.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbnRyb2R1Y3Rpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Hotel/Detail.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Hotel/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Hotel/Index.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Hotel/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Shared/Error.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Shared/Sections/Header/_Bot.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Shared/Sections/Header/_Bot.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNlY3Rpb25zXEhlYWRlclxfQm90LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Shared/Sections/Header/_LoginPartial.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Shared/Sections/Header/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNlY3Rpb25zXEhlYWRlclxfTG9naW5QYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Shared/Sections/Header/_Navbar.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Shared/Sections/Header/_Navbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNlY3Rpb25zXEhlYWRlclxfTmF2YmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Shared/Sections/Header/_Top.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Shared/Sections/Header/_Top.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNlY3Rpb25zXEhlYWRlclxfVG9wLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Shared/Sections/_BackToTop.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Shared/Sections/_BackToTop.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNlY3Rpb25zXF9CYWNrVG9Ub3AuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Shared/Sections/_Footer.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Shared/Sections/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNlY3Rpb25zXF9Gb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Shared/Sections/_Scripts.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Shared/Sections/_Scripts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNlY3Rpb25zXF9TY3JpcHRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Shared/Sections/_Styles.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Shared/Sections/_Styles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNlY3Rpb25zXF9TdHlsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Shared/_Layout.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/_ViewImports.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nhote/OneDrive/Máy tính/KarnelTravel/src/WebApp/Views/_ViewStart.cshtml]
+[C:/Users/bests/Documents/GitHub/KarnelTravel/src/WebApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
