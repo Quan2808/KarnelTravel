@@ -12,7 +12,7 @@
    
 =======================================
 
-Link: https://github.com/Quan2808/KarnelTravel
+Link: https://github.com/Quan2808/KarnelTravel/tree/main/documentations
 
 =======================================
 
