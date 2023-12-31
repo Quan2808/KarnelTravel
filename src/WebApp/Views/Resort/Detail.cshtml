@@ -91,6 +91,6 @@
     </div>
 </section>
 
-<button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-add-to-cart">
+<a asp-action="checkin" asp-controller="booking" asp-route-id="@Model.ID" asp-route-package="Resort" class="btn btn-danger btn-floating btn-lg" id="btn-add-to-cart">
     <i class="fa-solid fa-cart-shopping"></i>
-</button>
+</a>

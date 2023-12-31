@@ -1,0 +1,81 @@
+﻿@model Model.Booking
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Booking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="TravelInfoID" class="control-label"></label>
+                <select asp-for="TravelInfoID" class="form-control" asp-items="ViewBag.TravelInfoID"></select>
+                <span asp-validation-for="TravelInfoID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TouristSpotID" class="control-label"></label>
+                <select asp-for="TouristSpotID" class="form-control" asp-items="ViewBag.TouristSpotID"></select>
+                <span asp-validation-for="TouristSpotID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HotelID" class="control-label"></label>
+                <select asp-for="HotelID" class="form-control" asp-items="ViewBag.HotelID"></select>
+                <span asp-validation-for="HotelID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ResortID" class="control-label"></label>
+                <select asp-for="ResortID" class="form-control" asp-items="ViewBag.ResortID"></select>
+                <span asp-validation-for="ResortID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RestaurantID" class="control-label"></label>
+                <select asp-for="RestaurantID" class="form-control" asp-items="ViewBag.RestaurantID"></select>
+                <span asp-validation-for="RestaurantID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerName" class="control-label"></label>
+                <input asp-for="CustomerName" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerPhone" class="control-label"></label>
+                <input asp-for="CustomerPhone" class="form-control" />
+                <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CheckIn" class="control-label"></label>
+                <input asp-for="CheckIn" class="form-control" />
+                <span asp-validation-for="CheckIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CheckOut" class="control-label"></label>
+                <input asp-for="CheckOut" class="form-control" />
+                <span asp-validation-for="CheckOut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPrice" class="control-label"></label>
+                <input asp-for="TotalPrice" class="form-control" />
+                <span asp-validation-for="TotalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control"></select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
