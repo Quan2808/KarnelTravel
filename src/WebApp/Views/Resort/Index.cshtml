@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Resort>
+@{
+    ViewData["Title"] = "Resort";
+}
+<section class="mt-5 mb-5">
+    <h3 class="text-center fw-bold">
+        Featured properties recommended for you
+    </h3>
+    <div class="row mt-5 me-3 ms-3">
+        @foreach (var i in Model)
+        {
+            <div class="col-lg-3 mb-3">
+                <div class="card">
+                    <img src="@i.Image" class="card-img-top" alt="@i.Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">@i.Name</h5>
+                        <p class="text-muted">@i.Location</p>
+                        <div class="d-flex justify-content-start align-items-center mb-2">
+                            <div class="ratings">
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <h5 class="review-count">12 Reviews</h5>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-start align-items-center">
+                                <p class="card-text fw-bold text-danger">
+                                    VND @i.Price
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <a asp-controller="resort" asp-action="detail" asp-route-id="@i.ID" class="text-primary">
+                                    View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
