@@ -4,76 +4,205 @@
     ViewData["Title"] = "Details";
 }
 
+
+<section class="mt-4">
+    <div class="row">
+        <div class="col-md-9 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <a asp-action="Index">Back To Booking List</a>
+                            @if (Model.HotelID != null)
+                            {
+                                <p class="card-text fs-3 fw-bold">
+                                    @Model.Hotel.Name
+                                </p>
+                                <p class="fs-6">
+                                    @Model.Hotel.Location
+                                </p>
+                            }
+                            @if (Model.ResortID != null)
+                            {
+                                <p class="card-text fs-3 fw-bold">
+                                    @Model.Resort.Name
+                                </p>
+                                <p class="fs-6">
+                                    @Model.Resort.Location
+                                </p>
+                            }
+                            <div class="card-text">
+                                <span class="fw-bold me-3">
+                                    Your Name:
+                                </span>
+                                <span>
+                                    @Model.CustomerName
+                                </span>
+                            </div>
+                            <div class="card-text">
+                                <span class="fw-bold me-3">
+                                    Your Phone:
+                                </span>
+                                <span>
+                                    @Model.CustomerPhone
+                                </span>
+                            </div>
+                            <div class="card-text">
+                                <span class="fw-bold me-3">
+                                    Check-In:
+                                </span>
+                                <span>
+                                    @Model.CheckIn
+                                </span>
+                            </div>
+                            <div class="card-text">
+                                <span class="fw-bold me-3">
+                                    Check-Out:
+                                </span>
+                                <span>
+                                    @Model.CheckOut
+                                </span>
+                            </div>
+                            <div class="card-text">
+                                <span class="fw-bold me-3">
+                                    Price:
+                                </span>
+                                <span>
+                                    @Model.TotalPrice
+                                </span>
+                            </div>
+                            <div class="card-text">
+                                <span class="fw-bold me-3">
+                                    Status:
+                                </span>
+                                <span>
+                                    @Model.Status
+                                </span>
+                            </div>
+                        </div>
+                        @if (Model.HotelID != null)
+                        {
+                            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                                <img class="rounded-circle m-3" style="width: 300px; height: 300px; object-fit: cover;" src="@Model.Hotel.Image" alt="Ảnh đại diện">
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text fs-5 fw-bold">
+                        Amenities and Facilities
+                    </p>
+                    <ul class="list-group no-style">
+                        <li class="list-group-item border-0">
+                            <i class="fa-regular fa-circle-check icon-mr"></i>
+                            <span>24/7 Check-in</span>
+                        </li>
+                        <li class="list-group-item border-0">
+                            <i class="fa-solid fa-wifi icon-mr"></i>
+                            <span>Complimentary Wi-Fi</span>
+                        </li>
+                        <li class="list-group-item border-0">
+                            <i class="fa-solid fa-suitcase-rolling icon-mr"></i>
+                            <span>Luggage Storage</span>
+                        </li>
+                        <li class="list-group-item border-0">
+                            <i class="fa-solid fa-broom icon-mr"></i>
+                            <span>Daily Room Cleaning</span>
+                        </li>
+                        <li class="list-group-item border-0">
+                            <i class="fa-solid fa-car-side icon-mr"></i>
+                            <span>Parking Available</span>
+                        </li>
+                        <li class="list-group-item border-0">
+                            <i class="fa-solid fa-person-arrow-up-from-line icon-mr"></i>
+                            <span>Elevator Access</span>
+                        </li>
+                        <li class="list-group-item border-0">
+                            <i class="fa-solid fa-tv icon-mr"></i>
+                            <span>Cable/Satellite TV</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <h1>Details</h1>
 
 <div>
     <h4>Booking</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CustomerName)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CustomerName)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CustomerPhone)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CustomerPhone)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CheckIn)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CheckIn)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CheckOut)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CheckOut)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TotalPrice)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TotalPrice)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Status)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Status)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TouristSpot)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TouristSpot.Description)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Hotel)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Hotel.Name)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Resort)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Resort.Name)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Restaurant)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Restaurant.Name)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TravelInfo)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TravelInfo.Description)
         </dd>
     </dl>

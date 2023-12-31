@@ -1,0 +1,204 @@
+﻿@{
+    var filteredItems = Model.ToList().Where(h => h.Hotel != null && h.Status == BookingStatus.Completed).ToList();
+}
+@model IEnumerable<Model.Booking>
+<ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a data-mdb-tab-init
+           class="nav-link active"
+           id="processing-tab"
+           href="#processing-tabs"
+           role="tab"
+           aria-controls="processing-tabs"
+           aria-selected="true">
+            Processing
+        </a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a data-mdb-tab-init
+           class="nav-link"
+           id="completed-tab"
+           href="#completed-tabs"
+           role="tab"
+           aria-controls="completed-tabs"
+           aria-selected="false">
+            Completed
+        </a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a data-mdb-tab-init
+           class="nav-link"
+           id="cancelled-tab"
+           href="#cancelled-tabs"
+           role="tab"
+           aria-controls="cancelled-tabs"
+           aria-selected="false">
+            Cancelled
+        </a>
+    </li>
+</ul>
+
+<div class="tab-content" id="ex2-content">
+    <div class="tab-pane fade show active"
+         id="processing-tabs"
+         role="tabpanel"
+         aria-labelledby="processing-tab">
+        <table class="table align-middle mb-0 bg-white">
+            <tbody>
+                @foreach (var i in Model.ToList().Where(h => h.Hotel != null).Where(s => s.Status == BookingStatus.Confirmed || s.Status == BookingStatus.Processing))
+                {
+                    @if (i != null)
+                    {
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="@i.Hotel.Image" alt="" style="width: 80px; height: 80px" class="rounded-circle" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">
+                                            Code: @i.ID
+                                            <span class="badge badge-info rounded-pill d-inline ms-4">@i.Status</span>
+                                        </p>
+                                        <p class="text-muted mb-0 text-truncate" style="max-width: 200px;">@i.Hotel.Name</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    <p class="fw-normal mb-1">Check-In</p>
+                                    <p class="text-muted mb-0">@i.CheckIn</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    <p class="fw-normal mb-1">Check-Out</p>
+                                    <p class="text-muted mb-0">@i.CheckOut</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-link btn-sm btn-rounded">View</button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="https://cdn6.agoda.net/images/mmb/Flight-Planet.svg?s=1024x" />
+                        </div>
+                        <div class="text-center">
+                            <h3 class="fw-bold">You Have No Orders Placed Yet</h3>
+                        </div>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tab-pane fade"
+         id="completed-tabs"
+         role="tabpanel"
+         aria-labelledby="completed-tab">
+        <table class="table align-middle mb-0 bg-white">
+            <tbody>
+                @foreach (var i in Model.ToList().Where(h => h.Hotel != null).Where(s => s.Status == BookingStatus.Completed))
+                {
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="@i.Hotel.Image" alt="" style="width: 80px; height: 80px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">
+                                        Code: @i.ID
+                                        <span class="badge badge-success rounded-pill d-inline ms-4">@i.Status</span>
+                                    </p>
+                                    <p class="text-muted mb-0 text-truncate" style="max-width: 200px;">@i.Hotel.Name</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                <p class="fw-normal mb-1">Check-In</p>
+                                <p class="text-muted mb-0">@i.CheckIn</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                <p class="fw-normal mb-1">Check-Out</p>
+                                <p class="text-muted mb-0">@i.CheckOut</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-link btn-sm btn-rounded">View</button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Any(h => h.Hotel != null && h.Status == BookingStatus.Completed))
+                {
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="https://cdn6.agoda.net/images/mmb/Flight-Planet.svg?s=1024x" />
+                    </div>
+                    <div class="text-center">
+                        <h3 class="fw-bold">You Have No Orders Placed Yet</h3>
+                    </div>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tab-pane fade"
+         id="cancelled-tabs"
+         role="tabpanel"
+         aria-labelledby="cancelled-tab">
+        <table class="table align-middle mb-0 bg-white">
+            <tbody>
+                @foreach (var i in Model.ToList().Where(h => h.Hotel != null).Where(s => s.Status == BookingStatus.Cancelled))
+                {
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="@i.Hotel.Image" alt="" style="width: 80px; height: 80px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">
+                                        Code: @i.ID
+                                        <span class="badge badge-danger rounded-pill d-inline ms-4">@i.Status</span>
+                                    </p>
+                                    <p class="text-muted mb-0 text-truncate" style="max-width: 200px;">@i.Hotel.Name</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                <p class="fw-normal mb-1">Check-In</p>
+                                <p class="text-muted mb-0">@i.CheckIn</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                <p class="fw-normal mb-1">Check-Out</p>
+                                <p class="text-muted mb-0">@i.CheckOut</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-link btn-sm btn-rounded">View</button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Any(h => h.Hotel != null && h.Status == BookingStatus.Cancelled))
+                {
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="https://cdn6.agoda.net/images/mmb/Flight-Planet.svg?s=1024x" />
+                    </div>
+                    <div class="text-center">
+                        <h3 class="fw-bold">You Have No Orders Placed Yet</h3>
+                    </div>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

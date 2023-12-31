@@ -53,7 +53,6 @@ function backToTop() {
 function toggleIcon() {
     var icon = document.getElementById('toggleIcon');
 
-    // Kiểm tra lớp của biểu tượng và thay đổi nó
     if (icon.classList.contains('fa-align-justify')) {
         icon.classList.remove('fa-align-justify');
         icon.classList.add('fa-x');
@@ -73,10 +72,8 @@ $(document).ready(function () {
     $(".toggle-collapse").on("click", function () {
         var target = $(this).data("target");
 
-        // Close all other collapses
         $("[id^='_']").not(target).collapse("hide");
 
-        // Toggle the target collapse
         $(target).collapse("toggle");
     });
 
@@ -85,9 +82,7 @@ $(document).ready(function () {
         targetLink.removeClass("show");
     });
 
-    // Event listener to handle shown.bs.collapse event
     $("[id^='_']").on("shown.bs.collapse", function () {
-        // Add the "show" class to the toggle link when a collapse is shown
         var targetLink = $(".toggle-collapse[data-target='#" + this.id + "']");
         targetLink.addClass("show");
     });
