@@ -56,8 +56,8 @@ namespace Model
 
     public enum BookingStatus
     {
-        Confirmed,
         Processing,
+        Confirmed,
         Cancelled,
         Completed,
     }

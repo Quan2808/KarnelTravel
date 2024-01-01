@@ -1,15 +1,15 @@
 ﻿@{
-    var filteredItems = Model.ToList().Where(h => h.Hotel != null && h.Status == BookingStatus.Completed).ToList();
+    var filteredItems = Model.ToList().Where(h => h.Resort != null && h.Status == BookingStatus.Completed).ToList();
 }
 @model IEnumerable<Model.Booking>
 <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
     <li class="nav-item" role="presentation">
         <a data-mdb-tab-init
            class="nav-link active"
-           id="hotel-processing-tab"
-           href="#hotel-processing-tabs"
+           id="Resort-processing-tab"
+           href="#Resort-processing-tabs"
            role="tab"
-           aria-controls="hotel-processing-tabs"
+           aria-controls="Resort-processing-tabs"
            aria-selected="true">
             Processing
         </a>
@@ -17,10 +17,10 @@
     <li class="nav-item" role="presentation">
         <a data-mdb-tab-init
            class="nav-link"
-           id="hotel-completed-tab"
-           href="#hotel-completed-tabs"
+           id="Resort-completed-tab"
+           href="#Resort-completed-tabs"
            role="tab"
-           aria-controls="hotel-completed-tabs"
+           aria-controls="Resort-completed-tabs"
            aria-selected="false">
             Completed
         </a>
@@ -28,10 +28,10 @@
     <li class="nav-item" role="presentation">
         <a data-mdb-tab-init
            class="nav-link"
-           id="hotel-cancelled-tab"
-           href="#hotel-cancelled-tabs"
+           id="Resort-cancelled-tab"
+           href="#Resort-cancelled-tabs"
            role="tab"
-           aria-controls="hotel-cancelled-tabs"
+           aria-controls="Resort-cancelled-tabs"
            aria-selected="false">
             Cancelled
         </a>
@@ -40,23 +40,23 @@
 
 <div class="tab-content" id="ex2-content">
     <div class="tab-pane fade show active"
-         id="hotel-processing-tabs"
+         id="Resort-processing-tabs"
          role="tabpanel"
-         aria-labelledby="hotel-processing-tab">
+         aria-labelledby="Resort-processing-tab">
         <table class="table align-middle mb-0 bg-white">
             <tbody>
-                @foreach (var i in Model.ToList().Where(h => h.Hotel != null).Where(s => s.Status == BookingStatus.Confirmed || s.Status == BookingStatus.Processing))
+                @foreach (var i in Model.ToList().Where(h => h.Resort != null).Where(s => s.Status == BookingStatus.Confirmed || s.Status == BookingStatus.Processing))
                 {
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="@i.Hotel.Image" alt="" style="width: 80px; height: 80px" class="rounded-circle" />
+                                <img src="@i.Resort.Image" alt="" style="width: 80px; height: 80px" class="rounded-circle" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">
                                         Code: @i.ID
                                         <span class="badge badge-info rounded-pill d-inline ms-4">@i.Status</span>
                                     </p>
-                                    <p class="text-muted mb-0 text-truncate" style="max-width: 200px;">@i.Hotel.Name</p>
+                                    <p class="text-muted mb-0 text-truncate" style="max-width: 200px;">@i.Resort.Name</p>
                                 </div>
                             </div>
                         </td>
@@ -79,7 +79,7 @@
                         </td>
                     </tr>
                 }
-                @if (!Model.Any(h => h.Hotel != null && h.Status == BookingStatus.Confirmed || h.Status == BookingStatus.Processing))
+                @if (!Model.Any(h => h.Resort != null && h.Status == BookingStatus.Confirmed || h.Status == BookingStatus.Processing))
                 {
                     <div class="d-flex align-items-center justify-content-center">
                         <img src="https://cdn6.agoda.net/images/mmb/Flight-Planet.svg?s=1024x" />
@@ -93,23 +93,23 @@
     </div>
 
     <div class="tab-pane fade"
-         id="hotel-completed-tabs"
+         id="Resort-completed-tabs"
          role="tabpanel"
-         aria-labelledby="hotel-completed-tab">
+         aria-labelledby="Resort-completed-tab">
         <table class="table align-middle mb-0 bg-white">
             <tbody>
-                @foreach (var i in Model.ToList().Where(h => h.Hotel != null).Where(s => s.Status == BookingStatus.Completed))
+                @foreach (var i in Model.ToList().Where(h => h.Resort != null).Where(s => s.Status == BookingStatus.Completed))
                 {
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="@i.Hotel.Image" alt="" style="width: 80px; height: 80px" class="rounded-circle" />
+                                <img src="@i.Resort.Image" alt="" style="width: 80px; height: 80px" class="rounded-circle" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">
                                         Code: @i.ID
                                         <span class="badge badge-success rounded-pill d-inline ms-4">@i.Status</span>
                                     </p>
-                                    <p class="text-muted mb-0 text-truncate" style="max-width: 200px;">@i.Hotel.Name</p>
+                                    <p class="text-muted mb-0 text-truncate" style="max-width: 200px;">@i.Resort.Name</p>
                                 </div>
                             </div>
                         </td>
@@ -132,7 +132,7 @@
                         </td>
                     </tr>
                 }
-                @if (!Model.Any(h => h.Hotel != null && h.Status == BookingStatus.Completed))
+                @if (!Model.Any(h => h.Resort != null && h.Status == BookingStatus.Completed))
                 {
                     <div class="d-flex align-items-center justify-content-center">
                         <img src="https://cdn6.agoda.net/images/mmb/Flight-Planet.svg?s=1024x" />
@@ -146,23 +146,23 @@
     </div>
 
     <div class="tab-pane fade"
-         id="hotel-cancelled-tabs"
+         id="Resort-cancelled-tabs"
          role="tabpanel"
-         aria-labelledby="hotel-cancelled-tab">
+         aria-labelledby="Resort-cancelled-tab">
         <table class="table align-middle mb-0 bg-white">
             <tbody>
-                @foreach (var i in Model.ToList().Where(h => h.Hotel != null).Where(s => s.Status == BookingStatus.Cancelled))
+                @foreach (var i in Model.ToList().Where(h => h.Resort != null).Where(s => s.Status == BookingStatus.Cancelled))
                 {
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="@i.Hotel.Image" alt="" style="width: 80px; height: 80px" class="rounded-circle" />
+                                <img src="@i.Resort.Image" alt="" style="width: 80px; height: 80px" class="rounded-circle" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">
                                         Code: @i.ID
                                         <span class="badge badge-danger rounded-pill d-inline ms-4">@i.Status</span>
                                     </p>
-                                    <p class="text-muted mb-0 text-truncate" style="max-width: 200px;">@i.Hotel.Name</p>
+                                    <p class="text-muted mb-0 text-truncate" style="max-width: 200px;">@i.Resort.Name</p>
                                 </div>
                             </div>
                         </td>
@@ -185,7 +185,7 @@
                         </td>
                     </tr>
                 }
-                @if (!Model.Any(h => h.Hotel != null && h.Status == BookingStatus.Cancelled))
+                @if (!Model.Any(h => h.Resort != null && h.Status == BookingStatus.Cancelled))
                 {
                     <div class="d-flex align-items-center justify-content-center">
                         <img src="https://cdn6.agoda.net/images/mmb/Flight-Planet.svg?s=1024x" />

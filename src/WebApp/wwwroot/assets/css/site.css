@@ -25,6 +25,10 @@
     .text-md-left {
         text-align: center !important;
     }
+
+    #check-in-out{
+        display: none;
+    }
 }
 
 .breadcrumb-item + .breadcrumb-item::before {

@@ -24,7 +24,9 @@ namespace WebApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var booking = _context.Bookings.Include(b => b.Hotel).Include(b => b.Resort).Include(b => b.Restaurant).Include(b => b.TouristSpot).Include(b => b.TravelInfo);
+            var isUser = await _userManager.GetUserAsync(User);
+
+            var booking = _context.Bookings.Include(b => b.Hotel).Include(b => b.Resort).Include(b => b.Restaurant).Include(b => b.TouristSpot).Include(b => b.TravelInfo).Where(user => user.CustomerPhone == isUser.PhoneNumber);
             return View(await booking.ToListAsync());
         }
 
@@ -32,19 +34,19 @@ namespace WebApp.Controllers
         {
             if (id == null || _context.Bookings == null)
             {
-                return NotFound();
+                return RedirectToAction("Index");
             }
-
+            var user = await _userManager.GetUserAsync(User);
             var booking = await _context.Bookings
                 .Include(b => b.Hotel)
                 .Include(b => b.Resort)
                 .Include(b => b.Restaurant)
                 .Include(b => b.TouristSpot)
                 .Include(b => b.TravelInfo)
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.ID == id && m.CustomerPhone == user.PhoneNumber);
             if (booking == null)
             {
-                return NotFound();
+                return RedirectToAction("Index");
             }
 
             return View(booking);
@@ -60,7 +62,7 @@ namespace WebApp.Controllers
                 ViewData["Id"] = id;
                 var booking = new Booking
                 {
-                    CustomerName = user.UserName,
+                    CustomerName = user.FirstName + " " + user.LastName,
                     CustomerPhone = user.PhoneNumber,
                     CheckIn = DateTime.Today,
                     CheckOut = DateTime.Today,
@@ -94,7 +96,7 @@ namespace WebApp.Controllers
                         break;
 
                     default:
-                        return RedirectToAction("Index");
+                        return View(booking);
                 }
 
                 return View(booking);
@@ -141,7 +143,6 @@ namespace WebApp.Controllers
                 booking.Status = BookingStatus.Processing;
                 if (booking.CheckIn >= DateTime.Today && booking.CheckOut > booking.CheckIn)
                 {
-                    // Perform any additional processing or validation before saving to the database
                     _context.Add(booking);
                     await _context.SaveChangesAsync();
 
@@ -159,107 +160,19 @@ namespace WebApp.Controllers
             return View(booking);
         }
 
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Bookings == null)
-            {
-                return NotFound();
-            }
-
-            var booking = await _context.Bookings.FindAsync(id);
-            if (booking == null)
-            {
-                return NotFound();
-            }
-            ViewData["HotelID"] = new SelectList(_context.Hotels, "ID", "Name", booking.HotelID);
-            ViewData["ResortID"] = new SelectList(_context.Resorts, "ID", "Name", booking.ResortID);
-            ViewData["RestaurantID"] = new SelectList(_context.Restaurants, "ID", "Name", booking.RestaurantID);
-            ViewData["TouristSpotID"] = new SelectList(_context.Tourists, "ID", "Description", booking.TouristSpotID);
-            ViewData["TravelInfoID"] = new SelectList(_context.Travels, "ID", "Description", booking.TravelInfoID);
-            return View(booking);
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,TravelInfoID,TouristSpotID,HotelID,ResortID,RestaurantID,CustomerName,CustomerPhone,CheckIn,CheckOut,TotalPrice,Status")] Booking booking)
+        public async Task<IActionResult> Cancelled(int id)
         {
-            if (id != booking.ID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(booking);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BookingExists(booking.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["HotelID"] = new SelectList(_context.Hotels, "ID", "Name", booking.HotelID);
-            ViewData["ResortID"] = new SelectList(_context.Resorts, "ID", "Name", booking.ResortID);
-            ViewData["RestaurantID"] = new SelectList(_context.Restaurants, "ID", "Name", booking.RestaurantID);
-            ViewData["TouristSpotID"] = new SelectList(_context.Tourists, "ID", "Description", booking.TouristSpotID);
-            ViewData["TravelInfoID"] = new SelectList(_context.Travels, "ID", "Description", booking.TravelInfoID);
-            return View(booking);
-        }
-
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Bookings == null)
-            {
-                return NotFound();
-            }
-
-            var booking = await _context.Bookings
-                .Include(b => b.Hotel)
-                .Include(b => b.Resort)
-                .Include(b => b.Restaurant)
-                .Include(b => b.TouristSpot)
-                .Include(b => b.TravelInfo)
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (booking == null)
-            {
-                return NotFound();
-            }
-
-            return View(booking);
-        }
-
-        // POST: Booking/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Bookings == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Bookings'  is null.");
-            }
             var booking = await _context.Bookings.FindAsync(id);
             if (booking != null)
             {
-                _context.Bookings.Remove(booking);
+                booking.Status = BookingStatus.Cancelled;
+                _context.Bookings.Update(booking);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool BookingExists(int id)
-        {
-            return (_context.Bookings?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }
