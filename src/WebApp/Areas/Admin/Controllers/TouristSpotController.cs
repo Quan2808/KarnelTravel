@@ -134,6 +134,13 @@ namespace WebApp.Areas.Admin
                 return NotFound();
             }
 
+            var bookings = await _context.Bookings.Where(b => b.TouristSpotID == id).ToListAsync();
+
+            foreach (var booking in bookings)
+            {
+                _context.Bookings.Remove(booking);
+            }
+
             _context.Tourists.Remove(exitingTourist);
             await _context.SaveChangesAsync();
 

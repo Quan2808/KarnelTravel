@@ -139,6 +139,13 @@ namespace WebApp.Areas.Admin
                 }
             }
 
+            var bookings = await _context.Bookings.Where(b => b.RestaurantID == id).ToListAsync();
+
+            foreach (var booking in bookings)
+            {
+                _context.Bookings.Remove(booking);
+            }
+
             _context.Restaurants.Remove(existingRestaurant);
             await _context.SaveChangesAsync();
 

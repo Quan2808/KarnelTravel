@@ -46,7 +46,7 @@
 
                 <div class="mb-3">
                     <label asp-for="TotalPrice" class="form-label"></label>
-                    <input asp-for="TotalPrice" class="form-control" required />
+                    <input asp-for="TotalPrice" id="totalPriceInput" class="form-control" required />
                     <div class="invalid-feedback">
                         <span asp-validation-for="TotalPrice" class="text-danger"></span>
                     </div>
@@ -59,3 +59,25 @@
         </div>
     </div>
 </section>
+
+@section Scripts{
+    <script>
+    document.getElementById('checkInInput').addEventListener('change', updateTotalPrice);
+    document.getElementById('checkOutInput').addEventListener('change', updateTotalPrice);
+
+    function updateTotalPrice() {
+        var checkInValue = new Date(document.getElementById('checkInInput').value);
+        var checkOutValue = new Date(document.getElementById('checkOutInput').value);
+
+        if (!isNaN(checkInValue.getTime()) && !isNaN(checkOutValue.getTime())) {
+            var numberOfDays = Math.ceil((checkOutValue - checkInValue) / (1000 * 60 * 60 * 24));
+
+            var unitPrice = parseFloat(document.getElementById('totalPriceInput').getAttribute('data-unit-price'));
+
+            var totalPrice = numberOfDays * unitPrice;
+
+            document.getElementById('totalPriceInput').value = totalPrice.toFixed(2);
+        }
+    }
+    </script>
+}

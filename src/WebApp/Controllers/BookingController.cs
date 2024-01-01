@@ -111,21 +111,22 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                int numberOfDays = (int)(booking.CheckOut - booking.CheckIn).TotalDays;
                 switch (package)
                 {
                     case "Hotel" when id > 0:
                         booking.HotelID = id;
-                        booking.TotalPrice = _context.Hotels.FirstOrDefault(h => h.ID == id)?.Price ?? 0;
+                        booking.TotalPrice = numberOfDays * _context.Hotels.FirstOrDefault(h => h.ID == id)?.Price ?? 0;
                         break;
 
                     case "Resort" when id > 0:
                         booking.ResortID = id;
-                        booking.TotalPrice = _context.Resorts.FirstOrDefault(r => r.ID == id)?.Price ?? 0;
+                        booking.TotalPrice = numberOfDays * _context.Resorts.FirstOrDefault(r => r.ID == id)?.Price ?? 0;
                         break;
 
                     case "Restaurant" when id > 0:
                         booking.RestaurantID = id;
-                        booking.TotalPrice = _context.Restaurants.FirstOrDefault(r => r.ID == id)?.Price ?? 0;
+                        booking.TotalPrice = numberOfDays * _context.Restaurants.FirstOrDefault(r => r.ID == id)?.Price ?? 0;
                         break;
 
                     case "TouristSpot" when id > 0:
@@ -134,7 +135,7 @@ namespace WebApp.Controllers
 
                     case "TravelInfo" when id > 0:
                         booking.TravelInfoID = id;
-                        booking.TotalPrice = _context.Travels.FirstOrDefault(t => t.ID == id)?.Price ?? 0;
+                        booking.TotalPrice = numberOfDays * _context.Travels.FirstOrDefault(t => t.ID == id)?.Price ?? 0;
                         break;
 
                     default:

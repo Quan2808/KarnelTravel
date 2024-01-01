@@ -124,6 +124,13 @@ namespace WebApp.Areas.Admin
                 return NotFound();
             }
 
+            var bookings = await _context.Bookings.Where(b => b.TravelInfoID == id).ToListAsync();
+
+            foreach (var booking in bookings)
+            {
+                _context.Bookings.Remove(booking);
+            }
+
             _context.Travels.Remove(existingTravel);
             await _context.SaveChangesAsync();
 
