@@ -15,15 +15,23 @@ namespace WebApp.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search)
         {
+
+            var travels = await _context.Travels.ToListAsync();
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                travels = _context.Travels.Where(l => l.TouristSpot!.Location.Contains(search)).ToList();
+            }
+
             ViewBag.TouristSpotID = new SelectList(_context.Tourists.ToList(), "ID", "Name");
 
             ViewBag.HotelID = new SelectList(_context.Hotels.ToList(), "ID", "Name");
             ViewBag.ResortID = new SelectList(_context.Resorts.ToList(), "ID", "Name");
             ViewBag.RestaurantID = new SelectList(_context.Restaurants.ToList(), "ID", "Name");
 
-            return View(await _context.Travels.ToListAsync());
+            return View(travels);
         }
 
         public async Task<IActionResult> Detail(int? id)
