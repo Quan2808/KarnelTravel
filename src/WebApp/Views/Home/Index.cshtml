@@ -44,63 +44,121 @@
                 <a data-mdb-tab-init class="nav-link fw-bold" id="menu-tab-3" href="#menu-tabs-3" role="tab"
                    aria-controls="menu-tabs-3" aria-selected="false"><i class="fas fa-tree fa-fw me-2"></i>Resorts</a>
             </li>
+            <li class="nav-item" role="presentation">
+                <a data-mdb-tab-init class="nav-link fw-bold" id="menu-tab-4" href="#menu-tabs-4" role="tab"
+                   aria-controls="menu-tabs-4" aria-selected="false"><i class="fas fa-compass fa-fw me-2"></i>TouristSpot</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a data-mdb-tab-init class="nav-link fw-bold" id="menu-tab-5" href="#menu-tabs-5" role="tab"
+                   aria-controls="menu-tabs-5" aria-selected="false"><i class="fas fa-book fa-fw me-2"></i>Travels</a>
+            </li>
         </ul>
         <div class="tab-content" id="menu-content">
             <div class="tab-pane fade show active" id="menu-tabs-1" role="tabpanel" aria-labelledby="menu-tab-1">
                 <div class="mb-3">
                     <label class="form-label fw-bold">Hotel Location:</label>
-                    <div class="row">
-                        <div class="col-md-9 mb-3">
-                            <input type="text" class="form-control" placeholder="Enter a destination">
-                        </div>
-                        <div class="col-md-3">
-                            <div class="mb-3 text-center">
-                                <button type="button" class="btn btn-primary" data-mdb-ripple-color="dark">
-                                    Search
-                                    <i class="fas fa-long-arrow-alt-right ms-2"></i>
-                                </button>
+                    <form asp-action="index" asp-controller="hotel">
+                        <div class="row">
+                            <div class="col-md-9 mb-3">
+                                <input name="search" type="search" class="form-control" placeholder="Enter a location">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3 text-center">
+                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">
+                                        Search
+                                        <i class="fas fa-long-arrow-alt-right ms-2"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
 
             <div class="tab-pane fade" id="menu-tabs-2" role="tabpanel" aria-labelledby="menu-tab-2">
                 <div class="mb-3">
                     <label class="form-label fw-bold">Restaurant Location:</label>
-                    <div class="row">
-                        <div class="col-md-9 mb-3">
-                            <input type="text" class="form-control" placeholder="Enter a destination">
-                        </div>
-                        <div class="col-md-3">
-                            <div class="mb-3 text-center">
-                                <button type="button" class="btn btn-primary" data-mdb-ripple-color="dark">
-                                    Search
-                                    <i class="fas fa-long-arrow-alt-right ms-2"></i>
-                                </button>
+                    <form asp-action="index" asp-controller="restaurant">
+                        <div class="row">
+                            <div class="col-md-9 mb-3">
+                                <input name="search" type="search" class="form-control" placeholder="Enter a location">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3 text-center">
+                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">
+                                        Search
+                                        <i class="fas fa-long-arrow-alt-right ms-2"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
+
             <div class="tab-pane fade" id="menu-tabs-3" role="tabpanel" aria-labelledby="menu-tab-3">
                 <div class="mb-3">
                     <label class="form-label fw-bold">Resort Location:</label>
-                    <div class="row">
-                        <div class="col-md-9 mb-3">
-                            <input type="text" class="form-control" placeholder="Enter a destination">
-                        </div>
-                        <div class="col-md-3">
-                            <div class="mb-3 text-center">
-                                <button type="button" class="btn btn-primary" data-mdb-ripple-color="dark">
-                                    Search
-                                    <i class="fas fa-long-arrow-alt-right ms-2"></i>
-                                </button>
+                    <form asp-action="index" asp-controller="resort">
+                        <div class="row">
+                            <div class="col-md-9 mb-3">
+                                <input name="search" type="search" class="form-control" placeholder="Enter a location">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3 text-center">
+                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">
+                                        Search
+                                        <i class="fas fa-long-arrow-alt-right ms-2"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
+
+            <div class="tab-pane fade" id="menu-tabs-4" role="tabpanel" aria-labelledby="menu-tab-4">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">TouristSpot Location:</label>
+                    <form asp-action="index" asp-controller="touristspot">
+                        <div class="row">
+                            <div class="col-md-9 mb-3">
+                                <input name="search" type="search" class="form-control" placeholder="Enter a location">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3 text-center">
+                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">
+                                        Search
+                                        <i class="fas fa-long-arrow-alt-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="menu-tabs-5" role="tabpanel" aria-labelledby="menu-tab-5">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Travel Location:</label>
+                    <form asp-action="index" asp-controller="travel">
+                        <div class="row">
+                            <div class="col-md-9 mb-3">
+                                <input name="search" type="search" class="form-control" placeholder="Enter a location">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3 text-center">
+                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">
+                                        Search
+                                        <i class="fas fa-long-arrow-alt-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </div>
 
     </div>

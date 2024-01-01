@@ -14,9 +14,16 @@ namespace WebApp.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search)
         {
-            return View(await _context.Restaurants.ToListAsync());
+            var restaurants = await _context.Restaurants.ToListAsync();
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                restaurants = restaurants.Where(l => l.Location!.Contains(search)).ToList();
+            }
+
+            return View(restaurants);
         }
 
         public async Task<IActionResult> Detail(int? id)
