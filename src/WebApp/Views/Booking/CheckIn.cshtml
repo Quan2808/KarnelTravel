@@ -2,82 +2,166 @@
 
 @{
     ViewData["Title"] = "Create";
+    var Package = ViewData["Package"];
+    var Id = ViewData["Id"];
 }
-
 <section class="row mt-5 mb-5">
-    <div class="card">
-        <div class="card-body">
-            <form asp-action="CheckIn" class="needs-validation" novalidate>
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <input type="hidden" name="package" value="@ViewData["Package"]" />
-                <input type="hidden" name="id" value="@ViewData["Id"]" />
-
-                <div class="mb-3">
-                    <label class="form-label">Your Name</label>
-                    <input asp-for="CustomerName" class="form-control" required />
-                    <div class="invalid-feedback">
-                        <span asp-validation-for="CustomerName" class="text-danger"></span>
+    <div class="col-md mb-3">
+        @if (Package as string == "Hotel")
+        {
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title text-center fw-bold mt-3">Room Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-center align-content-center">
+                        <img src="@ViewData["HotelImage"]" alt="@ViewData["HotelName"]" class="img-fluid" style="width: 50%" />
                     </div>
                 </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Phone Number</label>
-                    <input asp-for="CustomerPhone" class="form-control" required />
-                    <div class="invalid-feedback">
-                        <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+                <div class="card-body">
+                    <div class="card-text">
+                        <span class="fw-bold">@ViewData["HotelName"]</span>
+                    </div>
+                    <div class="card-text">
+                        <span class="fw-bold">Location: </span>@ViewData["HotelLocation"]
+                    </div>
+                    <div class="card-text">
+                        <span class="fw-bold">Price: </span>VND @ViewData["HotelPrice"]
                     </div>
                 </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Check-In</label>
-                    <input asp-for="CheckIn" class="form-control" required />
-                    <div class="invalid-feedback">
-                        <span asp-validation-for="CheckIn" class="text-danger"></span>
+            </div>
+        }
+        @if (Package as string == "Resort")
+        {
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title text-center fw-bold mt-3">Resort Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-center align-content-center">
+                        <img src="@ViewData["ResortImage"]" alt="@ViewData["ResortName"]" class="img-fluid" style="width: 50%" />
                     </div>
                 </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Check-Out</label>
-                    <input asp-for="CheckOut" class="form-control" required />
-                    <div class="invalid-feedback">
-                        <span asp-validation-for="CheckOut" class="text-danger"></span>
+                <div class="card-body">
+                    <div class="card-text">
+                        <span class="fw-bold">@ViewData["ResortName"]</span>
+                    </div>
+                    <div class="card-text">
+                        <span class="fw-bold">Location: </span>@ViewData["ResortLocation"]
+                    </div>
+                    <div class="card-text">
+                        <span class="fw-bold">Price: </span>VND @ViewData["ResortPrice"]
                     </div>
                 </div>
-
-                <div class="mb-3">
-                    <label asp-for="TotalPrice" class="form-label"></label>
-                    <input asp-for="TotalPrice" id="totalPriceInput" class="form-control" required />
-                    <div class="invalid-feedback">
-                        <span asp-validation-for="TotalPrice" class="text-danger"></span>
+            </div>
+        }
+        @if (Package as string == "Restaurant")
+        {
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title text-center fw-bold mt-3">Restaurant Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-center align-content-center">
+                        <img src="@ViewData["RestaurantImage"]" alt="@ViewData["RestaurantName"]" class="img-fluid" style="width: 50%" />
                     </div>
                 </div>
-
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                <div class="card-body">
+                    <div class="card-text">
+                        <span class="fw-bold">@ViewData["RestaurantName"]</span>
+                    </div>
+                    <div class="card-text">
+                        <span class="fw-bold">Location: </span>@ViewData["RestaurantLocation"]
+                    </div>
+                    <div class="card-text">
+                        <span class="fw-bold">Price: </span>VND @ViewData["RestaurantPrice"]
+                    </div>
                 </div>
-            </form>
+            </div>
+        }
+    </div>
+    <div class="col-md">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title text-center fw-bold mt-3">Your Information</h5>
+            </div>
+            <div class="card-body">
+                <form asp-action="CheckIn" class="needs-validation" novalidate>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" name="package" value="@Package" />
+                    <input type="hidden" name="id" value="@Id" />
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Your Name</label>
+                        <input asp-for="CustomerName" class="form-control" required />
+                        <div class="invalid-feedback">
+                            <span asp-validation-for="CustomerName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Phone Number</label>
+                        <input asp-for="CustomerPhone" class="form-control" required />
+                        <div class="invalid-feedback">
+                            <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Check-In</label>
+                        <input asp-for="CheckIn" class="form-control" required />
+                        <div class="invalid-feedback">
+                            <span asp-validation-for="CheckIn" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Check-Out</label>
+                        <input asp-for="CheckOut" class="form-control" required />
+                        <div class="invalid-feedback">
+                            <span asp-validation-for="CheckOut" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end align-items-center">
+                        <div class="mb-3 fs-4">
+                            <label class="fw-bold text-danger"> Total: </label>
+                            <span id="totalPriceDisplay">VND @Model.TotalPrice</span>
+                        </div>
+                        <div class="mb-3 ms-5">
+                            <button type="submit" class="btn btn-lg btn-primary">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </section>
 
 @section Scripts{
     <script>
-    document.getElementById('checkInInput').addEventListener('change', updateTotalPrice);
-    document.getElementById('checkOutInput').addEventListener('change', updateTotalPrice);
+        document.addEventListener('DOMContentLoaded', function () {
+            var checkInInput = document.querySelector('[name="CheckIn"]');
+            var checkOutInput = document.querySelector('[name="CheckOut"]');
+            var totalPriceDisplay = document.getElementById('totalPriceDisplay');
 
-    function updateTotalPrice() {
-        var checkInValue = new Date(document.getElementById('checkInInput').value);
-        var checkOutValue = new Date(document.getElementById('checkOutInput').value);
+            checkInInput.addEventListener('change', updateTotalPrice);
+            checkOutInput.addEventListener('change', updateTotalPrice);
 
-        if (!isNaN(checkInValue.getTime()) && !isNaN(checkOutValue.getTime())) {
-            var numberOfDays = Math.ceil((checkOutValue - checkInValue) / (1000 * 60 * 60 * 24));
+            function updateTotalPrice() {
+                var checkInValue = new Date(checkInInput.value);
+                var checkOutValue = new Date(checkOutInput.value);
 
-            var unitPrice = parseFloat(document.getElementById('totalPriceInput').getAttribute('data-unit-price'));
+                if (!isNaN(checkInValue.getTime()) && !isNaN(checkOutValue.getTime())) {
+                    var numberOfDays = Math.ceil((checkOutValue - checkInValue) / (1000 * 60 * 60 * 24));
 
-            var totalPrice = numberOfDays * unitPrice;
+                    var unitPrice = parseFloat('@Model.TotalPrice');
 
-            document.getElementById('totalPriceInput').value = totalPrice.toFixed(2);
-        }
-    }
+                    var totalPrice = numberOfDays * unitPrice;
+
+                    totalPriceDisplay.textContent = "VND " + totalPrice;
+                }
+            }
+        });
     </script>
 }

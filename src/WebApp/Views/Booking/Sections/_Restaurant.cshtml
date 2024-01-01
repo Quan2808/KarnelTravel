@@ -79,7 +79,9 @@
                         </td>
                     </tr>
                 }
-                @if (!Model.Any(h => h.Restaurant != null && h.Status == BookingStatus.Confirmed || h.Status == BookingStatus.Processing))
+                @if (!Model.Any(h => 
+                     (h.Restaurant != null && h.Status == BookingStatus.Confirmed) ||  
+                     (h.Restaurant != null && h.Status == BookingStatus.Processing)))
                 {
                     <div class="d-flex align-items-center justify-content-center">
                         <img src="https://cdn6.agoda.net/images/mmb/Flight-Planet.svg?s=1024x" />

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Model;
+using SQLitePCL;
 using WebApp.Data;
 
 namespace WebApp.Controllers
@@ -54,6 +55,11 @@ namespace WebApp.Controllers
 
         public async Task<IActionResult> CheckIn(string package, int id)
         {
+            if (package == null || id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
             var user = await _userManager.GetUserAsync(User);
 
             if (user != null)
@@ -72,18 +78,48 @@ namespace WebApp.Controllers
                 switch (package)
                 {
                     case "Hotel" when id > 0:
-                        booking.HotelID = id;
-                        booking.TotalPrice = _context.Hotels.FirstOrDefault(h => h.ID == id)?.Price ?? 0;
+                        var hotel = _context.Hotels.FirstOrDefault(h => h.ID == id);
+                        if (hotel != null)
+                        {
+                            booking.HotelID = id;
+                            booking.TotalPrice = hotel.Price ?? 0;
+
+                            ViewData["HotelName"] = hotel.Name;
+                            ViewData["HotelPrice"] = hotel.Price;
+                            ViewData["HotelLocation"] = hotel.Location;
+                            ViewData["HotelDescription"] = hotel.Description;
+                            ViewData["HotelImage"] = hotel.Image;
+                        }
                         break;
 
                     case "Resort" when id > 0:
-                        booking.ResortID = id;
-                        booking.TotalPrice = _context.Resorts.FirstOrDefault(r => r.ID == id)?.Price ?? 0;
+                        var resort = _context.Resorts.FirstOrDefault(r => r.ID == id);
+                        if (resort != null)
+                        {
+                            booking.ResortID = id;
+                            booking.TotalPrice = resort.Price ?? 0;
+
+                            ViewData["ResortName"] = resort.Name;
+                            ViewData["ResortPrice"] = resort.Price;
+                            ViewData["ResortLocation"] = resort.Location;
+                            ViewData["ResortDescription"] = resort.Description;
+                            ViewData["ResortImage"] = resort.Image;
+                        }
                         break;
 
                     case "Restaurant" when id > 0:
-                        booking.RestaurantID = id;
-                        booking.TotalPrice = _context.Restaurants.FirstOrDefault(r => r.ID == id)?.Price ?? 0;
+                        var restaurant = _context.Restaurants.FirstOrDefault(r => r.ID == id);
+                        if (restaurant != null)
+                        {
+                            booking.RestaurantID = id;
+                            booking.TotalPrice = restaurant.Price ?? 0;
+
+                            ViewData["RestaurantName"] = restaurant.Name;
+                            ViewData["RestaurantPrice"] = restaurant.Price;
+                            ViewData["RestaurantLocation"] = restaurant.Location;
+                            ViewData["RestaurantDescription"] = restaurant.Description;
+                            ViewData["RestaurantImage"] = restaurant.Image;
+                        }
                         break;
 
                     case "TouristSpot" when id > 0:
