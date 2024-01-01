@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +13,7 @@ using WebApp.Data;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class BookingController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -27,7 +29,14 @@ namespace WebApp.Controllers
         {
             var isUser = await _userManager.GetUserAsync(User);
 
-            var booking = _context.Bookings.Include(b => b.Hotel).Include(b => b.Resort).Include(b => b.Restaurant).Include(b => b.TouristSpot).Include(b => b.TravelInfo).Where(user => user.CustomerPhone == isUser.PhoneNumber);
+            var booking = _context.Bookings
+                .Include(b => b.Hotel)
+                .Include(b => b.Resort)
+                .Include(b => b.Restaurant)
+                .Include(b => b.TouristSpot)
+                .Include(b => b.TravelInfo)
+                .Where(user => user.CustomerPhone == isUser.PhoneNumber);
+
             return View(await booking.ToListAsync());
         }
 
