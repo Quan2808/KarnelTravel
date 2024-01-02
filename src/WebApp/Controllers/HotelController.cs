@@ -39,14 +39,14 @@ namespace WebApp.Controllers
         {
             if (id == null || _context.Hotels == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             var hotel = await _context.Hotels
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (hotel == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             return View(hotel);
