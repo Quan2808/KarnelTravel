@@ -210,7 +210,7 @@ namespace WebApp.Migrations
 
                     b.HasIndex("TravelInfoID");
 
-                    b.ToTable("Bookings", (string)null);
+                    b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("Model.Hotel", b =>
@@ -240,7 +240,49 @@ namespace WebApp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Hotels", (string)null);
+                    b.ToTable("Hotels");
+                });
+
+            modelBuilder.Entity("Model.Rating", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("BookingID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comment")
+                        .HasMaxLength(2147483647)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerPhone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("HotelID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("BookingID")
+                        .IsUnique();
+
+                    b.HasIndex("HotelID");
+
+                    b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("Model.Resort", b =>
@@ -270,7 +312,7 @@ namespace WebApp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Resorts", (string)null);
+                    b.ToTable("Resorts");
                 });
 
             modelBuilder.Entity("Model.Restaurant", b =>
@@ -300,7 +342,7 @@ namespace WebApp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Restaurants", (string)null);
+                    b.ToTable("Restaurants");
                 });
 
             modelBuilder.Entity("Model.TouristSpot", b =>
@@ -343,7 +385,7 @@ namespace WebApp.Migrations
 
                     b.HasIndex("RestaurantID");
 
-                    b.ToTable("Tourists", (string)null);
+                    b.ToTable("Tourists");
                 });
 
             modelBuilder.Entity("Model.TravelInfo", b =>
@@ -380,7 +422,7 @@ namespace WebApp.Migrations
 
                     b.HasIndex("TouristSpotID");
 
-                    b.ToTable("Travels", (string)null);
+                    b.ToTable("Travels");
                 });
 
             modelBuilder.Entity("WebApp.Data.ApplicationUser", b =>
@@ -552,6 +594,21 @@ namespace WebApp.Migrations
                     b.Navigation("TravelInfo");
                 });
 
+            modelBuilder.Entity("Model.Rating", b =>
+                {
+                    b.HasOne("Model.Booking", "Booking")
+                        .WithOne("Rating")
+                        .HasForeignKey("Model.Rating", "BookingID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Model.Hotel", null)
+                        .WithMany("Ratings")
+                        .HasForeignKey("HotelID");
+
+                    b.Navigation("Booking");
+                });
+
             modelBuilder.Entity("Model.TouristSpot", b =>
                 {
                     b.HasOne("Model.Hotel", "Hotel")
@@ -582,6 +639,16 @@ namespace WebApp.Migrations
                         .IsRequired();
 
                     b.Navigation("TouristSpot");
+                });
+
+            modelBuilder.Entity("Model.Booking", b =>
+                {
+                    b.Navigation("Rating");
+                });
+
+            modelBuilder.Entity("Model.Hotel", b =>
+                {
+                    b.Navigation("Ratings");
                 });
 #pragma warning restore 612, 618
         }
