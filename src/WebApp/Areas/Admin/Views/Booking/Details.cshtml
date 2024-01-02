@@ -1,0 +1,97 @@
+﻿@model Model.Booking
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section>
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+        <div class="d-flex flex-column justify-content-center">
+            <h4 class="mb-1 mt-3">Details</h4>
+            <a asp-action="Index" class="mb-2">
+                <i class="fa-solid fa-arrow-left-long">
+                </i> Return Booking List
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="info-section">
+                        <small class="d-block fw-normal text-uppercase mb-3">
+                            Booking Information
+                        </small>
+                        <hr class="hr hr-blurry" />
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">Name:</span>
+                                <span>@Model.CustomerName</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">Phone:</span>
+                                <span>@Model.CustomerPhone</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">Start:</span>
+                                <span>@Model.CheckIn</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">End:</span>
+                                <span>@Model.CheckOut</span>
+                            </li>
+                            @if (Model.HotelID != null)
+                            {
+                                <li class="mb-3">
+                                    <span class="fw-bold me-2">Hotel:</span>
+                                    <span>@Model.Hotel.Name</span>
+                                </li>
+                            }
+                            @if (Model.ResortID != null)
+                            {
+                                <li class="mb-3">
+                                    <span class="fw-bold me-2">Resort:</span>
+                                    <span>@Model.Resort.Name</span>
+                                </li>
+                            }
+                            @if (Model.RestaurantID != null)
+                            {
+                                <li class="mb-3">
+                                    <span class="fw-bold me-2">Restaurant:</span>
+                                    <span>@Model.Restaurant.Name</span>
+                                </li>
+                            }
+                            @if (Model.TravelInfoID != null)
+                            {
+                                <li class="mb-3">
+                                    <span class="fw-bold me-2">Travel:</span>
+                                    <span>@Model.TravelInfo.Name</span>
+                                </li>
+                            }
+                            @if (Model.TouristSpotID != null)
+                            {
+                                <li class="mb-3">
+                                    <span class="fw-bold me-2">Tourist:</span>
+                                    <span>@Model.TouristSpot.Name</span>
+                                </li>
+                            }
+                            <form asp-action="Update">
+                                <input type="hidden" asp-for="ID" />
+                                <li class="mb-3">
+                                    <span class="fw-bold me-2">Status:</span>
+                                    <select class="form-control" asp-for="Status" asp-items="Html.GetEnumSelectList<BookingStatus>()"></select>
+                                    <button type="submit" class="btn btn-primary">Change Status</button>
+                                </li>
+                            </form>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <script src="~/admin/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+}
