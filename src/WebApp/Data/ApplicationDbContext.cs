@@ -44,7 +44,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<TouristSpot> Tourists { get; set; }
     public DbSet<TravelInfo> Travels { get; set; }
     public DbSet<Booking> Bookings { get; set; }
-
+    public DbSet<Rating> Ratings { get; set; }
 
     public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {

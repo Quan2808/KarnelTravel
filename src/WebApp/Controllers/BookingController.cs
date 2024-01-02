@@ -220,5 +220,22 @@ namespace WebApp.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Rate(
+           [Bind("ID,Value,Comment,CustomerName,CustomerPhone,BookingID")] Rating rating)
+        {
+            var booking = await _context.Bookings.FirstOrDefaultAsync(r => r.ID == rating.BookingID);
+
+            if (booking != null)
+            {
+                rating.CreatedAt = DateTime.Now;
+                _context.Add(rating);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(rating);
+        }
     }
 }

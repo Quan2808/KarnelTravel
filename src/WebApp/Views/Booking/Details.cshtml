@@ -239,8 +239,58 @@
                             </form>
                         </div>
                     }
+                    @if (Model.Status == BookingStatus.Completed)
+                    {
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#Rating">
+                                Rating
+                            </button>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<div class="modal fade" id="Rating" tabindex="-1" aria-labelledby="RatingLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="RatingLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="rating-box">
+                    <header>How was your experience?</header>
+                    <div class="stars d-flex justify-content-between">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    
+</style>
+
+<script>
+    const stars = document.querySelectorAll(".stars i");
+    stars.forEach((star, index1) => {
+        star.addEventListener("click", () => {
+            stars.forEach((star, index2) => {
+                index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+            });
+        });
+    });
+</script>
