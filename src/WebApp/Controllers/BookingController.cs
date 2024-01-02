@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.Operations;
 using Microsoft.EntityFrameworkCore;
 using Model;
 using SQLitePCL;
@@ -47,13 +48,16 @@ namespace WebApp.Controllers
                 return RedirectToAction("Index");
             }
             var user = await _userManager.GetUserAsync(User);
+
             var booking = await _context.Bookings
                 .Include(b => b.Hotel)
                 .Include(b => b.Resort)
                 .Include(b => b.Restaurant)
                 .Include(b => b.TouristSpot)
                 .Include(b => b.TravelInfo)
+                .Include(b => b.Rating)
                 .FirstOrDefaultAsync(m => m.ID == id && m.CustomerPhone == user.PhoneNumber);
+
             if (booking == null)
             {
                 return RedirectToAction("Index");
@@ -230,12 +234,18 @@ namespace WebApp.Controllers
 
             if (booking != null)
             {
-                rating.CreatedAt = DateTime.Now;
-                _context.Add(rating);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (rating.Value >= 1)
+                {
+                    rating.CustomerName = booking.CustomerName;
+                    rating.CustomerPhone = booking.CustomerPhone;
+                    rating.CreatedAt = DateTime.Now;
+                    rating.BookingID = booking.ID;
+                    _context.Add(rating);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
-            return View(rating);
+            return RedirectToAction("details", new { id = rating.BookingID });
         }
     }
 }

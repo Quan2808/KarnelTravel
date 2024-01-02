@@ -52,6 +52,7 @@ namespace Model
         [ForeignKey("TravelInfoID")]
         public TravelInfo? TravelInfo { get; set; }
 
+        public Rating? Rating { get; set; }
     }
 
     public enum BookingStatus

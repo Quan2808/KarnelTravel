@@ -210,7 +210,7 @@ namespace WebApp.Migrations
 
                     b.HasIndex("TravelInfoID");
 
-                    b.ToTable("Bookings");
+                    b.ToTable("Bookings", (string)null);
                 });
 
             modelBuilder.Entity("Model.Hotel", b =>
@@ -240,7 +240,7 @@ namespace WebApp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Hotels");
+                    b.ToTable("Hotels", (string)null);
                 });
 
             modelBuilder.Entity("Model.Resort", b =>
@@ -270,7 +270,7 @@ namespace WebApp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Resorts");
+                    b.ToTable("Resorts", (string)null);
                 });
 
             modelBuilder.Entity("Model.Restaurant", b =>
@@ -300,7 +300,7 @@ namespace WebApp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Restaurants");
+                    b.ToTable("Restaurants", (string)null);
                 });
 
             modelBuilder.Entity("Model.TouristSpot", b =>
@@ -343,7 +343,7 @@ namespace WebApp.Migrations
 
                     b.HasIndex("RestaurantID");
 
-                    b.ToTable("Tourists");
+                    b.ToTable("Tourists", (string)null);
                 });
 
             modelBuilder.Entity("Model.TravelInfo", b =>
@@ -380,7 +380,7 @@ namespace WebApp.Migrations
 
                     b.HasIndex("TouristSpotID");
 
-                    b.ToTable("Travels");
+                    b.ToTable("Travels", (string)null);
                 });
 
             modelBuilder.Entity("WebApp.Data.ApplicationUser", b =>
