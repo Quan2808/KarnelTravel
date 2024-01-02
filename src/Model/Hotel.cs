@@ -21,6 +21,6 @@ namespace Model
 
         public string? Image { get; set; }
 
-        public List<Rating> Ratings { get; set; }
+        public List<Rating>? Ratings { get; set; }
     }
 }

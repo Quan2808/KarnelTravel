@@ -51,7 +51,7 @@
                         <p class="text-muted">@i.Hotel.Location</p>
                         <div class="d-flex justify-content-start align-items-center mb-2">
                             @{
-                                int ratingValue = i.TotalRatingValue / i.NumRatings;
+                                int ratingValue = i.NumRatings > 0 ? i.TotalRatingValue / i.NumRatings : 0;
                             }
                             <div class="ratings">
                                 @for (var j = 0; j < 5; j++)
@@ -64,7 +64,7 @@
                         <div class="d-flex justify-content-between">
                             <div class="d-flex justify-content-start align-items-center">
                                 <p class="card-text fw-bold text-danger">
-                                    VND @i.Hotel.Price
+                                    VND @string.Format("{0:N0}", i.Hotel.Price)
                                 </p>
                             </div>
                             <div class="d-flex justify-content-start align-items-center">
