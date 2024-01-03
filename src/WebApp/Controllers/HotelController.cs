@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Model;
 using WebApp.Data;
 
 namespace WebApp.Controllers
@@ -18,19 +19,19 @@ namespace WebApp.Controllers
         {
             var hotels = await _context.Hotels.ToListAsync();
 
-            if (!String.IsNullOrEmpty(search))
-            {
-                hotels = hotels.Where(l=>l.Location!.Contains(search)).ToList();
-            }
-
             var hotelData = hotels.Select(hotel => new
             {
                 Hotel = hotel,
                 NumRatings = _context.Ratings.Count(r => r.Booking.HotelID == hotel.ID),
-                TotalRatingValue =  _context.Ratings
+                TotalRatingValue = _context.Ratings
                                     .Where(r => r.Booking.HotelID == hotel.ID)
                                     .Sum(r => r.Value)
             });
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                hotelData = hotelData.Where(data => data.Hotel.Location!.Contains(search)).ToList();
+            }
 
             return View(hotelData);
         }
@@ -42,14 +43,24 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            var hotel = await _context.Hotels
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var hotel = await _context.Hotels.FirstOrDefaultAsync(m => m.ID == id);
+
             if (hotel == null)
             {
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(hotel);
+            var hotelData = new
+            {
+                Hotel = hotel,
+                Review = _context.Ratings.Where(r => r.Booking!.HotelID == hotel.ID).ToList(),
+                NumRatings = _context.Ratings.Count(r => r.Booking!.HotelID == hotel.ID),
+                TotalRatingValue = _context.Ratings
+                                   .Where(r => r.Booking!.HotelID == hotel.ID)
+                                   .Sum(r => r.Value)
+            };
+
+            return View(hotelData);
         }
     }
 }
