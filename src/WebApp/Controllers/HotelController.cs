@@ -23,21 +23,30 @@ namespace WebApp.Controllers
                 hotels = hotels.Where(l=>l.Location!.Contains(search)).ToList();
             }
 
-            return View(hotels);
+            var hotelData = hotels.Select(hotel => new
+            {
+                Hotel = hotel,
+                NumRatings = _context.Ratings.Count(r => r.Booking.HotelID == hotel.ID),
+                TotalRatingValue =  _context.Ratings
+                                    .Where(r => r.Booking.HotelID == hotel.ID)
+                                    .Sum(r => r.Value)
+            });
+
+            return View(hotelData);
         }
 
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null || _context.Hotels == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             var hotel = await _context.Hotels
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (hotel == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             return View(hotel);

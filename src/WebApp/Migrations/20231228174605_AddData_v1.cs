@@ -65,9 +65,9 @@ namespace WebApp.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    HotelID = table.Column<int>(type: "int", nullable: false),
-                    ResortID = table.Column<int>(type: "int", nullable: false),
-                    RestaurantID = table.Column<int>(type: "int", nullable: false),
+                    HotelID = table.Column<int>(type: "int", nullable: true),
+                    ResortID = table.Column<int>(type: "int", nullable: true),
+                    RestaurantID = table.Column<int>(type: "int", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Location = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
@@ -79,20 +79,17 @@ namespace WebApp.Migrations
                         name: "FK_Tourists_Hotels_HotelID",
                         column: x => x.HotelID,
                         principalTable: "Hotels",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Tourists_Resorts_ResortID",
                         column: x => x.ResortID,
                         principalTable: "Resorts",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Tourists_Restaurants_RestaurantID",
                         column: x => x.RestaurantID,
                         principalTable: "Restaurants",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -119,6 +116,120 @@ namespace WebApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Bookings",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TravelInfoID = table.Column<int>(type: "int", nullable: true),
+                    TouristSpotID = table.Column<int>(type: "int", nullable: true),
+                    HotelID = table.Column<int>(type: "int", nullable: true),
+                    ResortID = table.Column<int>(type: "int", nullable: true),
+                    RestaurantID = table.Column<int>(type: "int", nullable: true),
+                    CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CustomerPhone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CheckIn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CheckOut = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TotalPrice = table.Column<float>(type: "real", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Bookings", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Bookings_Hotels_HotelID",
+                        column: x => x.HotelID,
+                        principalTable: "Hotels",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Bookings_Resorts_ResortID",
+                        column: x => x.ResortID,
+                        principalTable: "Resorts",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Bookings_Restaurants_RestaurantID",
+                        column: x => x.RestaurantID,
+                        principalTable: "Restaurants",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Bookings_Tourists_TouristSpotID",
+                        column: x => x.TouristSpotID,
+                        principalTable: "Tourists",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Bookings_Travels_TravelInfoID",
+                        column: x => x.TravelInfoID,
+                        principalTable: "Travels",
+                        principalColumn: "ID");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Ratings",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Value = table.Column<int>(type: "int", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(max)", maxLength: 2147483647, nullable: true),
+                    CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CustomerPhone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    BookingID = table.Column<int>(type: "int", nullable: false),
+                    HotelID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ratings", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Ratings_Bookings_BookingID",
+                        column: x => x.BookingID,
+                        principalTable: "Bookings",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Ratings_Hotels_HotelID",
+                        column: x => x.HotelID,
+                        principalTable: "Hotels",
+                        principalColumn: "ID");
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bookings_HotelID",
+                table: "Bookings",
+                column: "HotelID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bookings_ResortID",
+                table: "Bookings",
+                column: "ResortID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bookings_RestaurantID",
+                table: "Bookings",
+                column: "RestaurantID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bookings_TouristSpotID",
+                table: "Bookings",
+                column: "TouristSpotID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bookings_TravelInfoID",
+                table: "Bookings",
+                column: "TravelInfoID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ratings_BookingID",
+                table: "Ratings",
+                column: "BookingID",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ratings_HotelID",
+                table: "Ratings",
+                column: "HotelID");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Tourists_HotelID",
                 table: "Tourists",
@@ -142,6 +253,12 @@ namespace WebApp.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Ratings");
+
+            migrationBuilder.DropTable(
+                name: "Bookings");
+
             migrationBuilder.DropTable(
                 name: "Travels");
 

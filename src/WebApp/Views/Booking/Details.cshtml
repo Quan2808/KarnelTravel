@@ -241,11 +241,65 @@
                     }
                     @if (Model.Status == BookingStatus.Completed)
                     {
-                        <div class="text-center">
-                            <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#Rating">
-                                Rating
-                            </button>
-                        </div>
+                        @if (Model.Rating != null && Model.Rating.CustomerPhone == Model.CustomerPhone)
+                        {
+                            <div class="card-text  my-3 ms-5 ratings">
+                                <span class="me-3 fw-bold">
+                                    Your Rating:
+                                </span>
+                                <span id="ratingContainer"></span>
+                            </div>
+                            @if (Model.Rating.Comment != null)
+                            {
+                                <div class="card-text  my-3 ms-5 ratings">
+                                    <span class="fw-bold">Your Comment:</span>
+                                    @Model.Rating.Comment
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="text-center">
+                                <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#Rating">
+                                    Rating
+                                </button>
+                            </div>
+                            <div class="modal fade" id="Rating" tabindex="-1" aria-labelledby="RatingLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form asp-action="Rate" method="post">
+                                            <div class="modal-body">
+                                                <div class="rating-box">
+                                                    <header>How was your experience?</header>
+                                                    <div class="stars d-flex justify-content-between">
+                                                        <i class="fa-solid fa-star" data-value="1"></i>
+                                                        <i class="fa-solid fa-star" data-value="2"></i>
+                                                        <i class="fa-solid fa-star" data-value="3"></i>
+                                                        <i class="fa-solid fa-star" data-value="4"></i>
+                                                        <i class="fa-solid fa-star" data-value="5"></i>
+                                                    </div>
+                                                </div>
+                                                <div asp-validation-summary="All" class="text-danger"></div>
+                                                <input type="hidden" asp-for="CustomerName" />
+                                                <input type="hidden" asp-for="CustomerPhone" />
+                                                <input type="hidden" asp-for="Rating!.CreatedAt" value="@DateTime.Now" />
+                                                <input type="hidden" asp-for="Rating!.BookingID" value="@Model.ID" />
+                                                <input type="hidden" asp-for="Rating!.Value" class="form-control" />
+                                                <div class="form-group">
+                                                    <label asp-for="Rating!.Comment" class="control-label"></label>
+                                                    <input asp-for="Rating!.Comment" class="form-control" />
+                                                    <span asp-validation-for="Rating!.Comment" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
                     }
                 </div>
             </div>
@@ -253,44 +307,41 @@
     </div>
 </section>
 
-<div class="modal fade" id="Rating" tabindex="-1" aria-labelledby="RatingLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="RatingLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="rating-box">
-                    <header>How was your experience?</header>
-                    <div class="stars d-flex justify-content-between">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
+@section Scripts{
+    <script>
+        const stars = document.querySelectorAll(".stars i");
+        const ratingInput = document.getElementById("Rating_Value");
 
-<style>
-    
-</style>
+        stars.forEach((star, index1) => {
+            star.addEventListener("click", () => {
+                stars.forEach((star, index2) => {
+                    index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+                });
 
-<script>
-    const stars = document.querySelectorAll(".stars i");
-    stars.forEach((star, index1) => {
-        star.addEventListener("click", () => {
-            stars.forEach((star, index2) => {
-                index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+                const selectedValue = index1 + 1;
+                ratingInput.value = selectedValue;
             });
         });
-    });
-</script>
+
+        stars[4].click();
+    </script>
+    @if (Model.Rating != null && Model.Rating.Value != null)
+    {
+        <script>
+            var ratingValue = @Model.Rating!.Value;
+            document.getElementById("ratingContainer").innerHTML = "";
+
+            for (var i = 0; i < 5; i++) {
+                var starIcon = document.createElement("i");
+
+                if (i < ratingValue) {
+                    starIcon.className = "fa fa-star rating-color";
+                } else {
+                    starIcon.className = "fa fa-star";
+                }
+
+                document.getElementById("ratingContainer").appendChild(starIcon);
+            }
+        </script>
+    }
+}
