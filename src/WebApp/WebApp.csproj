@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Rating\" />
     <Folder Include="wwwroot\assets\images\thumbails\Hotel\" />
   </ItemGroup>
 
