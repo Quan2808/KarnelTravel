@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Model.Feedback>
+@{
+    ViewData["Title"] = "Index";
+}
+<div asp-validation-summary="All"></div>
+<div class="card p-3">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead class="text-center">
+                <tr>
+                    <th>UserName</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Comment</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var feedback in Model)
+                {
+                    <tr>
+                        <td>@feedback.CustomerName</td>
+                        <td>@feedback.CustomerPhone</td>
+                        <td>@feedback.CommentDate.ToString("HH:mm:ss MM/dd/yyyy")</td>
+                        <td>@(feedback.Comment.Length > 30 ? feedback.Comment.Substring(0, 30) + "..." : feedback.Comment)</td>
+                        <td class="text-center">
+                            <a asp-controller="feedback" asp-action="details" asp-route-id="@feedback.ID">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
