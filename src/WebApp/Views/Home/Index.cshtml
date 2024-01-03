@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<dynamic>
+@{
     ViewData["Title"] = "Home";
 }
 @section Banner{
@@ -206,42 +207,47 @@
     </div>
 </section>
 
-<section id="tourist-spots" class="mt-4">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <h2 class="section-heading mb-4 fw-bold">Explore Captivating Tourist Spots</h2>
-                <p class="text-muted">Discover the beauty of our country with Karnel Travels. We take you on a journey to some of the most mesmerizing tourist spots that will leave you with unforgettable memories.</p>
-            </div>
-        </div>
-        <div class="row mt-5">
-            @for (int i = 1; i <= 3; i++)
-            {
-                <div class="col-lg-4">
-                    <div class="card">
-                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Name of item @i" />
-                        <div class="card-body">
-                            <h5 class="card-title">Name of item @i</h5>
-                            <p class="card-text">
-                                Description of item @i
-                            </p>
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <div class="ratings">
-                                        <i class="fa fa-star rating-color"></i>
-                                        <i class="fa fa-star rating-color"></i>
-                                        <i class="fa fa-star rating-color"></i>
-                                        <i class="fa fa-star rating-color"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <h5 class="review-count">12 Reviews</h5>
-                                </div>
-                                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Button</button>
+<section class="mt-5 mb-5">
+    <h3 class="text-center fw-bold">
+        Featured properties recommended for you
+    </h3>
+    <div class="row mt-5 me-3 ms-3">
+        @foreach (var i in Model)
+        {
+            <div class="col-lg-3 mb-3">
+                <div class="card">
+                    <img src="@i.Hotel.Image" class="card-img-top" alt="@i.Hotel.Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">@i.Hotel.Name</h5>
+                        <p class="text-muted">@i.Hotel.Location</p>
+                        <div class="d-flex justify-content-start align-items-center mb-2">
+                            @{
+                                int ratingValue = i.NumRatings > 0 ? i.TotalRatingValue / i.NumRatings : 0;
+                            }
+                            <div class="ratings">
+                                @for (var j = 0; j < 5; j++)
+                                {
+                                    <i class="fa fa-star @(j < ratingValue ? "rating-color" : "")"></i>
+                                }
+                            </div>
+                            <h5 class="review-count">@i.NumRatings Reviews</h5>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-start align-items-center">
+                                <p class="card-text fw-bold text-danger">
+                                    VND @string.Format("{0,15:N0}", i.Hotel.Price)
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <a asp-controller="hotel" asp-action="detail" asp-route-id="@i.Hotel.ID" class="text-primary">
+                                    View
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            }
-        </div>
+            </div>
+
+        }
     </div>
 </section>
