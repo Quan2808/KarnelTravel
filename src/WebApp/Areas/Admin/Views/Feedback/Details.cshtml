@@ -1,0 +1,63 @@
+﻿@model Model.Feedback
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section>
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+        <div class="d-flex flex-column justify-content-center">
+            <h4 class="mb-1 mt-3">Details</h4>
+            <a asp-action="Index" class="mb-2">
+                <i class="fa-solid fa-arrow-left-long">
+                </i> Return Feedback List
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="info-section">
+                        <small class="d-block fw-normal text-uppercase mb-3">
+                            Feedback Information
+                        </small>
+                        <hr class="hr hr-blurry" />
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">Name</span>
+                                <span>@Model.CustomerName</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">Email</span>
+                                <span>@Model.CustomerPhone</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">Date</span>
+                                <span>@Model.CommentDate.ToString("HH:mm:ss MM/dd/yyyy")</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="description-section">
+                        <small class="d-block fw-normal text-uppercase mb-3">
+                            Feedback Comment
+                        </small>
+                        <hr class="hr hr-blurry" />
+                        <div>
+                            @Html.Raw(Model.Comment)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts{
+    <script src="~/admin/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+}

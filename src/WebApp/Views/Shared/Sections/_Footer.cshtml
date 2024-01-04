@@ -19,18 +19,21 @@
                         Services
                     </h6>
                     <p>
-                        <a href="#!" class="text-reset">
+                        <a class="text-reset" asp-controller="touristspot" asp-action="index" asp-area="">
                             Tourist Spots
                         </a>
                     </p>
                     <p>
-                        <a href="#!" class="text-reset">
-                            Travel Information
+                        <a class="text-reset" asp-controller="hotel" asp-action="index" asp-area="">
+                            Hotel Information 
                         </a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">
-                            Hospitality Establishments
+                    </p> <p>
+                        <a class="text-reset" asp-controller="restaurant" asp-action="index" asp-area="">
+                            Restaurant Infor
+                        </a>
+                    </p> <p>
+                        <a class="text-reset" asp-controller="resort" asp-action="index" asp-area="">
+                            Resort Information
                         </a>
                     </p>
                 </div>
@@ -39,14 +42,14 @@
                     
                     <p>
                         <i class="fa-regular fa-envelope me-3"></i>
-                        <a href="#" class="text-reset">
+                        <a asp-action="index" asp-controller="feedback" asp-area="" class="text-reset">
                             info@karneltravels.com
                         </a>
                     </p>
                     <p>
                         <i class="fa-solid fa-phone me-3"></i>
-                        <a href="#" class="text-reset">
-                            +84 123123123
+                        <a asp-action="index" asp-controller="feedback" asp-area="" class="text-reset">
+                            +84 338805198
                         </a>
                     </p>
                 </div>
@@ -54,7 +57,7 @@
             </div>
         </div>
     </section>
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 container">
+  @*  <section class="d-flex justify-content-center justify-content-lg-between p-4 container">
         <div class="me-5 d-none d-lg-block">
             <span>Get connected with us on social networks:</span>
         </div>
@@ -72,5 +75,5 @@
                 <i class="fab fa-linkedin fa-lg"></i>
             </a>
         </div>
-    </section>
+    </section>*@
 </footer>
