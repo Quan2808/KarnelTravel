@@ -34,17 +34,23 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Hotel</label>
-                        <select class="form-control" asp-for="HotelID" asp-items="ViewBag.HotelID"></select>
+                        <select class="form-control" asp-for="HotelID" asp-items="ViewBag.HotelID">
+                            <option value="">No Select</option>
+                        </select>
                         <span asp-validation-for="HotelID" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Resort</label>
-                        <select class="form-control" asp-for="ResortID" asp-items="ViewBag.ResortID"></select>
+                        <select class="form-control" asp-for="ResortID" asp-items="ViewBag.ResortID">
+                            <option value="">No Select</option>
+                        </select>
                         <span asp-validation-for="ResortID" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Restaurant</label>
-                        <select class="form-control" asp-for="RestaurantID" asp-items="ViewBag.RestaurantID"></select>
+                        <select class="form-control" asp-for="RestaurantID" asp-items="ViewBag.RestaurantID">
+                            <option value="">No Select</option>
+                        </select>
                         <span asp-validation-for="RestaurantID" class="text-danger"></span>
                     </div>
                 </div>

@@ -47,7 +47,8 @@ namespace WebApp.Areas.Admin
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Location,Price,Description")] Hotel hotel, IFormFile imageFile)
+        public async Task<IActionResult> Create([Bind("Id,Name,Location,Price,Description")] 
+        Hotel hotel, IFormFile imageFile)
         {
             try
             {

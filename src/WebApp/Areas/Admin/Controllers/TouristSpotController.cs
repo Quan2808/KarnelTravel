@@ -55,34 +55,46 @@ namespace WebApp.Areas.Admin
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Location,Description,HotelID,ResortID,RestaurantID")] TouristSpot touristSpot)
+        public async Task<IActionResult> Create(
+            [Bind("Id,Name,Location,Description,HotelID,ResortID,RestaurantID")]
+            TouristSpot touristSpot, IFormFile imageFile)
         {
             try
             {
-                ViewBag.HotelID = new SelectList(_context.Hotels.ToList(), "ID", "Name", touristSpot.HotelID);
-                ViewBag.ResortID = new SelectList(_context.Resorts.ToList(), "ID", "Name", touristSpot.ResortID);
-                ViewBag.RestaurantID = new SelectList(_context.Restaurants.ToList(), "ID", "Name", touristSpot.RestaurantID);
+                ViewBag.HotelID = new SelectList
+                    (_context.Hotels.ToList(), "ID", "Name", touristSpot.HotelID);
+                ViewBag.ResortID = new SelectList
+                    (_context.Resorts.ToList(), "ID", "Name", touristSpot.ResortID);
+                ViewBag.RestaurantID = new SelectList
+                    (_context.Restaurants.ToList(), "ID", "Name", touristSpot.RestaurantID);
 
                 if (ModelState.IsValid)
                 {
+                    if (imageFile != null && imageFile.Length > 0)
+                    {
+                        var imagePath = await SaveImageAsync(imageFile, touristSpot);
+                        touristSpot.Image = imagePath;
+                    }
                     _context.Add(touristSpot);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
-
-                return View(touristSpot);
             }
             catch
             {
                 return View(touristSpot);
             }
+            return View(touristSpot);
         }
 
         public async Task<IActionResult> Edit(int? id)
         {
-            ViewBag.HotelID = new SelectList(_context.Hotels.ToList(), "ID", "Name");
-            ViewBag.ResortID = new SelectList(_context.Resorts.ToList(), "ID", "Name");
-            ViewBag.RestaurantID = new SelectList(_context.Restaurants.ToList(), "ID", "Name");
+            ViewBag.HotelID = new SelectList
+                (_context.Hotels.ToList(), "ID", "Name");
+            ViewBag.ResortID = new SelectList
+                (_context.Resorts.ToList(), "ID", "Name");
+            ViewBag.RestaurantID = new SelectList
+                (_context.Restaurants.ToList(), "ID", "Name");
 
             var touristSpot = await _context.Tourists.FindAsync(id);
             if (touristSpot == null)
@@ -96,9 +108,12 @@ namespace WebApp.Areas.Admin
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Location,Description,HotelID,ResortID,RestaurantID")] TouristSpot touristSpot)
         {
-            ViewBag.HotelID = new SelectList(_context.Hotels.ToList(), "ID", "Name", touristSpot.HotelID);
-            ViewBag.ResortID = new SelectList(_context.Resorts.ToList(), "ID", "Name", touristSpot.ResortID);
-            ViewBag.RestaurantID = new SelectList(_context.Restaurants.ToList(), "ID", "Name", touristSpot.RestaurantID);
+            ViewBag.HotelID = new SelectList
+                (_context.Hotels.ToList(), "ID", "Name", touristSpot.HotelID);
+            ViewBag.ResortID = new SelectList
+                (_context.Resorts.ToList(), "ID", "Name", touristSpot.ResortID);
+            ViewBag.RestaurantID = new SelectList
+                (_context.Restaurants.ToList(), "ID", "Name", touristSpot.RestaurantID);
 
             var exitingTourist = await _context.Tourists.FindAsync(id);
 
@@ -157,25 +172,25 @@ namespace WebApp.Areas.Admin
             return RedirectToAction(nameof(Index));
         }
 
-        //private async Task<string> SaveImageAsync(IFormFile imageFile, Hotel hotel)
-        //{
-        //    var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "assets/images/thumbails", "Hotel", hotel.Name);
+        private async Task<string> SaveImageAsync(IFormFile imageFile, TouristSpot touristSpot)
+        {
+            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "assets/images/thumbails", "Tourist Spot", touristSpot.Name);
 
-        //    if (!Directory.Exists(uploadsFolder))
-        //    {
-        //        Directory.CreateDirectory(uploadsFolder);
-        //    }
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
 
-        //    var uniqueFileName = $"Hotel-{Guid.NewGuid().ToString()}.jpg";
-        //    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+            var uniqueFileName = $"Tourist-Spot-{Guid.NewGuid().ToString()}.jpg";
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-        //    using (var stream = new FileStream(filePath, FileMode.Create))
-        //    {
-        //        await imageFile.CopyToAsync(stream);
-        //        stream.Close();
-        //    }
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await imageFile.CopyToAsync(stream);
+                stream.Close();
+            }
 
-        //    return $"/assets/images/thumbails/Hotel/{hotel.Name}/{uniqueFileName}";
-        //}
+            return $"/assets/images/thumbails/Tourist Spot/{touristSpot.Name}/{uniqueFileName}";
+        }
     }
 }
