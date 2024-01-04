@@ -206,8 +206,3 @@ body {
         color: #ff9c1a;
     }
 
-
-.row .card-img-top {
-    height: 300px; /* Set a fixed height for the card images */
-    object-fit: cover; /* Ensure images maintain their aspect ratio and cover the entire container */
-}

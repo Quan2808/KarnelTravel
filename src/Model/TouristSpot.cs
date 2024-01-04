@@ -25,6 +25,8 @@ namespace Model
         [MaxLength(255)]
         public string Description { get; set; }
 
+        public string? Image { get; set; }
+
         [ForeignKey("HotelID")]
         public Hotel? Hotel { get; set; }
 
@@ -33,5 +35,6 @@ namespace Model
 
         [ForeignKey("RestaurantID")]
         public Restaurant? Restaurant { get; set; }
+        public List<Rating>? Ratings { get; set; }
     }
 }
