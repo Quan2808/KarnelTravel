@@ -32,15 +32,21 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Hotel</label>
-                    <select asp-for="HotelID" class="form-control" asp-items="ViewBag.HotelID"></select>
+                    <select asp-for="HotelID" class="form-control" asp-items="ViewBag.HotelID">
+                        <option value="">No Select</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Resort</label>
-                    <select asp-for="ResortID" class="form-control" asp-items="ViewBag.ResortID"></select>
+                    <select asp-for="ResortID" class="form-control" asp-items="ViewBag.ResortID">
+                        <option value="">No Select</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Restaurant</label>
-                    <select asp-for="RestaurantID" class="form-control" asp-items="ViewBag.RestaurantID"></select>
+                    <select asp-for="RestaurantID" class="form-control" asp-items="ViewBag.RestaurantID">
+                        <option value="">No Select</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -55,6 +61,27 @@
                             <div id="_description"></div>
                             <input type="hidden" asp-for="Description" id="Description">
                             <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        Hotel Thumbnail
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="mb-4 d-flex justify-content-center">
+                                <img id="selectedImage" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" alt="example placeholder" style="width: 300px;" />
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <div class="btn btn-primary btn-rounded">
+                                    <label class="form-label text-white m-1" for="thumbnail">Choose file</label>
+                                    <input type="file" name="imageFile" class="form-control d-none" id="thumbnail" onchange="displaySelectedImage(event, 'selectedImage')" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Image" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
