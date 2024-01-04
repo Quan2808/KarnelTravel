@@ -20,9 +20,18 @@ namespace WebApp.Controllers
 
             var travels = await _context.Travels.ToListAsync();
 
+            var travelData = travels.Select(travel => new
+            {
+                Travel = travel,
+                NumRatings = _context.Ratings.Count(r => r.Booking.TravelInfoID == travel.ID),
+                TotalRatingValue = _context.Ratings
+                                    .Where(r => r.Booking.TravelInfoID == travel.ID)
+                                    .Sum(r => r.Value)
+            });
+
             if (!String.IsNullOrEmpty(search))
             {
-                travels = _context.Travels.Where(l => l.TouristSpot!.Location.Contains(search)).ToList();
+                travelData = travelData.Where(data => data.Travel.TouristSpot.Location!.Contains(search)).ToList();
             }
 
             ViewBag.TouristSpotID = new SelectList(_context.Tourists.ToList(), "ID", "Name");
@@ -31,7 +40,7 @@ namespace WebApp.Controllers
             ViewBag.ResortID = new SelectList(_context.Resorts.ToList(), "ID", "Name");
             ViewBag.RestaurantID = new SelectList(_context.Restaurants.ToList(), "ID", "Name");
 
-            return View(travels);
+            return View(travelData);
         }
 
         public async Task<IActionResult> Detail(int? id)
@@ -44,17 +53,27 @@ namespace WebApp.Controllers
 
             if (id == null || _context.Travels == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
-            var hotel = await _context.Travels
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (hotel == null)
+            var travel = await _context.Travels.FirstOrDefaultAsync(m => m.ID == id);
+
+            if (travel == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
-            return View(hotel);
+            var travelData = new
+            {
+                Travel = travel,
+                Review = _context.Ratings.Where(r => r.Booking!.TravelInfoID == travel.ID).ToList(),
+                NumRatings = _context.Ratings.Count(r => r.Booking!.TravelInfoID == travel.ID),
+                TotalRatingValue = _context.Ratings
+                                   .Where(r => r.Booking!.TravelInfoID == travel.ID)
+                                   .Sum(r => r.Value)
+            };
+
+            return View(travelData);
         }
     }
 }
