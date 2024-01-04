@@ -20,12 +20,28 @@ function displaySelectedImage(event, elementId) {
     const fileInput = event.target;
 
     if (fileInput.files && fileInput.files[0]) {
-        const reader = new FileReader();
 
-        reader.onload = function (e) {
-            selectedImage.src = e.target.result;
-        };
+        const validImageTypes = ["image/jpeg", "image/png", "image/webp"];
 
-        reader.readAsDataURL(fileInput.files[0]);
+        if (validImageTypes.includes(fileInput.files[0].type)) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                selectedImage.src = e.target.result;
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'error',
+                text: 'Only jpeg, png, webp image formats are accepted. But don\'t worry, the system will also use your old image.',
+            }).then((result) => {
+                if (result.value) {
+                    fileInput.value = ""; 
+                    selectedImage.src = ""; 
+                }
+            });
+        }
     }
 }

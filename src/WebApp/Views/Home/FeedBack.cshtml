@@ -1,4 +1,8 @@
-﻿@model Model.Feedback
+﻿@using Microsoft.AspNetCore.Identity
+@using WebApp.Data;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@model Model.Feedback
 @{
     ViewData["Title"] = "Feedback";
 }
@@ -30,16 +34,14 @@
         </div>
     </div>
 }
-<h1>Feedback</h1>
-
-<div class="container">
+<section id="wrapper">
     @if (TempData["SuccessMessage"] != null)
     {
-        <div class="alert alert-success">
+        <div class="alert alert-success mt-5">
             @TempData["SuccessMessage"]
         </div>
     }
-    <div class="row">
+    <div class="row mt-5 mb-5 ms-3 me-3">
         <div class="col-sm-6">
 
             <h3>CONTACT INFO</h3>
@@ -54,7 +56,7 @@
             <p>
                 795 Fake Ave, Door 6<br>
                 Wonderland, CA 94107, USA<br>
-                <a href="#">info@yourdomain.com</a>
+                <a href="#">karneltravels@info.com</a>
             </p>
 
             <h4>PHONE</h4>
@@ -66,44 +68,69 @@
 
         </div>
         <div class="col-sm-6">
-            <h3>CONTACT FORM</h3>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold text-center">CONTACT FORM</h5>
+                    <div class="wpcf7 js" id="wpcf7-f241-p201-o1" lang="en-US" dir="ltr">
+                        <div class="screen-reader-response">
+                            <p role="status" aria-live="polite" aria-atomic="true"></p>
+                            <ul></ul>
+                        </div>
+                        <form asp-action="FeedBack" method="post" aria-label="Contact form" novalidate="novalidate" data-status="init">
+                            <input asp-for="CommentDate" required hidden />
+                            <div class="mb-3">
+                                <label class="form-label">Your Name</label>
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    <input asp-for="CustomerName" class="form-control"
+                                           readonly required />
+                                }
+                                else
+                                {
+                                    <input asp-for="CustomerName" class="form-control" required />
+                                }
+                                <div class="invalid-feedback">
+                                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+                                </div>
+                            </div>
 
-            <div class="wpcf7 js" id="wpcf7-f241-p201-o1" lang="en-US" dir="ltr">
-                <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-                <form asp-action="FeedBack" method="post" aria-label="Contact form" novalidate="novalidate" data-status="init">
-                    <input asp-for="CommentDate" required hidden />
-                    <div class="mb-3">
-                        <label class="form-label">Your Name</label>
-                        <input asp-for="CustomerName" class="form-control" required />
-                        <div class="invalid-feedback">
-                            <span asp-validation-for="CustomerName" class="text-danger"></span>
-                        </div>
-                    </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone</label>
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    <input type="number" asp-for="CustomerPhone" class="form-control"
+                                           readonly required />
+                                }
+                                else
+                                {
+                                    <input type="number" asp-for="CustomerPhone" class="form-control" required />
+                                }
 
-                    <div class="mb-3">
-                        <label class="form-label">Phone</label>
-                        <input type="number" asp-for="CustomerPhone" class="form-control" required />
-                        <div class="invalid-feedback">
-                            <span asp-validation-for="CustomerPhone" class="text-danger"></span>
-                        </div>
+                                <div class="invalid-feedback">
+                                    <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Comment</label>
+                                <textarea asp-for="Comment" class="form-control" rows="7" required></textarea>
+                                <div class="invalid-feedback">
+                                    <span asp-validation-for="Comment" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Send Massage</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Comment</label>
-                        <textarea asp-for="Comment" class="form-control" rows="7" required></textarea>
-                        <div class="invalid-feedback">
-                            <span asp-validation-for="Comment" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Send Massage</button>
-                    </div>
-                </form>
+                </div>
             </div>
+
+
 
         </div>
     </div>
 
-</div>
+</section>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
