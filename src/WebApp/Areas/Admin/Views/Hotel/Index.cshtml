@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 ﻿@model IEnumerable<Model.Hotel>
-=======
-﻿@model IEnumerable<WebApp.Models.Hotel>
-
->>>>>>> AnHua
 @{
     ViewData["Title"] = "Hotel List";
 }
@@ -34,14 +29,8 @@
                 {
                     <tr>
                         <td>@i.Name</td>
-<<<<<<< HEAD
                         <td class="text-center">
                             <a asp-controller="hotel" asp-action="details" asp-route-id="@i.ID">Details</a>
-=======
-                        <td>@i.Price</td>
-                        <td>
-                            <a asp-controller="Hotel" asp-action="Details" asp-route-id="@i.HotelId">Details</a>
->>>>>>> AnHua
                         </td>
                     </tr>
                 }

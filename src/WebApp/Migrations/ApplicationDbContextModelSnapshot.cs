@@ -155,7 +155,6 @@ namespace WebApp.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("Model.Booking", b =>
                 {
                     b.Property<int>("ID")
@@ -476,9 +475,6 @@ namespace WebApp.Migrations
 
                     b.ToTable("Travels");
                 });
-=======
-           
->>>>>>> AnHua
 
             modelBuilder.Entity("WebApp.Data.ApplicationUser", b =>
                 {
