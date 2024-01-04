@@ -1,0 +1,127 @@
+﻿@model Model.Feedback
+@{
+    ViewData["Title"] = "Feedback";
+}
+@section Banner{
+    <div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel" data-mdb-carousel-init>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="bg-image" style="background-image: url('@Url.Content("~/assets/images/slide/home-page-slide.jpg")');
+            height: 50vh;">
+                    <div class="d-flex align-items-center h-100">
+                        <div class="text-white">
+                            <h2 class="p-2 bg-teal fw-bold">Welcome To</h2>
+                            <h1 class="p-2 bg-teal">KarnelTravels</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="bg-image" style="background-image: url('@Url.Content("~/assets/images/slide/home-page-slide.jpg")');
+            height: 50vh;">
+                    <div class="d-flex  align-items-center h-100">
+                        <div class="text-white">
+                            <h3 class="p-2 bg-teal fw-bold">Discover Amazing Destinations</h3>
+                            <h4 class="p-2 bg-teal">Embark on a journey to explore breathtaking places and create unforgettable memories.</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<h1>Feedback</h1>
+
+<div class="container">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    <div class="row">
+        <div class="col-sm-6">
+
+            <h3>CONTACT INFO</h3>
+
+            <p>
+                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum
+            </p>
+
+            <br>
+
+            <h4>ADDRESS</h4>
+            <p>
+                795 Fake Ave, Door 6<br>
+                Wonderland, CA 94107, USA<br>
+                <a href="#">info@yourdomain.com</a>
+            </p>
+
+            <h4>PHONE</h4>
+
+            <p>
+                +440 875369208<br>
+                +440 353363114
+            </p>
+
+        </div>
+        <div class="col-sm-6">
+            <h3>CONTACT FORM</h3>
+
+            <div class="wpcf7 js" id="wpcf7-f241-p201-o1" lang="en-US" dir="ltr">
+                <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+                <form asp-action="FeedBack" method="post" aria-label="Contact form" novalidate="novalidate" data-status="init">
+                    <input asp-for="CommentDate" required hidden />
+                    <div class="mb-3">
+                        <label class="form-label">Your Name</label>
+                        <input asp-for="CustomerName" class="form-control" required />
+                        <div class="invalid-feedback">
+                            <span asp-validation-for="CustomerName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone</label>
+                        <input type="number" asp-for="CustomerPhone" class="form-control" required />
+                        <div class="invalid-feedback">
+                            <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Comment</label>
+                        <textarea asp-for="Comment" class="form-control" rows="7" required></textarea>
+                        <div class="invalid-feedback">
+                            <span asp-validation-for="Comment" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Send Massage</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '@TempData["SuccessMessage"]',
+                    footer: 'Thank you for your feedback!',
+                    timer: 10000,
+                    timerProgressBar: true,
+                });
+            });
+        </script>
+    }
+}
+
+

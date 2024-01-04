@@ -46,13 +46,11 @@ namespace WebApp.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    // Populate the CommentDate field before saving to the database
                     feedback.CommentDate = DateTime.Now;
 
                     _context.Add(feedback);
                     await _context.SaveChangesAsync();
 
-                    // Add success message to TempData
                     TempData["SuccessMessage"] = "Feedback submitted successfully.";
 
                     return RedirectToAction("Index", new { package = ViewData["Package"], id = ViewData["Id"] });
@@ -60,14 +58,10 @@ namespace WebApp.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it appropriately
                 ModelState.AddModelError(string.Empty, "An error occurred while saving the feedback.");
             }
 
             return View(feedback);
         }
-
-
-
     }
 }
