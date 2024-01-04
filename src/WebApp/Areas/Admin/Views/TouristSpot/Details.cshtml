@@ -38,18 +38,27 @@
                                 <span class="fw-bold me-2">Address</span>
                                 <span>@Model.Location</span>
                             </li>
-                            <li class="mb-3">
-                                <span class="fw-bold me-2">Hotel</span>
-                                <span>@Model.Hotel.Name</span>
-                            </li>
-                            <li class="mb-3">
-                                <span class="fw-bold me-2">Resort</span>
-                                <span>@Model.Resort.Name</span>
-                            </li>
-                            <li class="mb-3">
-                                <span class="fw-bold me-2">Restaurant</span>
-                                <span>@Model.Restaurant.Name</span>
-                            </li>
+                            @if (Model.HotelID != null)
+                            {
+                                <li class="mb-3">
+                                    <span class="fw-bold me-2">Hotel</span>
+                                    <span>@Model.Hotel.Name</span>
+                                </li>
+                            }
+                            @if (Model.ResortID != null)
+                            {
+                                <li class="mb-3">
+                                    <span class="fw-bold me-2">Resort</span>
+                                    <span>@Model.Resort.Name</span>
+                                </li>
+                            }
+                            @if (Model.RestaurantID != null)
+                            {
+                                <li class="mb-3">
+                                    <span class="fw-bold me-2">Restaurant</span>
+                                    <span>@Model.Restaurant.Name</span>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -69,20 +78,20 @@
             </div>
         </div>
         @* <div class="col-md-6">
-        <div class="card mb-4">
-        <div class="card-body">
-        <div class="thumbnail-section">
-        <small class="d-block fw-normal text-uppercase mb-3">
-        Hotel Thumbnail
-        </small>
-        <hr class="hr hr-blurry" />
-        <div class="d-flex align-items-center flex-column">
-        <img class="img-fluid rounded my-3" src="@Model.Image" alt="@Model.Name">
-        </div>
-        </div>
-        </div>
-        </div>
-        </div> *@
+            <div class="card mb-4">
+            <div class="card-body">
+            <div class="thumbnail-section">
+            <small class="d-block fw-normal text-uppercase mb-3">
+            Hotel Thumbnail
+            </small>
+            <hr class="hr hr-blurry" />
+            <div class="d-flex align-items-center flex-column">
+            <img class="img-fluid rounded my-3" src="@Model.Image" alt="@Model.Name">
+            </div>
+            </div>
+            </div>
+            </div>
+            </div> *@
     </div>
 </section>
 @section Scripts {
