@@ -300,6 +300,18 @@ namespace WebApp.Migrations
                     b.Property<int?>("HotelID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ResortID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RestaurantID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TouristSpotID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TravelInfoID")
+                        .HasColumnType("int");
+
                     b.Property<int>("Value")
                         .HasColumnType("int");
 
@@ -309,6 +321,14 @@ namespace WebApp.Migrations
                         .IsUnique();
 
                     b.HasIndex("HotelID");
+
+                    b.HasIndex("ResortID");
+
+                    b.HasIndex("RestaurantID");
+
+                    b.HasIndex("TouristSpotID");
+
+                    b.HasIndex("TravelInfoID");
 
                     b.ToTable("Ratings");
                 });
@@ -388,6 +408,9 @@ namespace WebApp.Migrations
 
                     b.Property<int?>("HotelID")
                         .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -634,6 +657,22 @@ namespace WebApp.Migrations
                         .WithMany("Ratings")
                         .HasForeignKey("HotelID");
 
+                    b.HasOne("Model.Resort", null)
+                        .WithMany("Ratings")
+                        .HasForeignKey("ResortID");
+
+                    b.HasOne("Model.Restaurant", null)
+                        .WithMany("Ratings")
+                        .HasForeignKey("RestaurantID");
+
+                    b.HasOne("Model.TouristSpot", null)
+                        .WithMany("Ratings")
+                        .HasForeignKey("TouristSpotID");
+
+                    b.HasOne("Model.TravelInfo", null)
+                        .WithMany("Ratings")
+                        .HasForeignKey("TravelInfoID");
+
                     b.Navigation("Booking");
                 });
 
@@ -675,6 +714,26 @@ namespace WebApp.Migrations
                 });
 
             modelBuilder.Entity("Model.Hotel", b =>
+                {
+                    b.Navigation("Ratings");
+                });
+
+            modelBuilder.Entity("Model.Resort", b =>
+                {
+                    b.Navigation("Ratings");
+                });
+
+            modelBuilder.Entity("Model.Restaurant", b =>
+                {
+                    b.Navigation("Ratings");
+                });
+
+            modelBuilder.Entity("Model.TouristSpot", b =>
+                {
+                    b.Navigation("Ratings");
+                });
+
+            modelBuilder.Entity("Model.TravelInfo", b =>
                 {
                     b.Navigation("Ratings");
                 });

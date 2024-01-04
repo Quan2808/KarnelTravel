@@ -83,6 +83,14 @@ namespace WebApp.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    var user = await _userManager.GetUserAsync(User);
+
+                    if (user != null)
+                    {
+                        feedback.CustomerName = user.FirstName + " " + user.LastName;
+                        feedback.CustomerPhone = user.PhoneNumber;
+                    }
+
                     feedback.CommentDate = DateTime.Now;
 
                     _context.Add(feedback);

@@ -26,5 +26,6 @@ namespace Model
 
         [ForeignKey("TouristSpotID")]
         public TouristSpot? TouristSpot { get; set; }
+        public List<Rating>? Ratings { get; set; }
     }
 }
