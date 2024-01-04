@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Hotel";
 }
-
+ 
 <section id="wrapper">
     <div class="card mt-3 mb-4 p-5">
         <ul class="nav nav-tabs nav-justified mb-3" id="menu" role="tablist">
@@ -14,19 +14,39 @@
         <div class="tab-content" id="menu-content">
             <div class="tab-pane fade show active" id="menu-tabs-1" role="tabpanel" aria-labelledby="menu-tab-1">
                 <div class="mb-3">
-                    <label class="form-label fw-bold">Hotel Location:</label>
                     <form asp-action="index" asp-controller="hotel">
                         <div class="row">
-                            <div class="col-md-9 mb-3">
+                            <div class="col-md-5 mb-3">
+                                <label class="form-label fw-bold">Hotel Location:</label>
                                 <input name="search" type="search" class="form-control" placeholder="Enter a location">
                             </div>
-                            <div class="col-md-3">
-                                <div class="mb-3 text-center">
-                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">
-                                        Search
-                                        <i class="fas fa-long-arrow-alt-right ms-2"></i>
-                                    </button>
-                                </div>
+                            @*Rating*@
+                            <div class="col-md-2 mb-3">
+                                <label class="form-label fw-bold">Rating:</label>
+                                <select name="rating" class="form-select">
+                                    <option value="">Any</option>
+                                    <option value="1">&#9733;</option>
+                                    <option value="2">&#9733;&#9733;</option>
+                                    <option value="3">&#9733;&#9733;&#9733;</option>
+                                    <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+                                    <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                                </select>
+                            </div>
+                            @*Sort Price*@
+                            <div class="col-md-2 mb-3">
+                                <label class="form-label fw-bold">Sort By Price:</label>
+                                <select name="sortByPrice" class="form-select">
+                                    <option value="">None</option>
+                                    <option value="asc">&#x2191; Low to High</option>
+                                    <option value="desc">&#x2193; High to Low</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3 mb-3 d-flex align-items-end">
+                                <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">
+                                    Search
+                                    <i class="fas fa-long-arrow-alt-right ms-2"></i>
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -40,7 +60,7 @@
     <h3 class="text-center fw-bold">
         Featured properties recommended for you
     </h3>   
-    <div class="row mt-5 me-3 ms-3">
+    <div class="row mt-5 me-3 ms-3"> 
         @foreach (var i in Model)
         {
             <div class="col-lg-3 mb-3">

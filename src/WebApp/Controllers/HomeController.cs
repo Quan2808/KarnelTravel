@@ -59,7 +59,7 @@ namespace WebApp.Controllers
                     var feedback = new Feedback
                     {
                         CustomerName = user.FirstName + " " + user.LastName,
-                        CustomerPhone = user.PhoneNumber,
+                        CustomerPhone = user.Email,
                         CommentDate = DateTime.Today,
                     };
 

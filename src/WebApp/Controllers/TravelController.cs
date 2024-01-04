@@ -15,7 +15,7 @@ namespace WebApp.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string? search)
+        public async Task<IActionResult> Index(string? search, int? rating, string? sortByPrice)
         {
 
             var travels = await _context.Travels.ToListAsync();
@@ -33,7 +33,21 @@ namespace WebApp.Controllers
             {
                 travelData = travelData.Where(data => data.Travel.TouristSpot.Location!.Contains(search)).ToList();
             }
-
+            if (rating.HasValue)
+            {
+                travelData = travelData.Where(data => data.NumRatings > 0 && data.TotalRatingValue / data.NumRatings == rating.Value).ToList();
+            }
+            if (!String.IsNullOrEmpty(sortByPrice))
+            {
+                if (sortByPrice.ToLower() == "asc")
+                {
+                    travelData = travelData.OrderBy(data => data.Travel.Price).ToList();
+                }
+                else if (sortByPrice.ToLower() == "desc")
+                {
+                    travelData = travelData.OrderByDescending(data => data.Travel.Price).ToList();
+                }
+            }
             ViewBag.TouristSpotID = new SelectList(_context.Tourists.ToList(), "ID", "Name");
 
             ViewBag.HotelID = new SelectList(_context.Hotels.ToList(), "ID", "Name");

@@ -95,15 +95,15 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Phone</label>
+                                <label class="form-label">Email</label>
                                 @if (SignInManager.IsSignedIn(User))
                                 {
-                                    <input type="number" asp-for="CustomerPhone" class="form-control"
+                                    <input type="email" asp-for="CustomerPhone" class="form-control"
                                            readonly required />
                                 }
                                 else
                                 {
-                                    <input type="number" asp-for="CustomerPhone" class="form-control" required />
+                                    <input type="email" asp-for="CustomerPhone" class="form-control" required />
                                 }
 
                                 <div class="invalid-feedback">
@@ -111,7 +111,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Comment</label>
+                                <label class="form-label">Feedback</label>
                                 <textarea asp-for="Comment" class="form-control" rows="7" required></textarea>
                                 <div class="invalid-feedback">
                                     <span asp-validation-for="Comment" class="text-danger"></span>
