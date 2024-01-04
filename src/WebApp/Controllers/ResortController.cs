@@ -16,31 +16,50 @@ namespace WebApp.Controllers
 
         public async Task<IActionResult> Index(string? search)
         {
-            var resorts = await _context.Resorts.ToListAsync();
+            var resorts = await _context.Hotels.ToListAsync();
+
+            var resortData = resorts.Select(resort => new
+            {
+                Resort = resort,
+                NumRatings = _context.Ratings.Count(r => r.Booking.ResortID == resort.ID),
+                TotalRatingValue = _context.Ratings
+                                    .Where(r => r.Booking.ResortID == resort.ID)
+                                    .Sum(r => r.Value)
+            });
 
             if (!String.IsNullOrEmpty(search))
             {
-                resorts = resorts.Where(l => l.Location!.Contains(search)).ToList();
+                resortData = resortData.Where(data => data.Resort.Location!.Contains(search)).ToList();
             }
 
-            return View(resorts);
+            return View(resortData);
         }
 
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null || _context.Resorts == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
-            var hotel = await _context.Resorts
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (hotel == null)
+            var resort = await _context.Resorts.FirstOrDefaultAsync(m => m.ID == id);
+
+            if (resort == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
-            return View(hotel);
+            var resortData = new
+            {
+                Resort = resort,
+                Review = _context.Ratings.Where(r => r.Booking!.ResortID == resort.ID).ToList(),
+                NumRatings = _context.Ratings.Count(r => r.Booking!.ResortID == resort.ID),
+                TotalRatingValue = _context.Ratings
+                                   .Where(r => r.Booking!.ResortID == resort.ID)
+                                   .Sum(r => r.Value)
+            };
+
+            return View(resortData);
         }
     }
 }

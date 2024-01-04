@@ -20,6 +20,7 @@ namespace Model
         public float? Price { get; set; }
 
         public string? Image { get; set; }
+
         public List<Rating>? Ratings { get; set; }
     }
 }
