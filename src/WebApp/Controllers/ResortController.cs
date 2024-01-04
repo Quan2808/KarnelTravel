@@ -14,9 +14,9 @@ namespace WebApp.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string? search)
+        public async Task<IActionResult> Index(string? search, int? rating, string? sortByPrice)
         {
-            var resorts = await _context.Hotels.ToListAsync();
+            var resorts = await _context.Resorts.ToListAsync();
 
             var resortData = resorts.Select(resort => new
             {
@@ -31,8 +31,22 @@ namespace WebApp.Controllers
             {
                 resortData = resortData.Where(data => data.Resort.Location!.Contains(search)).ToList();
             }
-
-            return View(resortData);
+            if (rating.HasValue)
+            {
+                resortData = resortData.Where(data => data.NumRatings > 0 && data.TotalRatingValue / data.NumRatings == rating.Value).ToList();
+            }
+            if (!String.IsNullOrEmpty(sortByPrice))
+            {
+                if (sortByPrice.ToLower() == "asc")
+                {
+                    resortData = resortData.OrderBy(data => data.Resort.Price).ToList();
+                }
+                else if (sortByPrice.ToLower() == "desc")
+                {
+                    resortData = resortData.OrderByDescending(data => data.Resort.Price).ToList();
+                }
+            }
+                return View(resortData);
         }
 
         public async Task<IActionResult> Detail(int? id)

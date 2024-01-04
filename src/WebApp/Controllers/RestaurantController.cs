@@ -15,7 +15,7 @@ namespace WebApp.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string? search)
+        public async Task<IActionResult> Index(string? search, int? rating, string? sortByPrice)
         {
             var restaurants = await _context.Restaurants.ToListAsync();
 
@@ -32,7 +32,21 @@ namespace WebApp.Controllers
             {
                 resData = resData.Where(data => data.Restaurant.Location!.Contains(search)).ToList();
             }
-
+            if (rating.HasValue)
+            {
+                resData = resData.Where(data => data.NumRatings > 0 && data.TotalRatingValue / data.NumRatings == rating.Value).ToList();
+            }
+            if (!String.IsNullOrEmpty(sortByPrice))
+            {
+                if (sortByPrice.ToLower() == "asc")
+                {
+                    resData = resData.OrderBy(data => data.Restaurant.Price).ToList();
+                }
+                else if (sortByPrice.ToLower() == "desc")
+                {
+                    resData = resData.OrderByDescending(data => data.Restaurant.Price).ToList();
+                }
+            }
             return View(resData);
         }
 

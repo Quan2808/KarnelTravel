@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Hotel";
 }
-
+ 
 <section id="wrapper">
     <div class="card mt-3 mb-4 p-5">
         <ul class="nav nav-tabs nav-justified mb-3" id="menu" role="tablist">
@@ -20,7 +20,7 @@
                                 <label class="form-label fw-bold">Hotel Location:</label>
                                 <input name="search" type="search" class="form-control" placeholder="Enter a location">
                             </div>
-
+                            @*Rating*@
                             <div class="col-md-2 mb-3">
                                 <label class="form-label fw-bold">Rating:</label>
                                 <select name="rating" class="form-select">
@@ -32,7 +32,7 @@
                                     <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
                                 </select>
                             </div>
-
+                            @*Sort Price*@
                             <div class="col-md-2 mb-3">
                                 <label class="form-label fw-bold">Sort By Price:</label>
                                 <select name="sortByPrice" class="form-select">
@@ -42,8 +42,7 @@
                                 </select>
                             </div>
 
-                            <div class="col-md-3 mb-3 text-center">
-                                <label class="form-label fw-bold invisible">Placeholder</label>
+                            <div class="col-md-3 mb-3 d-flex align-items-end">
                                 <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">
                                     Search
                                     <i class="fas fa-long-arrow-alt-right ms-2"></i>
@@ -61,7 +60,7 @@
     <h3 class="text-center fw-bold">
         Featured properties recommended for you
     </h3>   
-    <div class="row mt-5 me-3 ms-3">
+    <div class="row mt-5 me-3 ms-3"> 
         @foreach (var i in Model)
         {
             <div class="col-lg-3 mb-3">
