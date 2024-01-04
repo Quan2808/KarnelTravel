@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Model;
 using WebApp.Data;
 
 namespace WebApp.Controllers
@@ -18,29 +19,48 @@ namespace WebApp.Controllers
         {
             var restaurants = await _context.Restaurants.ToListAsync();
 
+            var resData = restaurants.Select(restaurant => new
+            {
+                Restaurant = restaurant,
+                NumRatings = _context.Ratings.Count(r => r.Booking.RestaurantID == restaurant.ID),
+                TotalRatingValue = _context.Ratings
+                                    .Where(r => r.Booking.RestaurantID == restaurant.ID)
+                                    .Sum(r => r.Value)
+            });
+
             if (!String.IsNullOrEmpty(search))
             {
-                restaurants = restaurants.Where(l => l.Location!.Contains(search)).ToList();
+                resData = resData.Where(data => data.Restaurant.Location!.Contains(search)).ToList();
             }
 
-            return View(restaurants);
+            return View(resData);
         }
 
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null || _context.Restaurants == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
-            var hotel = await _context.Restaurants
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (hotel == null)
+            var restaurant = await _context.Restaurants.FirstOrDefaultAsync(m => m.ID == id);
+
+            if (restaurant == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
-            return View(hotel);
+            var resData = new
+            {
+                Restaurant = restaurant,
+                Review = _context.Ratings.Where(r => r.Booking!.RestaurantID == restaurant.ID).ToList(),
+                NumRatings = _context.Ratings.Count(r => r.Booking!.RestaurantID == restaurant.ID),
+                TotalRatingValue = _context.Ratings
+                                   .Where(r => r.Booking!.RestaurantID == restaurant.ID)
+                                   .Sum(r => r.Value)
+            };
+
+            return View(resData);
         }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.Data;
 
@@ -11,9 +12,10 @@ using WebApp.Data;
 namespace WebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240104062753_add-rating-resort")]
+    partial class addratingresort
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -303,12 +305,6 @@ namespace WebApp.Migrations
                     b.Property<int?>("ResortID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RestaurantID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TravelInfoID")
-                        .HasColumnType("int");
-
                     b.Property<int>("Value")
                         .HasColumnType("int");
 
@@ -320,10 +316,6 @@ namespace WebApp.Migrations
                     b.HasIndex("HotelID");
 
                     b.HasIndex("ResortID");
-
-                    b.HasIndex("RestaurantID");
-
-                    b.HasIndex("TravelInfoID");
 
                     b.ToTable("Ratings");
                 });
@@ -653,14 +645,6 @@ namespace WebApp.Migrations
                         .WithMany("Ratings")
                         .HasForeignKey("ResortID");
 
-                    b.HasOne("Model.Restaurant", null)
-                        .WithMany("Ratings")
-                        .HasForeignKey("RestaurantID");
-
-                    b.HasOne("Model.TravelInfo", null)
-                        .WithMany("Ratings")
-                        .HasForeignKey("TravelInfoID");
-
                     b.Navigation("Booking");
                 });
 
@@ -707,16 +691,6 @@ namespace WebApp.Migrations
                 });
 
             modelBuilder.Entity("Model.Resort", b =>
-                {
-                    b.Navigation("Ratings");
-                });
-
-            modelBuilder.Entity("Model.Restaurant", b =>
-                {
-                    b.Navigation("Ratings");
-                });
-
-            modelBuilder.Entity("Model.TravelInfo", b =>
                 {
                     b.Navigation("Ratings");
                 });
