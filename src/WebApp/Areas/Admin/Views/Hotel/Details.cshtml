@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ﻿@model Model.Hotel
+=======
+﻿@model WebApp.Models.Hotel
+
+>>>>>>> AnHua
 @{
     ViewData["Title"] = "Details";
 }
@@ -20,6 +25,7 @@
             <a href="#" class="btn btn-primary">View on website</a>
         </div>
     </div>
+<<<<<<< HEAD
     <div class="row">
         <div class="col-md-6">
             <div class="card mb-4">
@@ -81,3 +87,12 @@
     <script src="~/admin/js/site.js" asp-append-version="true"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 }
+=======
+
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.HotelId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+>>>>>>> AnHua
