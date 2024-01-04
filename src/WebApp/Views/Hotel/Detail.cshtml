@@ -38,9 +38,16 @@
                                     </small>
                                 </span>
                             </div>
-                            <p class="card-text fs-6 mt-3">
-                                Our professional and friendly staff is always willing to support 24/7. With a convenient location, we are close to tourist attractions and the city center, promising to bring you memorable memories on every trip. Book your room today to experience the best comfort and service at our hotel!
-                            </p>
+                            @* <p class="card-text fs-6 mt-3">
+                            Our professional and friendly staff is always willing to support 24/7. With a convenient location, we are close to tourist attractions and the city center, promising to bring you memorable memories on every trip. Book your room today to experience the best comfort and service at our hotel!
+                            </p>*@
+                           
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        @Html.Raw(Model.Hotel.Description)
+                                    </p>
+                                </div>
+                            
 
                         </div>
                         <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -90,13 +97,13 @@
             </div>
         </div>
     </div>
-    <div class="card">
+   @* <div class="card">
         <div class="card-body">
             <p class="card-text">
                 @Html.Raw(Model.Hotel.Description)
             </p>
         </div>
-    </div>
+    </div>*@
 </section>
 
 <div class="modal fade" id="Reviews" tabindex="-1" aria-labelledby="ReviewsLabel" aria-hidden="true">

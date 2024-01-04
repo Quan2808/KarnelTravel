@@ -50,13 +50,14 @@
                         <h5 class="card-title">@i.Name</h5>
                         <p class="text-muted">@i.Location</p>
                         <div class="d-flex justify-content-start align-items-center mb-2">
-                            <div class="ratings">
-                                <i class="fa fa-star rating-color"></i>
-                                <i class="fa fa-star rating-color"></i>
-                                <i class="fa fa-star rating-color"></i>
-                                <i class="fa fa-star rating-color"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
+                            <select name="rating" class="form-select">
+                                <option value="">Any</option>
+                                <option value="1">&#9733;</option>
+                                <option value="2">&#9733;&#9733;</option>
+                                <option value="3">&#9733;&#9733;&#9733;</option>
+                                <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+                                <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                            </select>
                             <h5 class="review-count">12 Reviews</h5>
                         </div>
                         <div class="d-flex justify-content-between">
