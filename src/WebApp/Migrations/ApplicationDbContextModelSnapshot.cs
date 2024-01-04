@@ -306,6 +306,9 @@ namespace WebApp.Migrations
                     b.Property<int?>("RestaurantID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TouristSpotID")
+                        .HasColumnType("int");
+
                     b.Property<int?>("TravelInfoID")
                         .HasColumnType("int");
 
@@ -322,6 +325,8 @@ namespace WebApp.Migrations
                     b.HasIndex("ResortID");
 
                     b.HasIndex("RestaurantID");
+
+                    b.HasIndex("TouristSpotID");
 
                     b.HasIndex("TravelInfoID");
 
@@ -403,6 +408,9 @@ namespace WebApp.Migrations
 
                     b.Property<int?>("HotelID")
                         .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -657,6 +665,10 @@ namespace WebApp.Migrations
                         .WithMany("Ratings")
                         .HasForeignKey("RestaurantID");
 
+                    b.HasOne("Model.TouristSpot", null)
+                        .WithMany("Ratings")
+                        .HasForeignKey("TouristSpotID");
+
                     b.HasOne("Model.TravelInfo", null)
                         .WithMany("Ratings")
                         .HasForeignKey("TravelInfoID");
@@ -712,6 +724,11 @@ namespace WebApp.Migrations
                 });
 
             modelBuilder.Entity("Model.Restaurant", b =>
+                {
+                    b.Navigation("Ratings");
+                });
+
+            modelBuilder.Entity("Model.TouristSpot", b =>
                 {
                     b.Navigation("Ratings");
                 });

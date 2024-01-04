@@ -211,9 +211,6 @@ body {
     transform-origin: center bottom; /* Set the transform origin to the bottom center */
 }
 
-    .row .card:hover {
-        transform: translateY(-10px); /* Move the card up by 10 pixels on hover */
-    }
 
 .row .card-img-top {
     height: 300px; /* Set a fixed height for the card images */
