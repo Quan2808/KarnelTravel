@@ -21,7 +21,7 @@ namespace WebApp.Controllers
             // Order hotels by ID in descending order and take the top 10
             var hotels = await _context.Hotels
                 .OrderByDescending(h => h.ID)
-                .Take(10)
+                .Take(4)
                 .ToListAsync();
 
             var hotelData = hotels.Select(hotel => new
