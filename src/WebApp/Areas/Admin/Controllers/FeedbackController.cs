@@ -24,7 +24,6 @@ namespace WebApp.Areas.Admin.Controllers
             var feedbacks = await _dbContext.Feedbacks
                                             .OrderByDescending(f => f.CommentDate) 
                                             .ToListAsync();
-
             return View(feedbacks);
         }
 

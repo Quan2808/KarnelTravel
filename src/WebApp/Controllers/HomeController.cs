@@ -62,7 +62,6 @@ namespace WebApp.Controllers
                         CustomerPhone = user.Email,
                         CommentDate = DateTime.Today,
                     };
-
                     return View(feedback);
                 }
 

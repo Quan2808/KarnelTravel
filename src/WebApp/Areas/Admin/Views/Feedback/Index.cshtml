@@ -2,9 +2,13 @@
 @{
     ViewData["Title"] = "Index";
 }
+
 <div asp-validation-summary="All"></div>
 <div class="card p-3">
     <div class="table-responsive text-nowrap">
+        <p class="mb-4">
+            Total Feedbacks: <span>@Model.Count()</span>
+        </p>
         <table class="table">
             <thead class="text-center">
                 <tr>
@@ -19,10 +23,10 @@
                 @foreach (var feedback in Model)
                 {
                     <tr>
-                        <td>@feedback.CustomerName</td>
+                        <td>@(feedback.CustomerName.Length > 10 ? feedback.CustomerName.Substring(0, 10) + "..." : feedback.CustomerName)</td>
                         <td>@feedback.CustomerPhone</td>
                         <td>@feedback.CommentDate.ToString("HH:mm:ss MM/dd/yyyy")</td>
-                        <td>@(feedback.Comment.Length > 30 ? feedback.Comment.Substring(0, 30) + "..." : feedback.Comment)</td>
+                        <td>@(feedback.Comment.Length > 20 ? feedback.Comment.Substring(0, 20) + "..." : feedback.Comment)</td>
                         <td class="text-center">
                             <a asp-controller="feedback" asp-action="details" asp-route-id="@feedback.ID">Details</a>
                         </td>
