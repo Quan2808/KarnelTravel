@@ -65,10 +65,10 @@
         {
             <div class="col-lg-3 mb-3">
                 <div class="card">
-                    @*                    <img src="@i.Hotel.Image" class="card-img-top" alt="@i.Hotel.Name" /> *@
+                    <img src="@i.Travel.TouristSpot.Image" class="card-img-top" alt="@i.Travel.TouristSpot.Name" />
                     <div class="card-body">
                         <h5 class="card-title">@i.Travel.Name</h5>
-                        @* <p class="text-muted">@i.TouristSpot.Location</p> *@
+                        <p class="text-muted">@i.Travel.TouristSpot.Location</p>
                         <div class="d-flex justify-content-start align-items-center mb-2">
                             @{
                                 int ratingValue = i.NumRatings > 0 ? i.TotalRatingValue / i.NumRatings : 0;

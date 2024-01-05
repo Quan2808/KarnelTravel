@@ -1,11 +1,32 @@
 ﻿@model IEnumerable<Model.Hotel>
+
 @{
     ViewData["Title"] = "Hotel List";
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if(ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
 }
+
 <div class="card p-3">
     <div class="card-header">
         <div class="d-flex justify-content-between">
             <h3>Hotel List</h3>
+
+            <form asp-controller="hotel" asp-action="index" asp-area="admin">
+                <div class="input-group d-flex flex-wrap">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input name="search" type="search" class="form-control" placeholder="Search" />
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-mdb-ripple-init>
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+
             <div class="dt-buttons d-flex flex-wrap">
                 <a asp-controller="hotel" asp-action="create" asp-area="admin" class="dt-button add-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button">
                     <span>
@@ -14,6 +35,7 @@
                     </span>
                 </a>
             </div>
+            
         </div>
     </div>
     <div class="table-responsive text-nowrap">
@@ -40,3 +62,32 @@
         </table>
     </div>
 </div>
+
+@* pagination *@
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-start">
+        @if (pager.CurrentPage > 1)
+        {
+            <li class="page-item)">
+                <a class="page-link" asp-controller="Hotel" asp-action="Index" asp-route-pg="@(pager.CurrentPage - 1)">Previous</a>
+            </li>
+        }
+        @if (pager.TotalPages > 0)
+        {
+            <ul class="pagination justify-content-end">
+                @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+                {
+                    <li class="page-item @(pge == pager.CurrentPage ? "active" :  "")">
+                        <a class="page-link" asp-controller="Hotel" asp-action="Index" asp-route-pg="@pge">@pge</a>
+                    </li>
+                }
+            </ul>
+        }
+        @if (pager.CurrentPage < pager.TotalPages)
+        {
+            <li class="page-item)">
+                <a class="page-link" asp-controller="Hotel" asp-action="Index" asp-route-pg="@(pager.CurrentPage + 1)">Next</a>
+            </li>
+        }
+    </ul>
+</nav>
