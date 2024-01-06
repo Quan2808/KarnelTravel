@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Model;
 using System.Collections.Immutable;
 using System.Diagnostics;
 using WebApp.Data;
@@ -47,6 +48,10 @@ namespace WebApp.Controllers
             var tourists = await _context.Tourists.FirstOrDefaultAsync(m => m.ID == id);
 
             var travel = _context.Travels.Where(tr => tr.TouristSpotID == tourists!.ID).ToList();
+
+            var travelID = await _context.Travels
+                .Where(tr => tr.TouristSpotID == tourists.ID)
+                .FirstOrDefaultAsync();
 
             if (tourists == null)
             {

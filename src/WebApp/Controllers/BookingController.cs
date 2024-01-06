@@ -35,8 +35,8 @@ namespace WebApp.Controllers
                 .Include(b => b.Hotel)
                 .Include(b => b.Resort)
                 .Include(b => b.Restaurant)
-                .Include(b => b.TouristSpot)
                 .Include(b => b.TravelInfo)
+                    .ThenInclude(ti => ti.TouristSpot)
                 .Where(user => user.CustomerPhone == isUser.PhoneNumber);
 
             return View(await booking.ToListAsync());
@@ -54,8 +54,8 @@ namespace WebApp.Controllers
                 .Include(b => b.Hotel)
                 .Include(b => b.Resort)
                 .Include(b => b.Restaurant)
-                .Include(b => b.TouristSpot)
                 .Include(b => b.TravelInfo)
+                    .ThenInclude(ti => ti.TouristSpot)
                 .Include(b => b.Rating)
                 .FirstOrDefaultAsync(m => m.ID == id && m.CustomerPhone == user.PhoneNumber);
 
