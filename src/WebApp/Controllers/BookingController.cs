@@ -135,10 +135,6 @@ namespace WebApp.Controllers
                         }
                         break;
 
-                    case "TouristSpot" when id > 0:
-                        booking.TouristSpotID = id;
-                        break;
-
                     case "TravelInfo" when id > 0:
                         booking.TravelInfoID = id;
                         booking.TotalPrice = _context.Travels.FirstOrDefault(t => t.ID == id)?.Price ?? 0;
@@ -156,7 +152,7 @@ namespace WebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CheckIn([Bind("HotelID,ResortID,RestaurantID,TouristSpotID,TravelInfoID,CustomerName,CustomerPhone,CheckIn,CheckOut,Status")] Booking booking, string package, int id)
+        public async Task<IActionResult> CheckIn([Bind("HotelID,ResortID,RestaurantID,TravelInfoID,CustomerName,CustomerPhone,CheckIn,CheckOut,Status")] Booking booking, string package, int id)
         {
             if (ModelState.IsValid)
             {
@@ -176,10 +172,6 @@ namespace WebApp.Controllers
                     case "Restaurant" when id > 0:
                         booking.RestaurantID = id;
                         booking.TotalPrice = numberOfDays * _context.Restaurants.FirstOrDefault(r => r.ID == id)?.Price ?? 0;
-                        break;
-
-                    case "TouristSpot" when id > 0:
-                        booking.TouristSpotID = id;
                         break;
 
                     case "TravelInfo" when id > 0:

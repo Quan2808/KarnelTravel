@@ -1,4 +1,4 @@
-﻿@model TouristSpot
+﻿@model dynamic
 @{
     ViewData["Title"] = "Detail";
 }
@@ -11,54 +11,43 @@
                     <div class="row">
                         <div class="col-md-8">
                             <p class="card-text fs-3 fw-bold">
-                                @Model.Name
+                                @Model.Tourists.Name
                             </p>
                             <p class="fs-6">
-                                Location : @Model.Location
+                                Location : @Model.Tourists.Location
                             </p>
-
-                            <div class="card-text  ratings">
-                                <span class="me-3">
-                                    Ratings:
-                                </span>
-                                <i class="fa fa-star rating-color"></i>
-                                <i class="fa fa-star rating-color"></i>
-                                <i class="fa fa-star rating-color"></i>
-                                <i class="fa fa-star rating-color"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
                             <div class="card-text mt-3">
                                 Tour stops:
-                                @if (Model.HotelID != null)
+                                @if (Model.Tourists.HotelID != null)
                                 {
                                     <span>
                                         <a asp-action="detail"
                                            asp-controller="hotel"
-                                           asp-route-id="@Model.HotelID">
-                                            @Model.Hotel.Name
+                                           asp-route-id="@Model.Tourists.HotelID">
+                                            @Model.Tourists.Hotel.Name
                                         </a>
                                     </span>
                                 }
-                                @if (Model.ResortID != null)
+                                @if (Model.Tourists.ResortID != null)
                                 {
                                     <span>
                                         ,
                                         <a asp-action="detail"
                                            asp-controller="resort"
-                                           asp-route-id="@Model.ResortID">
-                                            @Model.Resort.Name
+                                           asp-route-id="@Model.Tourists.ResortID">
+                                            @Model.Tourists.Resort.Name
                                         </a>
                                     </span>
                                 }
-                                @if (Model.RestaurantID != null)
+                                @if (Model.Tourists.RestaurantID != null)
                                 {
 
                                     <span>
                                         ,
                                         <a asp-action="detail"
                                            asp-controller="restaurant"
-                                           asp-route-id="@Model.RestaurantID">
-                                            @Model.Restaurant.Name
+                                           asp-route-id="@Model.Tourists.RestaurantID">
+                                            @Model.Tourists.Restaurant.Name
                                         </a>
                                     </span>
                                 }
@@ -68,7 +57,7 @@
                             </p>
                         </div>
                         <div class="col-md-4 d-flex align-items-center justify-content-center">
-                            <img class="rounded-circle m-3" style="width: 300px; height: 300px; object-fit: cover;" src="@Model.Image" alt="Ảnh đại diện">
+                            <img class="rounded-circle m-3" style="width: 300px; height: 300px; object-fit: cover;" src="@Model.Tourists.Image" alt="Ảnh đại diện">
                         </div>
                     </div>
                 </div>
@@ -118,12 +107,41 @@
     <div class="card  ">
         <div class="card-body">
             <p class="card-text">
-                @Html.Raw(Model.Description)
+                @Html.Raw(Model.Tourists.Description)
             </p>
         </div>
     </div>
 </section>
 
-<button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-add-to-cart">
+<button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-add-to-cart" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#travelPackage">
     <i class="fa-solid fa-cart-shopping"></i>
 </button>
+
+<div class="modal fade" id="travelPackage" tabindex="-1" aria-labelledby="travelPackageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="travelPackageLabel">Our Travel Package</h5>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group list-group-light no-style">
+                    @foreach (var i in Model.Travel)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">@i.Name</div>
+                                VND @string.Format("{0,15:N0}", i.Price)
+                            </div>
+                            <a asp-action="checkin" asp-controller="booking" asp-route-id="@i.ID" asp-route-package="TravelInfo">
+                                Booking this travel
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

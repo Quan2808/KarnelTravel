@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Immutable;
+using System.Diagnostics;
 using WebApp.Data;
 
 namespace WebApp.Controllers
@@ -39,17 +41,25 @@ namespace WebApp.Controllers
 
             if (id == null || _context.Tourists == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
-            var hotel = await _context.Tourists
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (hotel == null)
+            var tourists = await _context.Tourists.FirstOrDefaultAsync(m => m.ID == id);
+
+            var travel = _context.Travels.Where(tr => tr.TouristSpotID == tourists!.ID).ToList();
+
+            if (tourists == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
-            return View(hotel);
+            var travelData = new
+            {
+                Travel = travel,
+                Tourists = tourists,
+            };
+
+            return View(travelData);
         }
     }
 }
