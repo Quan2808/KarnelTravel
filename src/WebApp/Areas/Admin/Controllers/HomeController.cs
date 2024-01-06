@@ -35,8 +35,16 @@ namespace WebApp.Areas.Admin.Controllers
 
             var booking = await _dbContext.Bookings.ToListAsync();
             ViewBag.BookingCount = await _dbContext.Bookings.CountAsync();
-            return View( );
+
+            var bookingLastest = await _dbContext.Bookings
+                .OrderByDescending(b => b.ID)
+                .Take(3)
+                .Select(b => new { b.ID, b.CustomerName, b.CustomerPhone, b.TotalPrice })
+                .ToListAsync();
+
+            ViewBag.BookingLastest = bookingLastest;
+            return View();
         }
-       
+
     }
 }

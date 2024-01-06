@@ -96,7 +96,7 @@
             <div class="card h-100">
                 <div class="card-header d-flex align-items-center justify-content-between pb-0">
                     <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Booking Statistics</h5>
+                        <h5 class="m-0 me-2">Booking </h5>
                     </div>
                     <div class="dropdown">
                         <button class="btn p-0"
@@ -108,7 +108,7 @@
                             <i class="bx bx-dots-vertical-rounded"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
-                            <a class="dropdown-item" href="javascript:void(0);">View All</a>
+                            <a class="dropdown-item" asp-action="index" asp-controller="booking" asp-area="admin">View All</a>
                         </div>
                     </div>
                 </div>
@@ -118,25 +118,28 @@
                             <h2 class="mb-2">@ViewBag.BookingCount</h2>
                         </div>
                     </div>
-                    <ul class="p-0 m-0">
-                        <li class="d-flex mb-4 pb-1">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-primary">
-                                    <i class="bx bx-mobile-alt"></i>
-                                </span>
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0">Electronic</h6>
-                                    <small class="text-muted">Mobile, Earbuds, TV</small>
+
+                    @foreach (var booking in ViewBag.BookingLastest)
+                    {
+                        <ul class="p-0 m-0">
+                            <li class="d-flex mb-4 pb-1">
+                                <div class="avatar flex-shrink-0 me-3">
+                                    <span class="avatar-initial rounded bg-label-primary">
+                                        <i class="bx bx-user"></i>
+                                    </span>
                                 </div>
-                                <div class="user-progress">
-                                    <small class="fw-medium">82.5k</small>
+                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                    <div class="me-2">
+                                        <h6 class="mb-0">@booking.CustomerName</h6>
+                                        <small class="text-muted">@booking.CustomerPhone</small>
+                                    </div>
+                                    <div class="user-progress">
+                                        <small class="fw-medium">@string.Format("{0:N0}", booking.TotalPrice) VND</small>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        
-                    </ul>
+                            </li>
+                        </ul>
+                    }
                 </div>
             </div>
         </div>
@@ -144,7 +147,7 @@
 
         <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
             <div class="row">
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 col-md-12 mb-4">
                     <div class="card">
                         <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
@@ -172,7 +175,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 col-md-12 mb-4">
                     <div class="card">
                         <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
@@ -204,7 +207,7 @@
         </div>
     </div>
 
-   
+
 
 
 
