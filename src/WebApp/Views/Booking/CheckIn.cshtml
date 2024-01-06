@@ -26,7 +26,8 @@
                         <span class="fw-bold">Location: </span>@ViewData["HotelLocation"]
                     </div>
                     <div class="card-text">
-                        <span class="fw-bold">Price: </span>VND @ViewData["HotelPrice"]
+                        <span class="fw-bold">Price: </span>
+                        VND @string.Format("{0,15:N0}", ViewData["HotelPrice"])
                     </div>
                 </div>
             </div>
@@ -50,7 +51,8 @@
                         <span class="fw-bold">Location: </span>@ViewData["ResortLocation"]
                     </div>
                     <div class="card-text">
-                        <span class="fw-bold">Price: </span>VND @ViewData["ResortPrice"]
+                        <span class="fw-bold">Price: </span>
+                        VND @string.Format("{0,15:N0}", ViewData["ResortPrice"])
                     </div>
                 </div>
             </div>
@@ -74,7 +76,39 @@
                         <span class="fw-bold">Location: </span>@ViewData["RestaurantLocation"]
                     </div>
                     <div class="card-text">
-                        <span class="fw-bold">Price: </span>VND @ViewData["RestaurantPrice"]
+                        <span class="fw-bold">Price: </span>
+                        VND @string.Format("{0,15:N0}", ViewData["RestaurantPrice"])
+                    </div>
+                </div>
+            </div>
+        }
+        @if (Package as string == "TravelInfo")
+        {
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title text-center fw-bold mt-3">Tour Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-center align-content-center">
+                        <img src="@ViewData["TravelImage"]" alt="@ViewData["TravelName"]" class="img-fluid" style="width: 50%" />
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <span class="fw-bold">@ViewData["TravelName"]</span>
+                    </div>
+                    <div class="card-text">
+                        <span class="fw-bold">Location: </span>@ViewData["TravelLocation"]
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <h5 class="card-title text-center fw-bold mt-3">About this package</h5>
+                    <div class="card-text">
+                        <span class="fw-bold">@ViewData["TravelDescription"]</span>
+                    </div>
+                    <div class="card-text">
+                        <span class="fw-bold">Price: </span>
+                        VND @string.Format("{0,15:N0}", ViewData["TravelPrice"])
                     </div>
                 </div>
             </div>

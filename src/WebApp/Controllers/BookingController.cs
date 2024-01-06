@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -136,8 +137,20 @@ namespace WebApp.Controllers
                         break;
 
                     case "TravelInfo" when id > 0:
-                        booking.TravelInfoID = id;
-                        booking.TotalPrice = _context.Travels.FirstOrDefault(t => t.ID == id)?.Price ?? 0;
+                        var travels = _context.Travels.FirstOrDefault(t => t.ID == id);
+
+                        if (travels != null)
+                        {
+                            var touristSpot = _context.Tourists.FirstOrDefault(ts => ts.ID == travels.TouristSpotID);
+                            booking.TotalPrice = id;
+                            booking.TotalPrice = _context.Travels.FirstOrDefault(t => t.ID == id)?.Price ?? 0;
+                            ViewData["TravelName"] = touristSpot.Name;
+                            ViewData["TravelLocation"] = touristSpot.Location;
+                            ViewData["TravelImage"] = touristSpot.Image;
+                            ViewData["TravelDescription"] = travels.Name;
+                            ViewData["TravelPrice"] = travels.Price;
+                        }
+
                         break;
 
                     default:
