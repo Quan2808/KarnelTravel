@@ -155,9 +155,12 @@ namespace WebApp.Areas.Admin
 
             var bookings = await _context.Bookings.Where(b => b.RestaurantID == id).ToListAsync();
 
+            var tours = await _context.Tourists.Where(t => t.RestaurantID == id).ToListAsync();
+
             foreach (var booking in bookings)
             {
                 _context.Bookings.Remove(booking);
+                _context.Tourists.RemoveRange(tours);
             }
 
             _context.Restaurants.Remove(existingRestaurant);

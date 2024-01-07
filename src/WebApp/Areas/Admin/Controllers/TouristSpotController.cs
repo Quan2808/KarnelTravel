@@ -163,7 +163,11 @@ namespace WebApp.Areas.Admin
                 return NotFound();
             }
 
-            var bookings = await _context.Bookings.Where(b => b.TouristSpotID == id).ToListAsync();
+            var bookings = await _context.Bookings
+                .Where(b => b.TravelInfoID == id).ToListAsync();
+
+            var travels = await _context.Travels
+                .Where(b => b.TouristSpotID == b.TouristSpot.ID).ToListAsync();
 
             foreach (var booking in bookings)
             {

@@ -250,7 +250,7 @@ namespace WebApp.Controllers
                     return RedirectToAction(nameof(Index));
                 }
             }
-            return RedirectToAction("details", new { id = rating.BookingID });
+            return RedirectToAction("details", new { id = booking.ID });
         }
     }
 }

@@ -17,7 +17,6 @@ namespace Model
 
         public float Price { get; set; }
 
-        [MaxLength(255)]
         public string Description { get; set; }
 
         [ForeignKey("TouristSpotID")]

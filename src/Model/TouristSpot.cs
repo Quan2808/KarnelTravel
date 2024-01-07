@@ -22,7 +22,6 @@ namespace Model
         [MaxLength(255)]
         public string Location { get; set; }
 
-        [MaxLength(255)]
         public string Description { get; set; }
 
         public string? Image { get; set; }
