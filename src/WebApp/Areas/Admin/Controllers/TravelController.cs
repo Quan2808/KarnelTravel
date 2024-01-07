@@ -112,8 +112,6 @@ namespace WebApp.Areas.Admin
                 existingTravel.Price = travelInfo.Price;
                 existingTravel.Description = travelInfo.Description;
                 existingTravel.TouristSpotID = travelInfo.TouristSpotID;
-                existingTravel.StartingTime = travelInfo.StartingTime;
-                existingTravel.EndingTime = travelInfo.EndingTime;
 
                 _context.Update(existingTravel);
                 await _context.SaveChangesAsync();
