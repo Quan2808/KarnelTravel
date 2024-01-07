@@ -68,7 +68,10 @@
                     <img src="@i.Restaurant.Image" class="card-img-top" alt="@i.Restaurant.Name" />
                     <div class="card-body">
                         <h5 class="card-title">@i.Restaurant.Name</h5>
-                        <p class="text-muted">@i.Restaurant.Location</p>
+                        <p class="text-muted">
+                            @(i.Restaurant.Location.Length > 20 ?
+                             i.Restaurant.Location.Substring(0, 20) + " ..." : i.Restaurant.Location)
+                        </p>
                         <div class="d-flex justify-content-start align-items-center mb-2">
                             @{
                                 int ratingValue = i.NumRatings > 0 ? i.TotalRatingValue / i.NumRatings : 0;

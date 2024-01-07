@@ -69,7 +69,10 @@
                     <img src="@i.Resort.Image" class="card-img-top" alt="@i.Resort.Name" />
                     <div class="card-body">
                         <h5 class="card-title">@i.Resort.Name</h5>
-                        <p class="text-muted">@i.Resort.Location</p>
+                        <p class="text-muted">
+                            @(i.Resort.Location.Length > 20 ?
+                                        i.Resort.Location.Substring(0, 20) + " ..." : i.Resort.Location)
+                        </p>
                         <div class="d-flex justify-content-start align-items-center mb-2">
 
                             @{

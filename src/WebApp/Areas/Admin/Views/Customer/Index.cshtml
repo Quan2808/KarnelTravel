@@ -30,7 +30,7 @@
             </form>
             <div class="d-flex justify-content-end">
                 <form asp-controller="customer" asp-action="index" asp-area="admin">
-                    <div class="dt-buttons d-flex flex-wrap">
+                    <div class="dt-buttons d-flex flex-wrap me-3">
                         <button name="sortRole" value="Admin" type="submit" class="btn btn-primary" data-mdb-ripple-init>
                             Admin
                         </button>
@@ -164,8 +164,8 @@
 }
 
 @* pagination *@
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-start">
+<nav class="mt-3" aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
         @if (pager.CurrentPage > 1)
         {
             <li class="page-item)">
