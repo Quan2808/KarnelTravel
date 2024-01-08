@@ -24,8 +24,9 @@ namespace WebApp.Controllers
 
             if (!String.IsNullOrEmpty(search))
             {
-                tourist = tourist.Where(l => l.Location
-                    .Contains(search, StringComparison.OrdinalIgnoreCase))
+                tourist = tourist.Where(data =>
+                    data.Location!.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                    data.Name!.Contains(search, StringComparison.OrdinalIgnoreCase))
                     .ToList();
             }
 
