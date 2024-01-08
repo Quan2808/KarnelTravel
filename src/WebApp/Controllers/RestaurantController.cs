@@ -30,8 +30,9 @@ namespace WebApp.Controllers
 
             if (!String.IsNullOrEmpty(search))
             {
-                resData = resData.Where(data => data.Restaurant.Location!
-                    .Contains(search, StringComparison.OrdinalIgnoreCase))
+                resData = resData.Where(data =>
+                    data.Restaurant.Location!.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                    data.Restaurant.Name!.Contains(search, StringComparison.OrdinalIgnoreCase))
                     .ToList();
             }
             if (rating.HasValue)

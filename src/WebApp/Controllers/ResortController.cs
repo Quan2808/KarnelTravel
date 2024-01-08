@@ -29,8 +29,9 @@ namespace WebApp.Controllers
 
             if (!String.IsNullOrEmpty(search))
             {
-                resortData = resortData.Where(data => data.Resort.Location!
-                    .Contains(search, StringComparison.OrdinalIgnoreCase))
+                resortData = resortData.Where(data => 
+                    data.Resort.Location!.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                    data.Resort.Name!.Contains(search, StringComparison.OrdinalIgnoreCase))
                     .ToList();
             }
             if (rating.HasValue)
