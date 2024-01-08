@@ -5,20 +5,11 @@
 
 <section id="wrapper">
     <div class="card mt-3 mb-4 p-5">
-        <form asp-action="index" asp-controller="tourist">
+        <form asp-action="index" asp-controller="touristspot">
             <div class="row">
                 <div class="col-md-5 mb-3">
                     <label class="form-label fw-bold">Location - Name:</label>
                     <input name="search" type="search" class="form-control" placeholder="Enter a location or name">
-                </div>
-                @*Sort Price*@
-                <div class="col-md-2 mb-3">
-                    <label class="form-label fw-bold">Sort By Price:</label>
-                    <select name="sortByPrice" class="form-select">
-                        <option value="">None</option>
-                        <option value="asc">&#x2191; Low to High</option>
-                        <option value="desc">&#x2193; High to Low</option>
-                    </select>
                 </div>
                 <div class="col-md-3 mb-3 d-flex align-items-end">
                     <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">
