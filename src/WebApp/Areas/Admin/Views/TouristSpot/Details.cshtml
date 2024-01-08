@@ -17,10 +17,7 @@
                 <input type="hidden" asp-for="ID" />
                 <button type="submit" id="delete-confirm-button" class="btn btn-danger">Delete</button>
             </form>
-            <a asp-area="" asp-controller="touristspot" asp-action="detail" asp-route-id="@Model?.ID"
-               class="btn btn-primary" target="_blank">
-                View on website
-            </a>
+            <a asp-area="" asp-controller="touristSpot" asp-action="detail" asp-route-id="@Model?.ID" class="btn btn-primary" target="_blank">View on website</a>
         </div>
     </div>
     <div class="row">
@@ -80,21 +77,21 @@
                 </div>
             </div>
         </div>
-        @* <div class="col-md-6">
+        <div class="col-md-6">
             <div class="card mb-4">
-            <div class="card-body">
-            <div class="thumbnail-section">
-            <small class="d-block fw-normal text-uppercase mb-3">
-            Hotel Thumbnail
-            </small>
-            <hr class="hr hr-blurry" />
-            <div class="d-flex align-items-center flex-column">
-            <img class="img-fluid rounded my-3" src="@Model.Image" alt="@Model.Name">
+                <div class="card-body">
+                    <div class="thumbnail-section">
+                        <small class="d-block fw-normal text-uppercase mb-3">
+                            Hotel Thumbnail
+                        </small>
+                        <hr class="hr hr-blurry" />
+                        <div class="d-flex align-items-center flex-column">
+                            <img class="img-fluid rounded my-3" src="@Model.Image" alt="@Model.Name">
+                        </div>
+                    </div>
+                </div>
             </div>
-            </div>
-            </div>
-            </div>
-            </div> *@
+        </div>
     </div>
 </section>
 @section Scripts {

@@ -49,10 +49,6 @@
                 <a data-mdb-tab-init class="nav-link fw-bold" id="menu-tab-4" href="#menu-tabs-4" role="tab"
                    aria-controls="menu-tabs-4" aria-selected="false"><i class="fas fa-compass fa-fw me-2"></i>TouristSpot</a>
             </li>
-            <li class="nav-item" role="presentation">
-                <a data-mdb-tab-init class="nav-link fw-bold" id="menu-tab-5" href="#menu-tabs-5" role="tab"
-                   aria-controls="menu-tabs-5" aria-selected="false"><i class="fas fa-book fa-fw me-2"></i>Travels</a>
-            </li>
         </ul>
         <div class="tab-content" id="menu-content">
             <div class="tab-pane fade show active" id="menu-tabs-1" role="tabpanel" aria-labelledby="menu-tab-1">
@@ -120,29 +116,8 @@
 
             <div class="tab-pane fade" id="menu-tabs-4" role="tabpanel" aria-labelledby="menu-tab-4">
                 <div class="mb-3">
-                    <label class="form-label fw-bold">TouristSpot Location:</label>
+                    <label class="form-label fw-bold">Tourist Location:</label>
                     <form asp-action="index" asp-controller="touristspot">
-                        <div class="row">
-                            <div class="col-md-9 mb-3">
-                                <input name="search" type="search" class="form-control" placeholder="Enter a location">
-                            </div>
-                            <div class="col-md-3">
-                                <div class="mb-3 text-center">
-                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">
-                                        Search
-                                        <i class="fas fa-long-arrow-alt-right ms-2"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="menu-tabs-5" role="tabpanel" aria-labelledby="menu-tab-5">
-                <div class="mb-3">
-                    <label class="form-label fw-bold">Travel Location:</label>
-                    <form asp-action="index" asp-controller="travel">
                         <div class="row">
                             <div class="col-md-9 mb-3">
                                 <input name="search" type="search" class="form-control" placeholder="Enter a location">
@@ -219,7 +194,10 @@
                     <img src="@i.Hotel.Image" class="card-img-top" alt="@i.Hotel.Name" />
                     <div class="card-body">
                         <h5 class="card-title">@i.Hotel.Name</h5>
-                        <p class="text-muted">@i.Hotel.Location</p>
+                        <p class="text-muted">
+                            @(i.Hotel.Location.Length > 20 ?
+                                i.Hotel.Location.Substring(0, 20) + " ..." : i.Hotel.Location)
+                        </p>
                         <div class="d-flex justify-content-start align-items-center mb-2">
                             @{
                                 int ratingValue = i.NumRatings > 0 ? i.TotalRatingValue / i.NumRatings : 0;
@@ -247,7 +225,6 @@
                     </div>
                 </div>
             </div>
-
         }
     </div>
 </section>

@@ -1,38 +1,24 @@
 ﻿@model IEnumerable<TouristSpot>
 @{
-    ViewData["Title"] = "Hotel";
+    ViewData["Title"] = "Tourist";
 }
 
 <section id="wrapper">
     <div class="card mt-3 mb-4 p-5">
-        <ul class="nav nav-tabs nav-justified mb-3" id="menu" role="tablist">
-            <li class="nav-item" role="presentation">
-                <a data-mdb-tab-init class="nav-link fw-bold" id="menu-tab-1" href="#menu-tabs-1" role="tab"
-                   aria-controls="menu-tabs-3" aria-selected="false"><i class="fas fa-compass fa-fw me-2"></i>Travel</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="menu-content">
-            <div class="tab-pane fade show active" id="menu-tabs-1" role="tabpanel" aria-labelledby="menu-tab-1">
-                <div class="mb-3">
-                    <label class="form-label fw-bold">Travel Location:</label>
-                    <form asp-action="index" asp-controller="touristspot">
-                        <div class="row">
-                            <div class="col-md-9 mb-3">
-                                <input name="search" type="search" class="form-control" placeholder="Enter a location">
-                            </div>
-                            <div class="col-md-3">
-                                <div class="mb-3 text-center">
-                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">
-                                        Search
-                                        <i class="fas fa-long-arrow-alt-right ms-2"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+        <form asp-action="index" asp-controller="touristspot">
+            <div class="row">
+                <div class="col-md-5 mb-3">
+                    <label class="form-label fw-bold">Location - Name:</label>
+                    <input name="search" type="search" class="form-control" placeholder="Enter a location or name">
+                </div>
+                <div class="col-md-3 mb-3 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">
+                        Search
+                        <i class="fas fa-long-arrow-alt-right ms-2"></i>
+                    </button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </section>
 
@@ -47,18 +33,11 @@
                 <div class="card">
                     <img src="@i.Image" class="card-img-top" alt="@i.Name" />
                     <div class="card-body">
-                        <h5 class="card-title">@i.Name</h5>
-                        <p class="text-muted">@i.Location</p>
-                        <div class="d-flex justify-content-start align-items-center mb-2">
-                            <div class="ratings">
-                                <i class="fa fa-star rating-color"></i>
-                                <i class="fa fa-star rating-color"></i>
-                                <i class="fa fa-star rating-color"></i>
-                                <i class="fa fa-star rating-color"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <h5 class="review-count">12 Reviews</h5>
-                        </div>
+                        <h6 class="card-title fw-bold">@i.Name</h6>
+                        <p class="text-muted">
+                            @(i.Location.Length > 20 ?
+                            i.Location.Substring(0, 20) + " ..." : i.Location)
+                        </p>
                         <div class="d-flex justify-content-between">
                             <div class="d-flex justify-content-start align-items-center">
                                 <a asp-controller="touristspot" asp-action="detail" asp-route-id="@i.ID" class="text-primary">

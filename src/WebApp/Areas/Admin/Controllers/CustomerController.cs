@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Model;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApp.Data;
@@ -21,7 +22,7 @@ namespace WebApp.Areas.Admin.Controllers
             _dbContext = dbContext;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? sortRole, string? search, int pg=1)
         {
             var users = await (from user in _userManager.Users
                                join userRole in _dbContext.UserRoles on user.Id equals userRole.UserId
@@ -40,7 +41,29 @@ namespace WebApp.Areas.Admin.Controllers
 
             ViewBag.AvailableRoles = availableRoles;
 
-            return View(users);
+            int pageSize = 10;
+            if (pg < 1) pg = 1;
+            int recsCount = users.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = users.Skip(recSkip).Take(pager.PageSize).ToList();
+            ViewBag.Pager = pager;
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                data = users.Where(p => p.Name.Contains(search) 
+                                    || p.Email.Contains(search) 
+                                    || p.Phone.Contains(search) 
+                                    || p.Role.Contains(search))
+                                        .ToList();
+            }
+
+            if (sortRole == "Admin" || sortRole == "User")
+            {
+                data = users.Where(p => p.Role.Contains(sortRole)).ToList();
+            }
+
+            return View(data);
         }
 
         [HttpPost]

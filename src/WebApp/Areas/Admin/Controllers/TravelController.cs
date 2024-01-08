@@ -19,9 +19,23 @@ namespace WebApp.Areas.Admin
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search, int pg = 1)
         {
-            return View(await _context.Travels.ToListAsync());
+            List<TravelInfo> travels = await _context.Travels.ToListAsync();
+            int pageSize = 10;
+            if (pg < 1) pg = 1;
+            int recsCount = travels.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = travels.Skip(recSkip).Take(pager.PageSize).ToList();
+            ViewBag.Pager = pager;
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                data = _context.Travels.Where(p => p.Name.Contains(search)).ToList();
+            }
+
+            return View(data);
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -46,7 +60,11 @@ namespace WebApp.Areas.Admin
         public IActionResult Create()
         {
             ViewBag.TouristSpotID = new SelectList(_context.Tourists.ToList(), "ID", "Name");
-            return View();
+            var travel = new TravelInfo
+            {
+                Description = "Description",
+            };
+            return View(travel);
         }
 
         [HttpPost]
@@ -56,7 +74,6 @@ namespace WebApp.Areas.Admin
             try
             {
                 ViewBag.TouristSpotID = new SelectList(_context.Tourists.ToList(), "ID", "Name", travelInfo.TouristSpotID);
-
                 if (ModelState.IsValid)
                 {
                     _context.Add(travelInfo);
@@ -98,8 +115,6 @@ namespace WebApp.Areas.Admin
                 existingTravel.Price = travelInfo.Price;
                 existingTravel.Description = travelInfo.Description;
                 existingTravel.TouristSpotID = travelInfo.TouristSpotID;
-                existingTravel.StartingTime = travelInfo.StartingTime;
-                existingTravel.EndingTime = travelInfo.EndingTime;
 
                 _context.Update(existingTravel);
                 await _context.SaveChangesAsync();

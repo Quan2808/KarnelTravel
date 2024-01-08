@@ -34,35 +34,10 @@
                         <label class="form-label">TouristSpot</label>
                         <select asp-for="TouristSpotID" class="form-control" asp-items="ViewBag.TouristSpotID"></select>
                     </div>
-                    <div class="col-md-6">
-                        <label class="form-label">StartDate</label>
-                        <input type="date" class="form-control" asp-for="StartingTime">
-                        <span asp-validation-for="StartingTime" class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">EndDate</label>
-                        <input type="date" class="form-control" asp-for="EndingTime">
-                        <span asp-validation-for="EndingTime" class="text-danger"></span>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-lg-8 mb-3">
-                <div class="card">
-                    <div class="card-header">
-                        TravelInfo Description
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <div id="_description"></div>
-                            <input type="hidden" asp-for="Description" id="Description">
-                            <span asp-validation-for="Description" class="text-danger"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <input type="hidden" asp-for="Description" id="Description">
     </form>
 </section>
 @section Scripts {

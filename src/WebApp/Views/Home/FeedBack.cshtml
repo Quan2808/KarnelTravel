@@ -44,13 +44,7 @@
     <div class="row mt-5 mb-5 ms-3 me-3">
         <div class="col-sm-6">
 
-            <h3>CONTACT INFO</h3>
-
-            <p>
-                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum
-            </p>
-
-            <br>
+            <h5 class="mb-3 fw-bold text-center">CONTACT INFO</h5>
 
             <h4>ADDRESS</h4>
             <p>
@@ -95,15 +89,15 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Phone</label>
+                                <label class="form-label">Email</label>
                                 @if (SignInManager.IsSignedIn(User))
                                 {
-                                    <input type="number" asp-for="CustomerPhone" class="form-control"
+                                    <input type="email" asp-for="CustomerPhone" class="form-control"
                                            readonly required />
                                 }
                                 else
                                 {
-                                    <input type="number" asp-for="CustomerPhone" class="form-control" required />
+                                    <input type="email" asp-for="CustomerPhone" class="form-control" required />
                                 }
 
                                 <div class="invalid-feedback">
@@ -111,7 +105,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Comment</label>
+                                <label class="form-label">Feedback</label>
                                 <textarea asp-for="Comment" class="form-control" rows="7" required></textarea>
                                 <div class="invalid-feedback">
                                     <span asp-validation-for="Comment" class="text-danger"></span>

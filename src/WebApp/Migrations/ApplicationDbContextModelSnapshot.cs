@@ -403,8 +403,7 @@ namespace WebApp.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("HotelID")
                         .HasColumnType("int");
@@ -449,11 +448,7 @@ namespace WebApp.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<DateTime>("EndingTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -462,9 +457,6 @@ namespace WebApp.Migrations
 
                     b.Property<float>("Price")
                         .HasColumnType("real");
-
-                    b.Property<DateTime>("StartingTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("TouristSpotID")
                         .HasColumnType("int");

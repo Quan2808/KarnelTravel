@@ -206,13 +206,3 @@ body {
         color: #ff9c1a;
     }
 
-.row .card {
-    transition: transform 0.3s ease; /* Add a smooth transition effect for transform property */
-    transform-origin: center bottom; /* Set the transform origin to the bottom center */
-}
-
-
-.row .card-img-top {
-    height: 300px; /* Set a fixed height for the card images */
-    object-fit: cover; /* Ensure images maintain their aspect ratio and cover the entire container */
-}

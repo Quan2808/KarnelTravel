@@ -9,6 +9,22 @@ namespace WebApp.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Feedbacks",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CustomerPhone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CommentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Feedbacks", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Hotels",
                 columns: table => new
                 {
@@ -70,7 +86,8 @@ namespace WebApp.Migrations
                     RestaurantID = table.Column<int>(type: "int", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Location = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -101,9 +118,7 @@ namespace WebApp.Migrations
                     TouristSpotID = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Price = table.Column<float>(type: "real", nullable: false),
-                    StartingTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndingTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -176,7 +191,11 @@ namespace WebApp.Migrations
                     CustomerPhone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BookingID = table.Column<int>(type: "int", nullable: false),
-                    HotelID = table.Column<int>(type: "int", nullable: true)
+                    HotelID = table.Column<int>(type: "int", nullable: true),
+                    ResortID = table.Column<int>(type: "int", nullable: true),
+                    RestaurantID = table.Column<int>(type: "int", nullable: true),
+                    TouristSpotID = table.Column<int>(type: "int", nullable: true),
+                    TravelInfoID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -191,6 +210,26 @@ namespace WebApp.Migrations
                         name: "FK_Ratings_Hotels_HotelID",
                         column: x => x.HotelID,
                         principalTable: "Hotels",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Ratings_Resorts_ResortID",
+                        column: x => x.ResortID,
+                        principalTable: "Resorts",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Ratings_Restaurants_RestaurantID",
+                        column: x => x.RestaurantID,
+                        principalTable: "Restaurants",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Ratings_Tourists_TouristSpotID",
+                        column: x => x.TouristSpotID,
+                        principalTable: "Tourists",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Ratings_Travels_TravelInfoID",
+                        column: x => x.TravelInfoID,
+                        principalTable: "Travels",
                         principalColumn: "ID");
                 });
 
@@ -231,6 +270,26 @@ namespace WebApp.Migrations
                 column: "HotelID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Ratings_ResortID",
+                table: "Ratings",
+                column: "ResortID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ratings_RestaurantID",
+                table: "Ratings",
+                column: "RestaurantID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ratings_TouristSpotID",
+                table: "Ratings",
+                column: "TouristSpotID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ratings_TravelInfoID",
+                table: "Ratings",
+                column: "TravelInfoID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Tourists_HotelID",
                 table: "Tourists",
                 column: "HotelID");
@@ -253,6 +312,9 @@ namespace WebApp.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Feedbacks");
+
             migrationBuilder.DropTable(
                 name: "Ratings");
 

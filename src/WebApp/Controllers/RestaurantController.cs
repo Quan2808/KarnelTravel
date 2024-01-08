@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Model;
 using WebApp.Data;
 
 namespace WebApp.Controllers
@@ -14,33 +15,68 @@ namespace WebApp.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string? search)
+        public async Task<IActionResult> Index(string? search, int? rating, string? sortByPrice)
         {
             var restaurants = await _context.Restaurants.ToListAsync();
 
+            var resData = restaurants.Select(restaurant => new
+            {
+                Restaurant = restaurant,
+                NumRatings = _context.Ratings.Count(r => r.Booking.RestaurantID == restaurant.ID),
+                TotalRatingValue = _context.Ratings
+                                    .Where(r => r.Booking.RestaurantID == restaurant.ID)
+                                    .Sum(r => r.Value)
+            });
+
             if (!String.IsNullOrEmpty(search))
             {
-                restaurants = restaurants.Where(l => l.Location!.Contains(search)).ToList();
+                resData = resData.Where(data => data.Restaurant.Location!
+                    .Contains(search, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
             }
-
-            return View(restaurants);
+            if (rating.HasValue)
+            {
+                resData = resData.Where(data => data.NumRatings > 0 && data.TotalRatingValue / data.NumRatings == rating.Value).ToList();
+            }
+            if (!String.IsNullOrEmpty(sortByPrice))
+            {
+                if (sortByPrice.ToLower() == "asc")
+                {
+                    resData = resData.OrderBy(data => data.Restaurant.Price).ToList();
+                }
+                else if (sortByPrice.ToLower() == "desc")
+                {
+                    resData = resData.OrderByDescending(data => data.Restaurant.Price).ToList();
+                }
+            }
+            return View(resData);
         }
 
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null || _context.Restaurants == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
-            var hotel = await _context.Restaurants
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (hotel == null)
+            var restaurant = await _context.Restaurants.FirstOrDefaultAsync(m => m.ID == id);
+
+            if (restaurant == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
-            return View(hotel);
+            var resData = new
+            {
+                Restaurant = restaurant,
+                Review = _context.Ratings.Where(r => r.Booking!.RestaurantID == restaurant.ID).ToList(),
+                NumRatings = _context.Ratings.Count(r => r.Booking!.RestaurantID == restaurant.ID),
+                TotalRatingValue = _context.Ratings
+                                   .Where(r => r.Booking!.RestaurantID == restaurant.ID)
+                                   .Sum(r => r.Value)
+            };
+
+            return View(resData);
         }
     }
 }

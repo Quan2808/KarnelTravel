@@ -18,9 +18,23 @@ namespace WebApp.Areas.Admin
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search, int pg = 1)
         {
-            return View(await _context.Resorts.ToListAsync());
+            List<Resort> resorts = await _context.Resorts.ToListAsync();
+            int pageSize = 10;
+            if (pg < 1) pg = 1;
+            int recsCount = resorts.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = resorts.Skip(recSkip).Take(pager.PageSize).ToList();
+            ViewBag.Pager = pager;
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                data = _context.Resorts.Where(p => p.Name.Contains(search)).ToList();
+            }
+
+            return View(data);
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -141,9 +155,12 @@ namespace WebApp.Areas.Admin
 
             var bookings = await _context.Bookings.Where(b => b.ResortID == id).ToListAsync();
 
+            var tours = await _context.Tourists.Where(t => t.ResortID == id).ToListAsync();
+
             foreach (var booking in bookings)
             {
                 _context.Bookings.Remove(booking);
+                _context.Tourists.RemoveRange(tours);
             }
 
             _context.Resorts.Remove(existingResort);

@@ -10,11 +10,68 @@
         <a asp-action="Index">Return To Booking List</a>
     </div>
     <div class="card mb-3">
-        <h4 class="text-center card-header mt-3 fw-bold"
-            style="--mdb-card-header-border-width: 0px;">
-            Room Information
-        </h4>
+        @if (Model.TravelInfoID != null)
+        {
+            <h4 class="text-center card-header mt-3 fw-bold"
+                style="--mdb-card-header-border-width: 0px;">
+                Tour Information
+            </h4>
+        }
+        else
+        {
+            <h4 class="text-center card-header mt-3 fw-bold"
+                style="--mdb-card-header-border-width: 0px;">
+                Room Information
+            </h4>
+        }
         <div class="card-body">
+            @if (Model.TravelInfoID != null)
+            {
+                <div class="card shadow-0">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                                <img src="@Model.TravelInfo.TouristSpot.Image"
+                                     alt="@Model.TravelInfo.TouristSpot.Name"
+                                     class="img-fluid rounded-start" />
+                            </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div class="card-text fs-4">
+                                    <span class="fw-bold"> Code: </span>
+                                    @Model.ID
+                                </div>
+                                <div class="card-text my-3">
+                                    <span class="fw-bold">Tour package: </span>
+                                    @Model.TravelInfo.Name
+                                </div>
+                                <div class="card-text my-3">
+                                    <small>
+                                        <span class="fw-bold">Price:</span>
+                                        <span class="text-muted">
+                                            @string.Format("{0,15:N0}", Model.TravelInfo.Price)
+                                        </span>
+                                    </small>
+                                </div>
+                                <hr class="hr hr-blurry" />
+                                <div class="card-text mt-3">
+                                    <span class="fw-bold">Benefit:</span>
+                                    <div class="ms-3">
+                                        <small>
+                                            24/7 Check-in,
+                                            Complimentary Wi-Fi,
+                                            Luggage Storage,
+                                            Tour Guides,
+                                            Well-Planned Itinerary,
+                                            Drivers Drive Safely,
+                                            Parking Available
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
             @if (Model.HotelID != null)
             {
                 <div class="card shadow-0">
@@ -46,7 +103,7 @@
                                     <small>
                                         <span class="fw-bold">Price:</span>
                                         <span class="text-muted">
-                                            @Model.Hotel.Price
+                                            @string.Format("{0,15:N0}", Model.Hotel.Price)
                                         </span>
                                     </small>
                                 </div>
@@ -100,7 +157,7 @@
                                     <small>
                                         <span class="fw-bold">Price:</span>
                                         <span class="text-muted">
-                                            @Model.Resort.Price
+                                            @string.Format("{0,15:N0}", Model.Resort.Price)
                                         </span>
                                     </small>
                                 </div>

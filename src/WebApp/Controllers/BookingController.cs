@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -34,8 +35,8 @@ namespace WebApp.Controllers
                 .Include(b => b.Hotel)
                 .Include(b => b.Resort)
                 .Include(b => b.Restaurant)
-                .Include(b => b.TouristSpot)
                 .Include(b => b.TravelInfo)
+                    .ThenInclude(ti => ti.TouristSpot)
                 .Where(user => user.CustomerPhone == isUser.PhoneNumber);
 
             return View(await booking.ToListAsync());
@@ -53,8 +54,8 @@ namespace WebApp.Controllers
                 .Include(b => b.Hotel)
                 .Include(b => b.Resort)
                 .Include(b => b.Restaurant)
-                .Include(b => b.TouristSpot)
                 .Include(b => b.TravelInfo)
+                    .ThenInclude(ti => ti.TouristSpot)
                 .Include(b => b.Rating)
                 .FirstOrDefaultAsync(m => m.ID == id && m.CustomerPhone == user.PhoneNumber);
 
@@ -135,13 +136,21 @@ namespace WebApp.Controllers
                         }
                         break;
 
-                    case "TouristSpot" when id > 0:
-                        booking.TouristSpotID = id;
-                        break;
-
                     case "TravelInfo" when id > 0:
-                        booking.TravelInfoID = id;
-                        booking.TotalPrice = _context.Travels.FirstOrDefault(t => t.ID == id)?.Price ?? 0;
+                        var travels = _context.Travels.FirstOrDefault(t => t.ID == id);
+
+                        if (travels != null)
+                        {
+                            var touristSpot = _context.Tourists.FirstOrDefault(ts => ts.ID == travels.TouristSpotID);
+                            booking.TotalPrice = id;
+                            booking.TotalPrice = _context.Travels.FirstOrDefault(t => t.ID == id)?.Price ?? 0;
+                            ViewData["TravelName"] = touristSpot.Name;
+                            ViewData["TravelLocation"] = touristSpot.Location;
+                            ViewData["TravelImage"] = touristSpot.Image;
+                            ViewData["TravelDescription"] = travels.Name;
+                            ViewData["TravelPrice"] = travels.Price;
+                        }
+
                         break;
 
                     default:
@@ -156,7 +165,7 @@ namespace WebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CheckIn([Bind("HotelID,ResortID,RestaurantID,TouristSpotID,TravelInfoID,CustomerName,CustomerPhone,CheckIn,CheckOut,Status")] Booking booking, string package, int id)
+        public async Task<IActionResult> CheckIn([Bind("HotelID,ResortID,RestaurantID,TravelInfoID,CustomerName,CustomerPhone,CheckIn,CheckOut,Status")] Booking booking, string package, int id)
         {
             if (ModelState.IsValid)
             {
@@ -176,10 +185,6 @@ namespace WebApp.Controllers
                     case "Restaurant" when id > 0:
                         booking.RestaurantID = id;
                         booking.TotalPrice = numberOfDays * _context.Restaurants.FirstOrDefault(r => r.ID == id)?.Price ?? 0;
-                        break;
-
-                    case "TouristSpot" when id > 0:
-                        booking.TouristSpotID = id;
                         break;
 
                     case "TravelInfo" when id > 0:
@@ -245,7 +250,7 @@ namespace WebApp.Controllers
                     return RedirectToAction(nameof(Index));
                 }
             }
-            return RedirectToAction("details", new { id = rating.BookingID });
+            return RedirectToAction("details", new { id = booking.ID });
         }
     }
 }

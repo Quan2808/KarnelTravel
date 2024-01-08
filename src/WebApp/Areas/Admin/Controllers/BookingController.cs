@@ -19,9 +19,28 @@ namespace WebApp.Areas.Admin
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search, int pg = 1)
         {
-            return View(await _context.Bookings.ToListAsync());
+            List<Booking> bookings = await _context.Bookings
+                .OrderByDescending(b => b.ID)
+                .ToListAsync();
+
+            int pageSize = 10;
+            if (pg < 1) pg = 1;
+            int recsCount = bookings.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = bookings.Skip(recSkip).Take(pager.PageSize).ToList();
+            ViewBag.Pager = pager;
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                data = bookings.Where(p => p.CustomerName.Contains(search)
+                                        || p.CustomerPhone.Contains(search))
+                                        .ToList();
+            }
+
+            return View(data);
         }
 
         public async Task<IActionResult> Details(int id)
