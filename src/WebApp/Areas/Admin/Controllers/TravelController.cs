@@ -60,7 +60,11 @@ namespace WebApp.Areas.Admin
         public IActionResult Create()
         {
             ViewBag.TouristSpotID = new SelectList(_context.Tourists.ToList(), "ID", "Name");
-            return View();
+            var travel = new TravelInfo
+            {
+                Description = "Description",
+            };
+            return View(travel);
         }
 
         [HttpPost]
@@ -70,7 +74,6 @@ namespace WebApp.Areas.Admin
             try
             {
                 ViewBag.TouristSpotID = new SelectList(_context.Tourists.ToList(), "ID", "Name", travelInfo.TouristSpotID);
-
                 if (ModelState.IsValid)
                 {
                     _context.Add(travelInfo);
