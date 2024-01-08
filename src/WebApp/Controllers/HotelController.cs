@@ -30,8 +30,9 @@ namespace WebApp.Controllers
 
             if (!String.IsNullOrEmpty(search))
             {
-                hotelData = hotelData.Where(data => data.Hotel.Location!
-                    .Contains(search, StringComparison.OrdinalIgnoreCase))
+                hotelData = hotelData.Where(data =>
+                    data.Hotel.Location!.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                    data.Hotel.Name!.Contains(search, StringComparison.OrdinalIgnoreCase))
                     .ToList();
             }
 
@@ -39,7 +40,7 @@ namespace WebApp.Controllers
             {
                 hotelData = hotelData.Where(data => data.NumRatings > 0 && data.TotalRatingValue / data.NumRatings == rating.Value).ToList();
             }
-            if (!String.IsNullOrEmpty(sortByPrice)) 
+            if (!String.IsNullOrEmpty(sortByPrice))
             {
                 if (sortByPrice.ToLower() == "asc")
                 {
