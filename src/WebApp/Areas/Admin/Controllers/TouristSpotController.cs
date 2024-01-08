@@ -164,17 +164,18 @@ namespace WebApp.Areas.Admin
             }
 
             var bookings = await _context.Bookings
-                .Where(b => b.TravelInfoID == id).ToListAsync();
+                .Where(b => b.TravelInfo.TouristSpotID == id).ToListAsync();
 
             var travels = await _context.Travels
-                .Where(b => b.TouristSpotID == b.TouristSpot.ID).ToListAsync();
+                .Where(b => b.TouristSpotID == id).ToListAsync();
 
             foreach (var booking in bookings)
             {
-                _context.Bookings.Remove(booking);
+                _context.Bookings.RemoveRange(booking);
             }
 
             _context.Tourists.Remove(exitingTourist);
+
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
