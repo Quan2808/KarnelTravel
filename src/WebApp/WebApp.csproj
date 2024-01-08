@@ -24,6 +24,9 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\assets\images\thumbails\Hotel\" />
+    <Folder Include="wwwroot\assets\images\thumbails\Resort\" />
+    <Folder Include="wwwroot\assets\images\thumbails\Restaurant\" />
+    <Folder Include="wwwroot\assets\images\thumbails\Tourist Spot\" />
   </ItemGroup>
 
 </Project>
