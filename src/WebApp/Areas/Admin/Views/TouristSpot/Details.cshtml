@@ -17,7 +17,7 @@
                 <input type="hidden" asp-for="ID" />
                 <button type="submit" id="delete-confirm-button" class="btn btn-danger">Delete</button>
             </form>
-            <a href="#" class="btn btn-primary">View on website</a>
+            <a asp-area="" asp-controller="touristSpot" asp-action="detail" asp-route-id="@Model?.ID" class="btn btn-primary" target="_blank">View on website</a>
         </div>
     </div>
     <div class="row">
