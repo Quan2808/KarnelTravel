@@ -30,10 +30,10 @@
                 <div class="card shadow-0">
                     <div class="row g-0">
                         <div class="col-md-4">
-                                <img src="@Model.TravelInfo.TouristSpot.Image"
-                                     alt="@Model.TravelInfo.TouristSpot.Name"
-                                     class="img-fluid rounded-start" />
-                            </div>
+                            <img src="@Model.TravelInfo.TouristSpot.Image"
+                                 alt="@Model.TravelInfo.TouristSpot.Name"
+                                 class="img-fluid rounded-start" />
+                        </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <div class="card-text fs-4">
@@ -282,11 +282,11 @@
                     @if (Model.Status != BookingStatus.Cancelled && Model.Status != BookingStatus.Completed)
                     {
                         <div class="text-center">
-                            <form asp-action="Cancelled">
+                            <button id="cancelButton" class="btn btn-danger">
+                                Cancelled
+                            </button>
+                            <form id="cancelForm" asp-action="Cancelled">
                                 <input type="hidden" asp-for="ID" />
-                                <button type="submit" value="Cancelled" class="btn btn-danger">
-                                    Cancelled
-                                </button>
                             </form>
                         </div>
                     }
@@ -344,7 +344,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
+                                                <button type="submit" class="btn btn-primary" data-mdb-ripple-init onclick="showSuccessMessage()">Save changes</button>
                                             </div>
                                         </form>
                                     </div>
@@ -357,8 +357,38 @@
         </div>
     </div>
 </section>
-
 @section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('cancelButton').addEventListener('click', function () {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Are you sure?',
+                text: 'This action cannot be undone!',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, cancel it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('cancelForm').submit();
+                }
+            });
+        });
+   
+        function showSuccessMessage() {
+            Swal.fire({
+                icon: "success",
+                title: "Thank you for your rating",
+                text: "Hope you have a nice vacation.",
+                timer: 4500,
+                showConfirmButton: false,
+            }).then(() => {
+                document.getElementById('ratingForm').submit();
+            });
+            return false;
+        }
+    </script>
     <script>
         const stars = document.querySelectorAll(".stars i");
         const ratingInput = document.getElementById("Rating_Value");

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -85,7 +86,7 @@ namespace WebApp.Controllers
                     CustomerName = user.FirstName + " " + user.LastName,
                     CustomerPhone = user.PhoneNumber,
                     CheckIn = DateTime.Today,
-                    CheckOut = DateTime.Today,
+                    CheckOut = DateTime.Today.AddDays(1),
                     Status = BookingStatus.Processing
                 };
 
@@ -157,7 +158,6 @@ namespace WebApp.Controllers
                     default:
                         return View(booking);
                 }
-
                 return View(booking);
             }
 
@@ -230,7 +230,7 @@ namespace WebApp.Controllers
                         break;
 
                     default:
-                        return RedirectToAction("Index");
+                        return RedirectToAction(package);
                 }
 
                 booking.Status = BookingStatus.Processing;
@@ -239,15 +239,16 @@ namespace WebApp.Controllers
                 {
                     _context.Add(booking);
                     await _context.SaveChangesAsync();
-
-                    return RedirectToAction(nameof(Index));
+                    TempData["BookingOK"] = "Reservations are being processed";
+                    ViewData["Package"] = package;
+                    ViewData["Id"] = id;
+                    return View(booking);
                 }
             }
 
             ViewData["Package"] = package;
             ViewData["Id"] = id;
-
-            ModelState.AddModelError("CheckIn", "Invalid CheckIn or CheckOut date");
+            ViewData["CheckInError"] = "Invalid Check-In or Check-Out date";
             return View(booking);
         }
 
