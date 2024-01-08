@@ -67,7 +67,7 @@
                 <div class="card">
                     <img src="@i.Restaurant.Image" class="card-img-top" alt="@i.Restaurant.Name" />
                     <div class="card-body">
-                        <h5 class="card-title">@i.Restaurant.Name</h5>
+                        <h6 class="card-title fw-bold">@i.Restaurant.Name</h6>
                         <p class="text-muted">
                             @(i.Restaurant.Location.Length > 20 ?
                              i.Restaurant.Location.Substring(0, 20) + " ..." : i.Restaurant.Location)

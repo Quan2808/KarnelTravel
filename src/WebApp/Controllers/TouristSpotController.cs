@@ -24,7 +24,9 @@ namespace WebApp.Controllers
 
             if (!String.IsNullOrEmpty(search))
             {
-                tourist = tourist.Where(l => l.Location.Contains(search)).ToList();
+                tourist = tourist.Where(l => l.Location
+                    .Contains(search, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
             }
 
             ViewBag.HotelID = new SelectList(_context.Hotels.ToList(), "ID", "Name");

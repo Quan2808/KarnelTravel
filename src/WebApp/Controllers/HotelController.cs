@@ -30,7 +30,9 @@ namespace WebApp.Controllers
 
             if (!String.IsNullOrEmpty(search))
             {
-                hotelData = hotelData.Where(data => data.Hotel.Location!.Contains(search)).ToList();
+                hotelData = hotelData.Where(data => data.Hotel.Location!
+                    .Contains(search, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
             }
 
             if (rating.HasValue)
