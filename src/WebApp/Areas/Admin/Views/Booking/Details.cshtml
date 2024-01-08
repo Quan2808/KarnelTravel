@@ -75,15 +75,19 @@
                                     <span>@Model.TouristSpot.Name</span>
                                 </li>
                             }
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">Price:</span>
+                                <span>@Model.TotalPrice</span>
+                            </li>
                             <form asp-action="Update">
                                 <input type="hidden" asp-for="ID" />
-                                <li class="mb-3">
-                                    <span class="fw-bold me-2">Status:</span>
-                                    <select class="form-control" asp-for="Status" asp-items="Html.GetEnumSelectList<BookingStatus>()"></select>
-                                    <button type="submit" class="btn btn-primary">Change Status</button>
-                                </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">Status:</span>
+                                <select class="form-control" asp-for="Status" asp-items="Html.GetEnumSelectList<BookingStatus>()"></select>
+                                <button type="submit" class="btn btn-primary">Change Status</button>
+                            </li>
                             </form>
-                            
+
                         </ul>
                     </div>
                 </div>

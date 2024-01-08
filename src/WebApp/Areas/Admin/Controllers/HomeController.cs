@@ -12,9 +12,10 @@ namespace WebApp.Areas.Admin.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ApplicationDbContext _dbContext;
 
-        public HomeController(ApplicationDbContext dbContext)
+        public HomeController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
         {
             _dbContext = dbContext;
+            _userManager = userManager;
         }
         public async Task<IActionResult> Index()
         {
