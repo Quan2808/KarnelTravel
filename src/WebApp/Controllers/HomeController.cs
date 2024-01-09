@@ -5,6 +5,7 @@ using WebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Controllers
 {
@@ -106,6 +107,47 @@ namespace WebApp.Controllers
             }
 
             return View(feedback);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> Profile()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            return View(user);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(ApplicationUser user, string oldPassword, string newPassword)
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+
+            if (oldPassword == newPassword)
+            {
+                TempData["oldPasswordEqualsnewPassword"] = "oldPasswordEqualsnewPassword";
+                return RedirectToAction(nameof(Profile));
+            }
+
+            var changePasswordResult = await _userManager.ChangePasswordAsync(
+                currentUser, oldPassword, newPassword);
+
+            if (changePasswordResult.Succeeded)
+            {
+                TempData["ChangePasswordSuccess"] = "ChangePasswordSuccess";
+                return RedirectToAction(nameof(Profile));
+            }
+            
+            else
+            {
+                foreach (var error in changePasswordResult.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+                TempData["CannotChangePassword"] = "CannotChangePassword";
+                return RedirectToAction(nameof(Profile));
+            }
         }
     }
 }

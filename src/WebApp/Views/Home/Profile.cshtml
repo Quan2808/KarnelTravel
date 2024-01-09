@@ -1,0 +1,130 @@
+﻿@model WebApp.Data.ApplicationUser
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<section class="w-100 d-flex justify-content-center pb-4 mt-5 mb-5">
+    <div class="card p-4">
+        <div class="col">
+            <div class="text-center mb-4">
+                <h4 class="fw-bold">User details</h4>
+            </div>
+            <hr class="hr hr-blurry" />
+            <div class="row justify-content-start mb-3">
+                <div class="col-4 fw-bold">
+                    Name
+                </div>
+                <div class="col-8">
+                    @(Model.FirstName + " " + Model.LastName)
+                </div>
+            </div>
+            <div class="row justify-content-start mb-3">
+                <div class="col-4 fw-bold">
+                    Username
+                </div>
+                <div class="col-8">
+                    @Model.UserName
+                </div>
+            </div>
+            <div class="row justify-content-start mb-3">
+                <div class="col-4 fw-bold">
+                    Email address
+                </div>
+                <div class="col-8">
+                    @Model.Email
+                </div>
+            </div>
+            <div class="row justify-content-start mb-3">
+                <div class="col-4 fw-bold">
+                    Phone Number
+                </div>
+                <div class="col-8">
+                    @Model.PhoneNumber
+                </div>
+            </div>
+            <hr class="hr hr-blurry" />
+            <div class="text-center">
+                <a href="#exampleModal" data-mdb-modal-init data-mdb-target="#exampleModal">
+                    Change password?
+                </a>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <form asp-action="ChangePassword">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        Change your password
+                                    </h5>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="OldPassword">Old Password</label>
+                                        <input type="password" class="form-control"
+                                               id="OldPassword" name="oldPassword" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="NewPassword">New Password</label>
+                                        <input type="password" class="form-control"
+                                               id="NewPassword" name="newPassword" required>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+
+    @if (TempData["ChangePasswordSuccess"] != null)
+    {
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "Change password successfully",
+                text: " ",
+                showConfirmButton: false,
+                timer: 5500
+            });
+        </script>
+    }
+
+    @if (TempData["CannotChangePassword"] != null)
+    {
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                icon: "error",
+                title: "Invalid Old Password",
+                text: " ",
+                showConfirmButton: false,
+                timer: 5500,
+            });
+        </script>
+    }
+
+    @if (TempData["oldPasswordEqualsnewPassword"] != null)
+    {
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                icon: "error",
+                title: "The new password must not be the same as the old password",
+                text: " ",
+                showConfirmButton: false,
+                timer: 5500,
+            });
+        </script>
+    }
+}
