@@ -21,7 +21,7 @@ namespace WebApp.Areas.Admin
 
         public async Task<IActionResult> Index(string? search, int pg = 1)
         {
-            List<TravelInfo> travels = await _context.Travels.ToListAsync();
+            List<TravelInfo> travels = await _context.Travels.OrderByDescending(t => t.ID).ToListAsync();
             int pageSize = 10;
             if (pg < 1) pg = 1;
             int recsCount = travels.Count();
@@ -78,6 +78,7 @@ namespace WebApp.Areas.Admin
                 {
                     _context.Add(travelInfo);
                     await _context.SaveChangesAsync();
+                    TempData["AlertCreate"] = "Travel Service Created Successfuly!";
                     return RedirectToAction(nameof(Index));
                 }
 
@@ -118,7 +119,7 @@ namespace WebApp.Areas.Admin
 
                 _context.Update(existingTravel);
                 await _context.SaveChangesAsync();
-
+                TempData["AlertEdit"] = "Travel Service Saved Successfuly!";
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -148,7 +149,7 @@ namespace WebApp.Areas.Admin
 
             _context.Travels.Remove(existingTravel);
             await _context.SaveChangesAsync();
-
+            TempData["AlertDelete"] = "Travel Service Deleted Successfuly!";
             return RedirectToAction(nameof(Index));
         }
 
@@ -161,26 +162,5 @@ namespace WebApp.Areas.Admin
         {
             return RedirectToAction(nameof(Index));
         }
-
-        //private async Task<string> SaveImageAsync(IFormFile imageFile, Hotel hotel)
-        //{
-        //    var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "assets/images/thumbails", "Hotel", hotel.Name);
-
-        //    if (!Directory.Exists(uploadsFolder))
-        //    {
-        //        Directory.CreateDirectory(uploadsFolder);
-        //    }
-
-        //    var uniqueFileName = $"Hotel-{Guid.NewGuid().ToString()}.jpg";
-        //    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-        //    using (var stream = new FileStream(filePath, FileMode.Create))
-        //    {
-        //        await imageFile.CopyToAsync(stream);
-        //        stream.Close();
-        //    }
-
-        //    return $"/assets/images/thumbails/Hotel/{hotel.Name}/{uniqueFileName}";
-        //}
     }
 }

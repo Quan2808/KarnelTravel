@@ -21,7 +21,7 @@ namespace WebApp.Areas.Admin
 
         public async Task<IActionResult> Index(string? search, int pg = 1)
         {
-            List<TouristSpot> touristSpots = await _context.Tourists.ToListAsync();
+            List<TouristSpot> touristSpots = await _context.Tourists.OrderByDescending(t => t.ID).ToListAsync();
             int pageSize = 10;
             if (pg < 1) pg = 1;
             int recsCount = touristSpots.Count();
@@ -91,6 +91,7 @@ namespace WebApp.Areas.Admin
                     }
                     _context.Add(touristSpot);
                     await _context.SaveChangesAsync();
+                    TempData["AlertCreate"] = "Tourist Created Successfuly!";
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -120,7 +121,7 @@ namespace WebApp.Areas.Admin
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Location,Description,HotelID,ResortID,RestaurantID")] TouristSpot touristSpot)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Location,Description,HotelID,ResortID,RestaurantID")] TouristSpot touristSpot, IFormFile imageFile)
         {
             ViewBag.HotelID = new SelectList
                 (_context.Hotels.ToList(), "ID", "Name", touristSpot.HotelID);
@@ -133,6 +134,26 @@ namespace WebApp.Areas.Admin
 
             try
             {
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    var imagePathDel = exitingTourist.Image.Substring(1);
+                    if (!string.IsNullOrEmpty(imagePathDel))
+                    {
+                        var filePath = Path.Combine(_webHostEnvironment.WebRootPath, imagePathDel);
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            System.IO.File.Delete(filePath);
+                        }
+                    }
+
+                    var imagePath = await SaveImageAsync(imageFile, touristSpot);
+                    exitingTourist.Image = imagePath;
+                }
+                else
+                {
+                    exitingTourist.Image = exitingTourist.Image;
+                }
+
                 exitingTourist.Name = touristSpot.Name;
                 exitingTourist.Location = touristSpot.Location;
                 exitingTourist.Description = touristSpot.Description;
@@ -142,7 +163,7 @@ namespace WebApp.Areas.Admin
 
                 _context.Update(exitingTourist);
                 await _context.SaveChangesAsync();
-
+                TempData["AlertEdit"] = "Tourist Saved Successfuly!";
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -163,6 +184,17 @@ namespace WebApp.Areas.Admin
                 return NotFound();
             }
 
+            var imagePath = exitingTourist.Image.Substring(1);
+
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                var filePath = Path.Combine(_webHostEnvironment.WebRootPath, imagePath);
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+            }
+
             var bookings = await _context.Bookings
                 .Where(b => b.TravelInfo.TouristSpotID == id).ToListAsync();
 
@@ -175,9 +207,8 @@ namespace WebApp.Areas.Admin
             }
 
             _context.Tourists.Remove(exitingTourist);
-
             await _context.SaveChangesAsync();
-
+            TempData["AlertDelete"] = "Tourist Deleted Successfuly!";
             return RedirectToAction(nameof(Index));
         }
 

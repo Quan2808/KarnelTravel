@@ -20,7 +20,7 @@ namespace WebApp.Areas.Admin
 
         public async Task<IActionResult> Index(string? search, int pg = 1)
         {
-            List<Restaurant> restaurants = await _context.Restaurants.ToListAsync();
+            List<Restaurant> restaurants = await _context.Restaurants.OrderByDescending(r => r.ID).ToListAsync();
             int pageSize = 10;
             if (pg < 1) pg = 1;
             int recsCount = restaurants.Count();
@@ -75,6 +75,7 @@ namespace WebApp.Areas.Admin
 
                     _context.Add(Restaurant);
                     await _context.SaveChangesAsync();
+                    TempData["AlertCreate"] = "Restaurant Created Successfuly!";
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -106,6 +107,16 @@ namespace WebApp.Areas.Admin
 
                 if (imageFile != null && imageFile.Length > 0)
                 {
+                    var imagePathDel = existingRestaurant.Image.Substring(1);
+                    if (!string.IsNullOrEmpty(imagePathDel))
+                    {
+                        var filePath = Path.Combine(_webHostEnvironment.WebRootPath, imagePathDel);
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            System.IO.File.Delete(filePath);
+                        }
+                    }
+
                     var imagePath = await SaveImageAsync(imageFile, Restaurant);
                     existingRestaurant.Image = imagePath;
                 }
@@ -121,7 +132,7 @@ namespace WebApp.Areas.Admin
 
                 _context.Update(existingRestaurant);
                 await _context.SaveChangesAsync();
-
+                TempData["AlertEdit"] = "Restaurant Saved Successfuly!";
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -165,7 +176,7 @@ namespace WebApp.Areas.Admin
 
             _context.Restaurants.Remove(existingRestaurant);
             await _context.SaveChangesAsync();
-
+            TempData["AlertDelete"] = "Restaurant Deleted Successfuly!";
             return RedirectToAction(nameof(Index));
         }
 
