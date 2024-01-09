@@ -130,10 +130,15 @@ namespace WebApp.Areas.Identity.Pages.Account
                     return Page();
                 }
 
-                if (Input.PhoneNumber.StartsWith("0000000"))
+                string phoneNumber = Input.PhoneNumber;
+                for (int i = 0; i <= 9; i++)
                 {
-                    ModelState.AddModelError(string.Empty, "Phone number is not valid.");
-                    return Page();
+                    string repeatedSequence = new string(char.Parse(i.ToString()), 3);
+                    if (phoneNumber.StartsWith(repeatedSequence))
+                    {
+                        ModelState.AddModelError(string.Empty, "Phone number is not valid.");
+                        return Page();
+                    }
                 }
 
                 user.FirstName = Input.FirstName;

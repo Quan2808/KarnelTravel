@@ -22,7 +22,6 @@ namespace WebApp.Controllers
 
         public async Task<IActionResult> Index(string? search)
         {
-            // Order hotels by ID in descending order and take the top 10
             var hotels = await _context.Hotels
                 .OrderByDescending(h => h.ID)
                 .Take(4)
@@ -120,13 +119,19 @@ namespace WebApp.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ChangePassword(ApplicationUser user, string oldPassword, string newPassword)
+        public async Task<IActionResult> ChangePassword(ApplicationUser user, string oldPassword, string newPassword, string confirmPassword)
         {
             var currentUser = await _userManager.GetUserAsync(User);
 
             if (oldPassword == newPassword)
             {
                 TempData["oldPasswordEqualsnewPassword"] = "oldPasswordEqualsnewPassword";
+                return RedirectToAction(nameof(Profile));
+            }
+
+            if (newPassword != confirmPassword)
+            {
+                TempData["confirmPasswordNotMatch"] = "confirmPasswordNotMatch";
                 return RedirectToAction(nameof(Profile));
             }
 
@@ -138,14 +143,68 @@ namespace WebApp.Controllers
                 TempData["ChangePasswordSuccess"] = "ChangePasswordSuccess";
                 return RedirectToAction(nameof(Profile));
             }
-            
+
             else
             {
-                foreach (var error in changePasswordResult.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
                 TempData["CannotChangePassword"] = "CannotChangePassword";
+                return RedirectToAction(nameof(Profile));
+            }
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePhoneNumber(string newPhoneNumber)
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+
+            for (int i = 0; i <= 9; i++)
+            {
+                string repeatedSequence = new string(char.Parse(i.ToString()), 3);
+                if (newPhoneNumber.StartsWith(repeatedSequence))
+                {
+                    TempData["CannotChangePhoneNumber"] = "CannotChangePhoneNumber";
+                    return RedirectToAction(nameof(Profile));
+                }
+            }
+
+            currentUser.PhoneNumber = newPhoneNumber;
+
+            var updateResult = await _userManager.UpdateAsync(currentUser);
+
+            if (updateResult.Succeeded)
+            {
+                TempData["ChangePhoneNumberSuccess"] = "ChangePhoneNumberSuccess";
+                return RedirectToAction(nameof(Profile));
+            }
+            else
+            {
+                TempData["CannotChangePhoneNumber"] = "CannotChangePhoneNumber";
+                return RedirectToAction(nameof(Profile));
+            }
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeEmail(string newEmail)
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+
+            currentUser.Email = newEmail;
+
+
+            var token = await _userManager.GenerateChangeEmailTokenAsync(currentUser, newEmail);
+            var updateResult = await _userManager.ChangeEmailAsync(currentUser, newEmail, token);
+
+            if (updateResult.Succeeded)
+            {
+                TempData["ChangeChangeEmailSuccess"] = "ChangeChangeEmailSuccess";
+                return RedirectToAction(nameof(Profile));
+            }
+            else
+            {
+                TempData["CannotChangeChangeEmail"] = "CannotChangeChangeEmail";
                 return RedirectToAction(nameof(Profile));
             }
         }

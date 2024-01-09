@@ -11,120 +11,118 @@
             </div>
             <hr class="hr hr-blurry" />
             <div class="row justify-content-start mb-3">
-                <div class="col-4 fw-bold">
+                <div class="col-3 fw-bold">
                     Name
                 </div>
-                <div class="col-8">
+                <div class="col-7">
                     @(Model.FirstName + " " + Model.LastName)
                 </div>
             </div>
             <div class="row justify-content-start mb-3">
-                <div class="col-4 fw-bold">
+                <div class="col-3 fw-bold">
+                    Address
+                </div>
+                <div class="col-7">
+                    @Model.Address
+                </div>
+            </div>
+            <div class="row justify-content-start mb-3">
+                <div class="col-3 fw-bold">
                     Username
                 </div>
-                <div class="col-8">
+                <div class="col-7">
                     @Model.UserName
                 </div>
             </div>
             <div class="row justify-content-start mb-3">
-                <div class="col-4 fw-bold">
-                    Email address
+                <div class="col-3 fw-bold">
+                    Email
                 </div>
-                <div class="col-8">
+                <div class="col-7">
                     @Model.Email
+                </div>
+                <div class="col-2">
+                    <a href="#ChangeEmail" data-mdb-modal-init data-mdb-target="#ChangeEmail">
+                        Edit
+                    </a>
                 </div>
             </div>
             <div class="row justify-content-start mb-3">
-                <div class="col-4 fw-bold">
-                    Phone Number
+                <div class="col-3 fw-bold">
+                    Phone
                 </div>
-                <div class="col-8">
+                <div class="col-7">
                     @Model.PhoneNumber
+                </div>
+                <div class="col-2">
+                    <a href="#ChangePhoneNumber" data-mdb-modal-init data-mdb-target="#ChangePhoneNumber">
+                        Edit
+                    </a>
                 </div>
             </div>
             <hr class="hr hr-blurry" />
             <div class="text-center">
-                <a href="#exampleModal" data-mdb-modal-init data-mdb-target="#exampleModal">
+                <a href="#ChangePassword" data-mdb-modal-init data-mdb-target="#ChangePassword">
                     Change password?
                 </a>
-
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <form asp-action="ChangePassword">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">
-                                        Change your password
-                                    </h5>
-                                </div>
-
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="OldPassword">Old Password</label>
-                                        <input type="password" class="form-control"
-                                               id="OldPassword" name="oldPassword" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="NewPassword">New Password</label>
-                                        <input type="password" class="form-control"
-                                               id="NewPassword" name="newPassword" required>
-                                    </div>
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                <partial name="Sections/_Modal" />
             </div>
         </div>
     </div>
 </section>
-
 @section Scripts{
-
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @functions {
+        void ShowSweetAlert(string icon, string title, string text, int timer = 5500)
+        {
+            <script>
+                Swal.fire({
+                    icon: "@icon",
+                    title: "@title",
+                    text: "@text",
+                    showConfirmButton: false,
+                    timer: @timer,
+                });
+            </script>
+        }
+    }
     @if (TempData["ChangePasswordSuccess"] != null)
     {
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-            Swal.fire({
-                icon: "success",
-                title: "Change password successfully",
-                text: " ",
-                showConfirmButton: false,
-                timer: 5500
-            });
-        </script>
+        ShowSweetAlert("success", "Change password successfully", " ");
     }
-
+    @if (TempData["confirmPasswordNotMatch"] != null)
+    {
+        ShowSweetAlert("error", "New password and confirm password do not match.", " ");
+    }
     @if (TempData["CannotChangePassword"] != null)
     {
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-            Swal.fire({
-                icon: "error",
-                title: "Invalid Old Password",
-                text: " ",
-                showConfirmButton: false,
-                timer: 5500,
-            });
-        </script>
+        ShowSweetAlert("error", "Invalid Old Password", " ");
     }
-
     @if (TempData["oldPasswordEqualsnewPassword"] != null)
     {
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-            Swal.fire({
-                icon: "error",
-                title: "The new password must not be the same as the old password",
-                text: " ",
-                showConfirmButton: false,
-                timer: 5500,
-            });
-        </script>
+        ShowSweetAlert("error", "The new password must not be the same as the old password", " ");
     }
+    @if (TempData["CannotChangePhoneNumber"] != null)
+    {
+        ShowSweetAlert("error", "The new phone number is invalid.", " ");
+    }
+    @if (TempData["ChangePhoneNumberSuccess"] != null)
+    {
+        ShowSweetAlert("success", "Change Phone Number successfully", " ");
+    }
+    @if (TempData["CannotChangeChangeEmail"] != null)
+    {
+        ShowSweetAlert("error", "An error occurred, please enter again.", " ");
+    }
+    @if (TempData["ChangeChangeEmailSuccess"] != null)
+    {
+        ShowSweetAlert("success", "Change Email successfully", " ");
+    }
+    <script>
+        document.getElementById('NewPhoneNumber').addEventListener('input', function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
 }
