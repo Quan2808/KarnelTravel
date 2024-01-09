@@ -139,15 +139,14 @@
                             <span asp-validation-for="CustomerPhone" class="text-danger"></span>
                         </div>
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label fw-bold">
                             Check-In
                             <span class="text-danger ms-1">*</span>
                         </label>
                         <input asp-for="CheckIn" class="form-control" required />
-                        <div class="invalid-feedback">
-                            <span asp-validation-for="CheckIn" class="text-danger"></span>
-                        </div>
+
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">
@@ -155,10 +154,10 @@
                             <span class="text-danger ms-1">*</span>
                         </label>
                         <input asp-for="CheckOut" class="form-control" required />
-                        <div class="invalid-feedback">
-                            <span asp-validation-for="CheckOut" class="text-danger"></span>
-                        </div>
                     </div>
+
+                    <span id="totaldate">
+                    </span>
 
                     <div class="d-flex justify-content-end align-items-center">
                         <div class="mb-3 fs-4">
@@ -168,7 +167,7 @@
                             </span>
                         </div>
                         <div class="mb-3 ms-5">
-                            <button type="submit" class="btn btn-lg btn-primary">Continue</button>
+                            <button id="checkout" type="submit" class="btn btn-lg btn-primary">Continue</button>
                         </div>
                     </div>
                 </form>
@@ -197,7 +196,7 @@
             Swal.fire({
                 icon: "success",
                 title: "Thank for your order",
-                html: ` Reservations are being processed.<br> 
+                html: ` Reservations are being processed.<br>
                         You will be redirected in a few seconds. `,
                 timer: 4500,
                 timerProgressBar: true,
@@ -208,35 +207,41 @@
         </script>
     }
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var checkInInput = document.querySelector('[name="CheckIn"]');
-            var checkOutInput = document.querySelector('[name="CheckOut"]');
-            var totalPriceDisplay = document.getElementById('totalPriceDisplay');
+    document.addEventListener('DOMContentLoaded', function () {
+        var checkInInput = document.querySelector('[name="CheckIn"]');
+        var checkOutInput = document.querySelector('[name="CheckOut"]');
+        var totalPriceDisplay = document.getElementById('totalPriceDisplay');
+        var submitButton = document.getElementById('checkout');
 
-            checkInInput.addEventListener('change', updateTotalPrice);
-            checkOutInput.addEventListener('change', updateTotalPrice);
+        var totaldate = document.getElementById('totaldate');
 
-            function updateTotalPrice() {
-                var checkInValue = new Date(checkInInput.value);
-                var checkOutValue = new Date(checkOutInput.value);
+        checkInInput.addEventListener('change', updateTotalPrice);
+        checkOutInput.addEventListener('change', updateTotalPrice);
 
-                if (!isNaN(checkInValue.getDay()) && !isNaN(checkOutValue.getDay())) {
-                    var numberOfDays = Math.ceil((checkOutValue - checkInValue) / (1000 * 60 * 60 * 24));
+        function updateTotalPrice() {
+            var checkInValue = new Date(checkInInput.value);
+            var checkOutValue = new Date(checkOutInput.value);
 
-                    var unitPrice = parseFloat('@Model.TotalPrice');
+            if (!isNaN(checkInValue.getDay()) && !isNaN(checkOutValue.getDay())) {
 
-                    var totalPrice = numberOfDays * unitPrice;
+                var numberOfDays = Math.ceil((checkOutValue - checkInValue) / (1000 * 60 * 60 * 24));
 
-                    totalPriceDisplay.textContent = "VND " + formatNumber(totalPrice);
-                }
+                var unitPrice = parseFloat('@Model.TotalPrice');
+
+                var totalPrice = numberOfDays * unitPrice;
+
+                totalPrice = Math.max(0, totalPrice);
+
+                totalPriceDisplay.textContent = "VND " + formatNumber(totalPrice);
+
+                submitButton.disabled = numberOfDays < 1;
             }
+        }
 
-            function formatNumber(number) {
-                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            }
-        });
+        function formatNumber(number) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    });
     </script>
-
-
 
 }

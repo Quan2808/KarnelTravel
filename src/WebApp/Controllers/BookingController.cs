@@ -176,48 +176,61 @@ namespace WebApp.Controllers
                     case "Hotel" when id > 0:
 
                         var hotel = _context.Hotels.FirstOrDefault(t => t.ID == id);
+                        if (hotel != null)
+                        {
+                            booking.HotelID = id;
+                            booking.TotalPrice = numberOfDays * hotel.Price ?? 0;
+                            ViewData["HotelName"] = hotel.Name;
+                            ViewData["HotelPrice"] = hotel.Price;
+                            ViewData["HotelLocation"] = hotel.Location;
+                            ViewData["HotelDescription"] = hotel.Description;
+                            ViewData["HotelImage"] = hotel.Image;
+                        }
 
-                        booking.HotelID = id;
-                        booking.TotalPrice = numberOfDays * hotel.Price ?? 0;
-                        ViewData["HotelName"] = hotel.Name;
-                        ViewData["HotelPrice"] = hotel.Price;
-                        ViewData["HotelLocation"] = hotel.Location;
-                        ViewData["HotelDescription"] = hotel.Description;
-                        ViewData["HotelImage"] = hotel.Image;
                         break;
 
                     case "Resort" when id > 0:
                         var resort = _context.Resorts.FirstOrDefault(r => r.ID == id);
-                        booking.ResortID = id;
-                        booking.TotalPrice = numberOfDays * resort.Price ?? 0;
-                        ViewData["ResortName"] = resort.Name;
-                        ViewData["ResortPrice"] = resort.Price;
-                        ViewData["ResortLocation"] = resort.Location;
-                        ViewData["ResortDescription"] = resort.Description;
-                        ViewData["ResortImage"] = resort.Image;
+                        if (resort != null)
+                        {
+                            booking.ResortID = id;
+                            booking.TotalPrice = numberOfDays * resort.Price ?? 0;
+                            ViewData["ResortName"] = resort.Name;
+                            ViewData["ResortPrice"] = resort.Price;
+                            ViewData["ResortLocation"] = resort.Location;
+                            ViewData["ResortDescription"] = resort.Description;
+                            ViewData["ResortImage"] = resort.Image;
+                        }
                         break;
 
                     case "Restaurant" when id > 0:
                         var restaurant = _context.Restaurants.FirstOrDefault(r => r.ID == id);
-                        booking.RestaurantID = id;
-                        booking.TotalPrice = numberOfDays * restaurant.Price ?? 0;
-                        ViewData["RestaurantName"] = restaurant.Name;
-                        ViewData["RestaurantPrice"] = restaurant.Price;
-                        ViewData["RestaurantLocation"] = restaurant.Location;
-                        ViewData["RestaurantDescription"] = restaurant.Description;
-                        ViewData["RestaurantImage"] = restaurant.Image;
+                        if (restaurant != null)
+                        {
+                            booking.RestaurantID = id;
+                            booking.TotalPrice = numberOfDays * restaurant.Price ?? 0;
+                            ViewData["RestaurantName"] = restaurant.Name;
+                            ViewData["RestaurantPrice"] = restaurant.Price;
+                            ViewData["RestaurantLocation"] = restaurant.Location;
+                            ViewData["RestaurantDescription"] = restaurant.Description;
+                            ViewData["RestaurantImage"] = restaurant.Image;
+                        }
                         break;
 
                     case "TravelInfo" when id > 0:
                         var travels = _context.Travels.FirstOrDefault(t => t.ID == id);
                         var touristSpot = _context.Tourists.FirstOrDefault(ts => ts.ID == travels.TouristSpotID);
-                        booking.TravelInfoID = id;
-                        booking.TotalPrice = numberOfDays * _context.Travels.FirstOrDefault(t => t.ID == id)?.Price ?? 0;
-                        ViewData["TravelName"] = touristSpot.Name;
-                        ViewData["TravelLocation"] = touristSpot.Location;
-                        ViewData["TravelImage"] = touristSpot.Image;
-                        ViewData["TravelDescription"] = travels.Name;
-                        ViewData["TravelPrice"] = travels.Price;
+                        if (travels != null)
+                        {
+                            booking.TravelInfoID = id;
+                            booking.TotalPrice = numberOfDays * _context.Travels
+                                .FirstOrDefault(t => t.ID == id)?.Price ?? 0;
+                            ViewData["TravelName"] = touristSpot.Name;
+                            ViewData["TravelLocation"] = touristSpot.Location;
+                            ViewData["TravelImage"] = touristSpot.Image;
+                            ViewData["TravelDescription"] = travels.Name;
+                            ViewData["TravelPrice"] = travels.Price;
+                        }
                         break;
 
                     default:
