@@ -11,40 +11,47 @@
             </div>
             <hr class="hr hr-blurry" />
             <div class="row justify-content-start mb-3">
-                <div class="col-4 fw-bold">
+                <div class="col-3 fw-bold">
                     Name
                 </div>
-                <div class="col-6">
+                <div class="col-7">
                     @(Model.FirstName + " " + Model.LastName)
                 </div>
+            </div>
+            <div class="row justify-content-start mb-3">
+                <div class="col-3 fw-bold">
+                    Address
+                </div>
+                <div class="col-7">
+                    @Model.Address
+                </div>
+            </div>
+            <div class="row justify-content-start mb-3">
+                <div class="col-3 fw-bold">
+                    Username
+                </div>
+                <div class="col-7">
+                    @Model.UserName
+                </div>
+            </div>
+            <div class="row justify-content-start mb-3">
+                <div class="col-3 fw-bold">
+                    Email
+                </div>
+                <div class="col-7">
+                    @Model.Email
+                </div>
                 <div class="col-2">
-                    <a href="#exampleModal" data-mdb-modal-init data-mdb-target="#exampleModal">
+                    <a href="#ChangeEmail" data-mdb-modal-init data-mdb-target="#ChangeEmail">
                         Edit
                     </a>
                 </div>
             </div>
             <div class="row justify-content-start mb-3">
-                <div class="col-4 fw-bold">
-                    Username
+                <div class="col-3 fw-bold">
+                    Phone
                 </div>
-                <div class="col-6">
-                    @Model.UserName
-                </div>
-
-            </div>
-            <div class="row justify-content-start mb-3">
-                <div class="col-4 fw-bold">
-                    Email address
-                </div>
-                <div class="col-8">
-                    @Model.Email
-                </div>
-            </div>
-            <div class="row justify-content-start mb-3">
-                <div class="col-4 fw-bold">
-                    Phone Number
-                </div>
-                <div class="col-6">
+                <div class="col-7">
                     @Model.PhoneNumber
                 </div>
                 <div class="col-2">
@@ -63,7 +70,6 @@
         </div>
     </div>
 </section>
-
 @section Scripts{
     <script src="~/lib/jquery-validation/dist/jquery.validate.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
@@ -72,13 +78,13 @@
         void ShowSweetAlert(string icon, string title, string text, int timer = 5500)
         {
             <script>
-            Swal.fire({
-                icon: "@icon",
-                title: "@title",
-                text: "@text",
-                showConfirmButton: false,
-                timer: @timer
-            });
+                Swal.fire({
+                    icon: "@icon",
+                    title: "@title",
+                    text: "@text",
+                    showConfirmButton: false,
+                    timer: @timer,
+                });
             </script>
         }
     }
@@ -105,6 +111,14 @@
     @if (TempData["ChangePhoneNumberSuccess"] != null)
     {
         ShowSweetAlert("success", "Change Phone Number successfully", " ");
+    }
+    @if (TempData["CannotChangeChangeEmail"] != null)
+    {
+        ShowSweetAlert("error", "An error occurred, please enter again.", " ");
+    }
+    @if (TempData["ChangeChangeEmailSuccess"] != null)
+    {
+        ShowSweetAlert("success", "Change Email successfully", " ");
     }
     <script>
         document.getElementById('NewPhoneNumber').addEventListener('input', function () {

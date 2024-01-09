@@ -143,7 +143,7 @@ namespace WebApp.Controllers
                 TempData["ChangePasswordSuccess"] = "ChangePasswordSuccess";
                 return RedirectToAction(nameof(Profile));
             }
-            
+
             else
             {
                 TempData["CannotChangePassword"] = "CannotChangePassword";
@@ -180,6 +180,31 @@ namespace WebApp.Controllers
             else
             {
                 TempData["CannotChangePhoneNumber"] = "CannotChangePhoneNumber";
+                return RedirectToAction(nameof(Profile));
+            }
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeEmail(string newEmail)
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+
+            currentUser.Email = newEmail;
+
+
+            var token = await _userManager.GenerateChangeEmailTokenAsync(currentUser, newEmail);
+            var updateResult = await _userManager.ChangeEmailAsync(currentUser, newEmail, token);
+
+            if (updateResult.Succeeded)
+            {
+                TempData["ChangeChangeEmailSuccess"] = "ChangeChangeEmailSuccess";
+                return RedirectToAction(nameof(Profile));
+            }
+            else
+            {
+                TempData["CannotChangeChangeEmail"] = "CannotChangeChangeEmail";
                 return RedirectToAction(nameof(Profile));
             }
         }
