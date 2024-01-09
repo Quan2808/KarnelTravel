@@ -121,3 +121,28 @@
 .ck-rounded-corners .ck.ck-editor__main > .ck-editor__editable, .ck.ck-editor__main > .ck-editor__editable.ck-rounded-corners {
     height: 227px
 }
+
+.ratings {
+    margin-right: 10px;
+}
+
+    .ratings i {
+        color: #cecece;
+    }
+
+.rating-color {
+    color: #fbc634 !important;
+}
+
+.review-count {
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.small-ratings i {
+    color: #cecece;
+}
+
+.review-stat {
+    margin-bottom: 2px;
+}

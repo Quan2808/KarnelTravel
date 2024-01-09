@@ -56,6 +56,7 @@ namespace WebApp.Areas.Admin
                 .Include(b => b.Restaurant)
                 .Include(b => b.TouristSpot)
                 .Include(b => b.TravelInfo)
+                .Include(b => b.Rating)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (booking == null)
             {
@@ -77,7 +78,7 @@ namespace WebApp.Areas.Admin
                 _context.Update(existingBooking);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), new { id = booking.ID});
             }
             catch
             {

@@ -79,17 +79,88 @@
                                 <span class="fw-bold me-2">Price:</span>
                                 <span>@Model.TotalPrice</span>
                             </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <small class="d-block fw-normal text-uppercase mb-3">
+                        Booking Details
+                    </small>
+                    <hr class="hr hr-blurry" />
+                    <ul class="list-unstyled">
+                        @if (Model.Status == BookingStatus.Completed)
+                        {
+                            <div class="card-text my-3 ratings">
+                                <span class="fw-bold">
+                                    Status:
+                                </span>
+                                Completed
+                            </div>
+                            @if (Model.Rating != null && Model.Rating.CustomerPhone == Model.CustomerPhone)
+                            {
+                                <div class="card-text my-3 ratings">
+                                    <span class="fw-bold">
+                                        Rating:
+                                    </span>
+                                    <span id="ratingContainer"></span>
+                                </div>
+                                @if (Model.Rating.Comment != null)
+                                {
+                                    <div class="card-text my-3 ratings">
+                                        <span class="fw-bold">Your Comment:</span>
+                                        @Model.Rating.Comment
+                                    </div>
+                                }
+                            }
+                        }
+
+                        else if (Model.Status == BookingStatus.Cancelled)
+                        {
+                            <div class="card-text my-3 ratings">
+                                <span class="fw-bold">
+                                    Status:
+                                </span>
+                                Cancelled
+                            </div>
+                        }
+
+                        else
+                        {
                             <form asp-action="Update">
                                 <input type="hidden" asp-for="ID" />
                             <li class="mb-3">
                                 <span class="fw-bold me-2">Status:</span>
-                                <select class="form-control" asp-for="Status" asp-items="Html.GetEnumSelectList<BookingStatus>()"></select>
-                                <button type="submit" class="btn btn-primary">Change Status</button>
+
+                                <select class="form-control" asp-for="Status">
+                                    @foreach (BookingStatus status in Enum.GetValues(typeof(BookingStatus)))
+                                    {
+                                        if (Model.Status == BookingStatus.Processing)
+                                        {
+                                            if (status != BookingStatus.Processing)
+                                            {
+                                                <option value="@status">@status</option>
+                                            }
+                                        }
+                                        else if (Model.Status == BookingStatus.Confirmed)
+                                        {
+                                            if (status == BookingStatus.Cancelled || status == BookingStatus.Completed)
+                                            {
+                                                <option value="@status">@status</option>
+                                            }
+                                        }
+                                    }
+                                </select>
+
+                                <button type="submit" class="btn btn-primary mt-3">Change Status</button>
                             </li>
                             </form>
-
-                        </ul>
-                    </div>
+                        }
+                    </ul>
                 </div>
             </div>
         </div>
@@ -98,4 +169,40 @@
 @section Scripts {
     <script src="~/admin/js/site.js" asp-append-version="true"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const stars = document.querySelectorAll(".stars i");
+        const ratingInput = document.getElementById("Rating_Value");
+
+        stars.forEach((star, index1) => {
+            star.addEventListener("click", () => {
+                stars.forEach((star, index2) => {
+                    index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+                });
+
+                const selectedValue = index1 + 1;
+                ratingInput.value = selectedValue;
+            });
+        });
+
+        stars[4].click();
+    </script>
+    @if (Model.Rating != null && Model.Rating.Value != null)
+    {
+        <script>
+        var ratingValue = @Model.Rating!.Value;
+        document.getElementById("ratingContainer").innerHTML = "";
+
+        for (var i = 0; i < 5; i++) {
+            var starIcon = document.createElement("i");
+
+            if (i < ratingValue) {
+                starIcon.className = "fa fa-star rating-color";
+            } else {
+                starIcon.className = "fa fa-star";
+            }
+
+            document.getElementById("ratingContainer").appendChild(starIcon);
+        }
+        </script>
+    }
 }

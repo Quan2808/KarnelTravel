@@ -178,7 +178,6 @@ namespace WebApp.Controllers
                         var hotel = _context.Hotels.FirstOrDefault(t => t.ID == id);
 
                         booking.HotelID = id;
-
                         booking.TotalPrice = numberOfDays * hotel.Price ?? 0;
                         ViewData["HotelName"] = hotel.Name;
                         ViewData["HotelPrice"] = hotel.Price;
@@ -189,9 +188,7 @@ namespace WebApp.Controllers
 
                     case "Resort" when id > 0:
                         var resort = _context.Resorts.FirstOrDefault(r => r.ID == id);
-
                         booking.ResortID = id;
-
                         booking.TotalPrice = numberOfDays * resort.Price ?? 0;
                         ViewData["ResortName"] = resort.Name;
                         ViewData["ResortPrice"] = resort.Price;
@@ -202,9 +199,7 @@ namespace WebApp.Controllers
 
                     case "Restaurant" when id > 0:
                         var restaurant = _context.Restaurants.FirstOrDefault(r => r.ID == id);
-
                         booking.RestaurantID = id;
-
                         booking.TotalPrice = numberOfDays * restaurant.Price ?? 0;
                         ViewData["RestaurantName"] = restaurant.Name;
                         ViewData["RestaurantPrice"] = restaurant.Price;
@@ -215,13 +210,9 @@ namespace WebApp.Controllers
 
                     case "TravelInfo" when id > 0:
                         var travels = _context.Travels.FirstOrDefault(t => t.ID == id);
-
                         var touristSpot = _context.Tourists.FirstOrDefault(ts => ts.ID == travels.TouristSpotID);
-
                         booking.TravelInfoID = id;
-
                         booking.TotalPrice = numberOfDays * _context.Travels.FirstOrDefault(t => t.ID == id)?.Price ?? 0;
-
                         ViewData["TravelName"] = touristSpot.Name;
                         ViewData["TravelLocation"] = touristSpot.Location;
                         ViewData["TravelImage"] = touristSpot.Image;
