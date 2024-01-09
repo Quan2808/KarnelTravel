@@ -86,6 +86,7 @@ namespace WebApp.Areas.Identity.Pages.Account
 
                     if (result.Succeeded)
                     {
+                        TempData["LoginOK"] = "LoginOK";
                         return LocalRedirect(returnUrl);
                     }
                     else if (user.LockoutEnabled)

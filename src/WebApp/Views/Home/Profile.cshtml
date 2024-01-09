@@ -17,6 +17,11 @@
                 <div class="col-7">
                     @(Model.FirstName + " " + Model.LastName)
                 </div>
+                <div class="col-2">
+                    <a href="#ChangeName" data-mdb-modal-init data-mdb-target="#ChangeName">
+                        Edit
+                    </a>
+                </div>
             </div>
             <div class="row justify-content-start mb-3">
                 <div class="col-3 fw-bold">
@@ -24,14 +29,6 @@
                 </div>
                 <div class="col-7">
                     @Model.Address
-                </div>
-            </div>
-            <div class="row justify-content-start mb-3">
-                <div class="col-3 fw-bold">
-                    Username
-                </div>
-                <div class="col-7">
-                    @Model.UserName
                 </div>
             </div>
             <div class="row justify-content-start mb-3">
@@ -60,16 +57,24 @@
                     </a>
                 </div>
             </div>
+            <div class="row justify-content-start mb-3">
+                <div class="col-3 fw-bold">
+                    Username
+                </div>
+                <div class="col-7">
+                    @Model.UserName
+                </div>
+            </div>
             <hr class="hr hr-blurry" />
             <div class="text-center">
                 <a href="#ChangePassword" data-mdb-modal-init data-mdb-target="#ChangePassword">
                     Change password?
                 </a>
-                <partial name="Sections/_Modal" />
             </div>
         </div>
     </div>
 </section>
+<partial name="Sections/_Modal" />
 @section Scripts{
     <script src="~/lib/jquery-validation/dist/jquery.validate.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
@@ -120,9 +125,26 @@
     {
         ShowSweetAlert("success", "Change Email successfully", " ");
     }
+    @if (TempData["CannotChangeName"] != null)
+    {
+        ShowSweetAlert("error", "An error occurred, please enter again.", " ");
+    }
+    @if (TempData["ChangeNameSuccess"] != null)
+    {
+        ShowSweetAlert("success", "Change Name & Address successfully", " ");
+    }
     <script>
         document.getElementById('NewPhoneNumber').addEventListener('input', function () {
             this.value = this.value.replace(/[^0-9]/g, '');
         });
+
+        document.getElementById('FirstName').addEventListener('input', function () {
+            this.value = this.value.replace(/[^a-zA-Z]/g, '');
+        });
+
+        document.getElementById('LastName').addEventListener('input', function () {
+            this.value = this.value.replace(/[^a-zA-Z]/g, '');
+        });
+
     </script>
 }

@@ -3,33 +3,33 @@
     ViewData["Title"] = "Home";
 }
 @section Banner{
-<div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel" data-mdb-carousel-init>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <div class="bg-image" style="background-image: url('@Url.Content("~/assets/images/slide/home-page-slide.jpg")');
+    <div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel" data-mdb-carousel-init>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="bg-image" style="background-image: url('@Url.Content("~/assets/images/slide/home-page-slide.jpg")');
             height: 50vh;">
-                <div class="d-flex align-items-center h-100">
-                    <div class="text-white">
-                        <h2 class="p-2 bg-teal fw-bold">Welcome To</h2>
-                        <h1 class="p-2 bg-teal">KarnelTravels</h1>
+                    <div class="d-flex align-items-center h-100">
+                        <div class="text-white">
+                            <h2 class="p-2 bg-teal fw-bold">Welcome To</h2>
+                            <h1 class="p-2 bg-teal">KarnelTravels</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="carousel-item">
-            <div class="bg-image" style="background-image: url('@Url.Content("~/assets/images/slide/home-page-slide.jpg")');
+            <div class="carousel-item">
+                <div class="bg-image" style="background-image: url('@Url.Content("~/assets/images/slide/home-page-slide.jpg")');
             height: 50vh;">
-                <div class="d-flex  align-items-center h-100">
-                    <div class="text-white">
-                        <h3 class="p-2 bg-teal fw-bold">Discover Amazing Destinations</h3>
-                        <h4 class="p-2 bg-teal">Embark on a journey to explore breathtaking places and create unforgettable memories.</h4>
+                    <div class="d-flex  align-items-center h-100">
+                        <div class="text-white">
+                            <h3 class="p-2 bg-teal fw-bold">Discover Amazing Destinations</h3>
+                            <h4 class="p-2 bg-teal">Embark on a journey to explore breathtaking places and create unforgettable memories.</h4>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-    }
+}
 <section id="wrapper">
     <div class="card mt-3 mb-4 p-5">
         <ul class="nav nav-tabs nav-justified mb-3" id="menu" role="tablist">
@@ -228,3 +228,28 @@
         }
     </div>
 </section>
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (TempData["LoginOK"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: "success",
+                text: "Login Successfully",
+                showConfirmButton: false,
+                timer: 5500,
+            });
+        </script>
+    }
+    @if (TempData["RegisterOK"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: "success",
+                text: "Register Successfully",
+                showConfirmButton: false,
+                timer: 5500,
+            });
+        </script>
+    }
+}

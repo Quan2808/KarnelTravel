@@ -176,6 +176,7 @@ namespace WebApp.Areas.Identity.Pages.Account
                     }
                     else
                     {
+                        TempData["RegisterOK"] = "RegisterOK";
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         return LocalRedirect(returnUrl);
                     }

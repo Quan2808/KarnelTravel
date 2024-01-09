@@ -208,5 +208,39 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Profile));
             }
         }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeName
+            (string newFirstName, string newLastName, string newAddress)
+        {
+            if (ModelState.IsValid)
+            {
+                var currentUser = await _userManager.GetUserAsync(User);
+
+                if (currentUser != null)
+                {
+                    if (!string.IsNullOrEmpty(newFirstName) && !string.IsNullOrEmpty(newLastName)
+                         && !string.IsNullOrEmpty(newAddress))
+                    {
+                        currentUser.FirstName = newFirstName;
+                        currentUser.LastName = newLastName;
+                        currentUser.Address = newAddress;
+
+                        var updateResult = await _userManager.UpdateAsync(currentUser);
+
+                        if (updateResult.Succeeded)
+                        {
+                            TempData["ChangeNameSuccess"] = "ChangeNameSuccess";
+                            return RedirectToAction(nameof(Profile));
+                        }
+                    }
+                }
+            }
+
+            TempData["CannotChangeName"] = "CannotChangeName";
+            return RedirectToAction(nameof(Profile));
+        }
     }
 }
