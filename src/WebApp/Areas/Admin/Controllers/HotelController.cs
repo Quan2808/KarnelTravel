@@ -20,7 +20,7 @@ namespace WebApp.Areas.Admin
 
         public async Task<IActionResult> Index(string? search, int pg = 1)
         {
-            List<Hotel> hotels = await _context.Hotels.ToListAsync();
+            List<Hotel> hotels = await _context.Hotels.OrderByDescending(h => h.ID).ToListAsync();
             int pageSize = 10;
             if (pg < 1) pg = 1;
             int recsCount = hotels.Count();
@@ -76,6 +76,7 @@ namespace WebApp.Areas.Admin
 
                     _context.Add(hotel);
                     await _context.SaveChangesAsync();
+                    TempData["AlertCreate"] = "Hotel Created Successfuly!";
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -104,9 +105,18 @@ namespace WebApp.Areas.Admin
 
             try
             {
-
                 if (imageFile != null && imageFile.Length > 0)
                 {
+                    var imagePathDel = existingHotel.Image.Substring(1);
+                    if (!string.IsNullOrEmpty(imagePathDel))
+                    {
+                        var filePath = Path.Combine(_webHostEnvironment.WebRootPath, imagePathDel);
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            System.IO.File.Delete(filePath);
+                        }
+                    }
+
                     var imagePath = await SaveImageAsync(imageFile, hotel);
                     existingHotel.Image = imagePath;
                 }
@@ -122,11 +132,14 @@ namespace WebApp.Areas.Admin
 
                 _context.Update(existingHotel);
                 await _context.SaveChangesAsync();
-
+                TempData["AlertEdit"] = "Hotel Saved Successfuly!";
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception e)
             {
+                // Here you can log the error, for example:
+                // _logger.LogError(e, "An error occurred while processing the image.");
+
                 return View(existingHotel);
             }
         }
@@ -166,7 +179,7 @@ namespace WebApp.Areas.Admin
 
             _context.Hotels.Remove(existingHotel);
             await _context.SaveChangesAsync();
-
+            TempData["AlertDelete"] = "Hotel Deleted Successfuly!";
             return RedirectToAction(nameof(Index));
         }
 

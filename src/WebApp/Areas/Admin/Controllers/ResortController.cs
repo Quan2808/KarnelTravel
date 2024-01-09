@@ -20,7 +20,7 @@ namespace WebApp.Areas.Admin
 
         public async Task<IActionResult> Index(string? search, int pg = 1)
         {
-            List<Resort> resorts = await _context.Resorts.ToListAsync();
+            List<Resort> resorts = await _context.Resorts.OrderByDescending(r => r.ID).ToListAsync();
             int pageSize = 10;
             if (pg < 1) pg = 1;
             int recsCount = resorts.Count();
@@ -75,6 +75,7 @@ namespace WebApp.Areas.Admin
 
                     _context.Add(Resort);
                     await _context.SaveChangesAsync();
+                    TempData["AlertCreate"] = "Resort Created Successfuly!";
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -106,6 +107,16 @@ namespace WebApp.Areas.Admin
 
                 if (imageFile != null && imageFile.Length > 0)
                 {
+                    var imagePathDel = existingResort.Image.Substring(1);
+                    if (!string.IsNullOrEmpty(imagePathDel))
+                    {
+                        var filePath = Path.Combine(_webHostEnvironment.WebRootPath, imagePathDel);
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            System.IO.File.Delete(filePath);
+                        }
+                    }
+
                     var imagePath = await SaveImageAsync(imageFile, Resort);
                     existingResort.Image = imagePath;
                 }
@@ -121,7 +132,7 @@ namespace WebApp.Areas.Admin
 
                 _context.Update(existingResort);
                 await _context.SaveChangesAsync();
-
+                TempData["AlertEdit"] = "Resort Saved Successfuly!";
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -165,7 +176,7 @@ namespace WebApp.Areas.Admin
 
             _context.Resorts.Remove(existingResort);
             await _context.SaveChangesAsync();
-
+            TempData["AlertDelete"] = "Resort Deleted Successfuly!";
             return RedirectToAction(nameof(Index));
         }
 

@@ -37,6 +37,27 @@
             </div>
         </div>
     </div>
+    @if (TempData["AlertCreate"] != null)
+    {
+        <div id="alertBox" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@TempData["AlertCreate"]</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["AlertEdit"] != null)
+    {
+        <div id="alertBox" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@TempData["AlertEdit"]</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["AlertDelete"] != null)
+    {
+        <div id="alertBox" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>@TempData["AlertDelete"]</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
     <div class="table-responsive text-nowrap">
         <table class="table">
             <thead class="text-center">
@@ -88,3 +109,17 @@
         }
     </ul>
 </nav>
+
+@section Scripts {
+    <script>
+        window.onload = function () {
+            const alertBox = document.getElementById('alertBox');
+
+            if (alertBox) {
+                setTimeout(function () {
+                    alertBox.style.display = 'none';
+                }, 3500); // The duration of the timeout in milliseconds (1000ms = 1 second)
+            }
+        };
+    </script>
+}
