@@ -40,18 +40,18 @@
             <div class="card-body">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="mb-3">
-                    <label class="form-label">Name</label>
+                    <label class="form-label">Name<span class="text-danger ms-1">*</span></label>
                     <input type="text" class="form-control" placeholder="Restaurant name" asp-for="Name">
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <label class="form-label">Address</label>
+                        <label class="form-label">Address<span class="text-danger ms-1">*</span></label>
                         <input type="text" class="form-control" placeholder="Restaurant address" asp-for="Location">
                         <span asp-validation-for="Location" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Price</label>
+                        <label class="form-label">Price<span class="text-danger ms-1">*</span></label>
                         <input class="form-control" asp-for="Price">
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
@@ -62,7 +62,7 @@
             <div class="col-12 col-lg-8 mb-3">
                 <div class="card">
                     <div class="card-header">
-                        Restaurant Description
+                        Restaurant Description<span class="text-danger ms-1">*</span>
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
@@ -76,7 +76,7 @@
             <div class="col-12 col-lg-4 mb-3">
                 <div class="card">
                     <div class="card-header">
-                        Restaurant Thumbnail
+                        Restaurant Thumbnail<span class="text-danger ms-1">*</span>
                     </div>
                     <div class="card-body">
                         <div class="mb-3">

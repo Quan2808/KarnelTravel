@@ -73,7 +73,10 @@
                         <form asp-action="FeedBack" method="post" aria-label="Contact form" novalidate="novalidate" data-status="init">
                             <input asp-for="CommentDate" required hidden />
                             <div class="mb-3">
-                                <label class="form-label">Your Name</label>
+                                <label class="form-label">
+                                    Your Name
+                                    <span class="text-danger ms-1">*</span>
+                                </label>
                                 @if (SignInManager.IsSignedIn(User))
                                 {
                                     <input asp-for="CustomerName" class="form-control"
@@ -89,7 +92,10 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Email</label>
+                                <label class="form-label">
+                                    Email
+                                    <span class="text-danger ms-1">*</span>
+                                </label>
                                 @if (SignInManager.IsSignedIn(User))
                                 {
                                     <input type="email" asp-for="CustomerPhone" class="form-control"
@@ -105,7 +111,10 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Feedback</label>
+                                <label class="form-label">
+                                    Feedback
+                                    <span class="text-danger ms-1">*</span>
+                                </label>
                                 <textarea asp-for="Comment" class="form-control" rows="7" required></textarea>
                                 <div class="invalid-feedback">
                                     <span asp-validation-for="Comment" class="text-danger"></span>

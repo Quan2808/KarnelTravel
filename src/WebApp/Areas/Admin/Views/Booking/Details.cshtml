@@ -134,7 +134,10 @@
                             <form asp-action="Update">
                                 <input type="hidden" asp-for="ID" />
                             <li class="mb-3">
-                                <span class="fw-bold me-2">Status:</span>
+                                <span class="fw-bold me-2">
+                                    Status:
+                                    <span class="text-danger ms-1">*</span>
+                                </span>
 
                                 <select class="form-control" asp-for="Status">
                                     @foreach (BookingStatus status in Enum.GetValues(typeof(BookingStatus)))

@@ -40,18 +40,18 @@
             <div class="card-body">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="mb-3">
-                    <label class="form-label">Name</label>
+                    <label class="form-label">Name<span class="text-danger ms-1">*</span></label>
                     <input type="text" class="form-control" placeholder="Travel Name" asp-for="Name">
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <label class="form-label">Price</label>
+                        <label class="form-label">Price<span class="text-danger ms-1">*</span></label>
                         <input class="form-control" asp-for="Price">
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">TouristSpot</label>
+                        <label class="form-label">TouristSpot<span class="text-danger ms-1">*</span></label>
                         <select asp-for="TouristSpotID" class="form-control" asp-items="ViewBag.TouristSpotID"></select>
                     </div>
                 </div>
