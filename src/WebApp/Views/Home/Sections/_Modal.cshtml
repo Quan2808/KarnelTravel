@@ -1,0 +1,60 @@
+﻿<div class="modal fade" id="ChangePassword" tabindex="-1" aria-labelledby="ChangePasswordLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form asp-action="ChangePassword">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="ChangePasswordLabel">
+                        Change New Password
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mb-3">
+                        <label for="OldPassword">Old Password</label>
+                        <input type="password" class="form-control"
+                               id="OldPassword" name="oldPassword" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="NewPassword">New Password</label>
+                        <input type="password" class="form-control"
+                               id="NewPassword" name="newPassword" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="ConfirmPassword">Confirm Password</label>
+                        <input type="password" class="form-control"
+                               id="ConfirmPassword" name="confirmPassword" required>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="ChangePhoneNumber" tabindex="-1" aria-labelledby="ChangePhoneNumberLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form asp-action="ChangePhoneNumber">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="ChangePasswordLabel">
+                        Change New Phone Number
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mb-3">
+                        <label for="NewPhoneNumber">New Phone Number</label>
+                        <input type="tel" maxlength="10" class="form-control"
+                               id="NewPhoneNumber" name="newPhoneNumber" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
