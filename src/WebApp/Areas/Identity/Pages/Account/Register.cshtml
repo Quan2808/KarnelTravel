@@ -13,43 +13,68 @@
             </div>
             <hr class="hr hr-blurry" />
             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <div asp-validation-summary="All"></div>
                 <div class="row mb-4">
                     <div class="col">
                         <div data-mdb-input-init class="form-outline">
                             <input asp-for="Input.FirstName" class="form-control" />
-                            <label class="form-label">First name</label>
+                            <label class="form-label">
+                                First name
+                                <span class="text-danger ms-1">*</span>
+                            </label>
                         </div>
                     </div>
                     <div class="col">
                         <div data-mdb-input-init class="form-outline">
                             <input asp-for="Input.LastName" class="form-control" />
-                            <label class="form-label">Last name</label>
+                            <label class="form-label">
+                                Last name
+                                <span class="text-danger ms-1">*</span>
+                            </label>
                         </div>
                     </div>
                 </div>
                 <div data-mdb-input-init class="form-outline mb-4">
                     <input asp-for="Input.Username" class="form-control" />
-                    <label class="form-label">Username</label>
+                    <label class="form-label">
+                        Username
+                        <span class="text-danger ms-1">*</span>
+                    </label>
                 </div>
                 <div data-mdb-input-init class="form-outline mb-4">
                     <input asp-for="Input.Address" class="form-control" />
-                    <label class="form-label">Address</label>
+                    <label class="form-label">
+                        Address
+                        <span class="text-danger ms-1">*</span>
+                    </label>
                 </div>
                 <div data-mdb-input-init class="form-outline mb-4">
                     <input asp-for="Input.Email" class="form-control" />
-                    <label class="form-label">Email address</label>
+                    <label class="form-label">
+                        Email address
+                        <span class="text-danger ms-1">*</span>
+                    </label>
                 </div>
                 <div data-mdb-input-init class="form-outline mb-4">
                     <input asp-for="Input.PhoneNumber" class="form-control" />
-                    <label class="form-label">Phone Number</label>
+                    <label class="form-label">
+                        Phone Number
+                        <span class="text-danger ms-1">*</span>
+                    </label>
                 </div>
                 <div data-mdb-input-init class="form-outline mb-4">
                     <input asp-for="Input.Password" class="form-control" />
-                    <label class="form-label">Password</label>
+                    <label class="form-label">
+                        Password
+                        <span class="text-danger ms-1">*</span>
+                    </label>
                 </div>
                 <div data-mdb-input-init class="form-outline mb-4">
                     <input asp-for="Input.ConfirmPassword" class="form-control" />
-                    <label class="form-label">Confirm Password</label>
+                    <label class="form-label">
+                        Confirm Password
+                        <span class="text-danger ms-1">*</span>
+                    </label>
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Register</button>
                 <hr class="hr hr-blurry" />

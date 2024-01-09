@@ -120,10 +120,19 @@ namespace WebApp.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                var existingUser = await _userManager.Users.FirstOrDefaultAsync(u => u.PhoneNumber == Input.PhoneNumber);
+                var existingUser = await _userManager.Users.FirstOrDefaultAsync(u => 
+                    u.PhoneNumber == Input.PhoneNumber);
+
                 if (existingUser != null)
                 {
-                    ModelState.AddModelError(string.Empty, "Phone number has been registered with another account.");
+                    ModelState.AddModelError(string.Empty, 
+                        "Phone number has been registered with another account.");
+                    return Page();
+                }
+
+                if (Input.PhoneNumber.StartsWith("0000000"))
+                {
+                    ModelState.AddModelError(string.Empty, "Phone number is not valid.");
                     return Page();
                 }
 

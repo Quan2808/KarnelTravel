@@ -4,6 +4,7 @@
     ViewData["Title"] = "Create";
     var Package = ViewData["Package"];
     var Id = ViewData["Id"];
+    var TotalPrice = Model.TotalPrice;
 }
 <section class="row mt-5 mb-5">
     <div class="col-md mb-3">
@@ -121,44 +122,53 @@
             </div>
             <div class="card-body">
                 <form asp-action="CheckIn" class="needs-validation" novalidate>
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
                     <input type="hidden" name="package" value="@Package" />
                     <input type="hidden" name="id" value="@Id" />
                     <div class="mb-3">
                         <label class="form-label fw-bold">Your Name</label>
-                        <input asp-for="CustomerName" class="form-control" required />
+                        <input asp-for="CustomerName" class="form-control" readonly />
                         <div class="invalid-feedback">
                             <span asp-validation-for="CustomerName" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Phone Number</label>
-                        <input asp-for="CustomerPhone" class="form-control" required />
+                        <input asp-for="CustomerPhone" class="form-control" readonly />
                         <div class="invalid-feedback">
                             <span asp-validation-for="CustomerPhone" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Check-In</label>
+                        <label class="form-label fw-bold">
+                            Check-In
+                            <span class="text-danger ms-1">*</span>
+                        </label>
                         <input asp-for="CheckIn" class="form-control" required />
                         <div class="invalid-feedback">
                             <span asp-validation-for="CheckIn" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Check-Out</label>
+                        <label class="form-label fw-bold">
+                            Check-Out
+                            <span class="text-danger ms-1">*</span>
+                        </label>
                         <input asp-for="CheckOut" class="form-control" required />
                         <div class="invalid-feedback">
                             <span asp-validation-for="CheckOut" class="text-danger"></span>
                         </div>
                     </div>
+
                     <div class="d-flex justify-content-end align-items-center">
                         <div class="mb-3 fs-4">
                             <label class="fw-bold text-danger"> Total: </label>
-                            <span id="totalPriceDisplay">VND @Model.TotalPrice</span>
+                            <span id="totalPriceDisplay">
+                                VND @string.Format("{0,15:N0}", TotalPrice)
+                            </span>
                         </div>
                         <div class="mb-3 ms-5">
-                            <button type="submit" class="btn btn-lg btn-primary">Create</button>
+                            <button type="submit" class="btn btn-lg btn-primary">Continue</button>
                         </div>
                     </div>
                 </form>
@@ -168,6 +178,35 @@
 </section>
 
 @section Scripts{
+    @if (ViewData["CheckInError"] != null)
+    {
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "@ViewData["CheckInError"]",
+            });
+        </script>
+    }
+
+    @if (TempData["BookingOK"] != null)
+    {
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "Thank for your order",
+                html: ` Reservations are being processed.<br> 
+                        You will be redirected in a few seconds. `,
+                timer: 4500,
+                timerProgressBar: true,
+                showConfirmButton: false,
+            }).then(() => {
+                window.location.href = '@Url.Action("details", new { id = Model.ID })';
+            });
+        </script>
+    }
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var checkInInput = document.querySelector('[name="CheckIn"]');
@@ -181,16 +220,23 @@
                 var checkInValue = new Date(checkInInput.value);
                 var checkOutValue = new Date(checkOutInput.value);
 
-                if (!isNaN(checkInValue.getTime()) && !isNaN(checkOutValue.getTime())) {
+                if (!isNaN(checkInValue.getDay()) && !isNaN(checkOutValue.getDay())) {
                     var numberOfDays = Math.ceil((checkOutValue - checkInValue) / (1000 * 60 * 60 * 24));
 
                     var unitPrice = parseFloat('@Model.TotalPrice');
 
                     var totalPrice = numberOfDays * unitPrice;
 
-                    totalPriceDisplay.textContent = "VND " + totalPrice;
+                    totalPriceDisplay.textContent = "VND " + formatNumber(totalPrice);
                 }
+            }
+
+            function formatNumber(number) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             }
         });
     </script>
+
+
+
 }
