@@ -15,7 +15,7 @@ namespace WebApp.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string? search, int? rating, string? sortByPrice)
+        public async Task<IActionResult> Index(string? search, int? rating, string? sortByPrice, int pg = 1)
         {
             var hotels = await _context.Hotels.ToListAsync();
 
@@ -51,7 +51,16 @@ namespace WebApp.Controllers
                     hotelData = hotelData.OrderByDescending(data => data.Hotel.Price).ToList();
                 }
             }
-            return View(hotelData);
+
+            int pageSize = 8;
+            if (pg < 1) pg = 1;
+            int recsCount = hotelData.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = hotelData.Skip(recSkip).Take(pager.PageSize).ToList();
+            ViewBag.Pager = pager;
+
+            return View(data);
         }
 
         public async Task<IActionResult> Detail(int? id)

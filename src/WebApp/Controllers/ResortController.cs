@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Model;
 using WebApp.Data;
 
 namespace WebApp.Controllers
@@ -14,7 +15,7 @@ namespace WebApp.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string? search, int? rating, string? sortByPrice)
+        public async Task<IActionResult> Index(string? search, int? rating, string? sortByPrice , int pg = 1)
         {
             var resorts = await _context.Resorts.ToListAsync();
 
@@ -49,7 +50,15 @@ namespace WebApp.Controllers
                     resortData = resortData.OrderByDescending(data => data.Resort.Price).ToList();
                 }
             }
-                return View(resortData);
+            int pageSize = 8;
+            if (pg < 1) pg = 1;
+            int recsCount = resortData.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = resortData.Skip(recSkip).Take(pager.PageSize).ToList();
+            ViewBag.Pager = pager;
+
+            return View(data);
         }
 
         public async Task<IActionResult> Detail(int? id)

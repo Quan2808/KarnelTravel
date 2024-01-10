@@ -15,7 +15,7 @@ namespace WebApp.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string? search, int? rating, string? sortByPrice)
+        public async Task<IActionResult> Index(string? search, int? rating, string? sortByPrice, int pg = 1)
         {
             var restaurants = await _context.Restaurants.ToListAsync();
 
@@ -50,7 +50,15 @@ namespace WebApp.Controllers
                     resData = resData.OrderByDescending(data => data.Restaurant.Price).ToList();
                 }
             }
-            return View(resData);
+            int pageSize = 8;
+            if (pg < 1) pg = 1;
+            int recsCount = resData.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = resData.Skip(recSkip).Take(pager.PageSize).ToList();
+            ViewBag.Pager = pager;
+
+            return View(data);
         }
 
         public async Task<IActionResult> Detail(int? id)
