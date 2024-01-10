@@ -18,7 +18,7 @@ namespace WebApp.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string? search)
+        public async Task<IActionResult> Index(string? search, int pg = 1)
         {
             var tourist = await _context.Tourists.ToListAsync();
 
@@ -34,7 +34,15 @@ namespace WebApp.Controllers
             ViewBag.ResortID = new SelectList(_context.Resorts.ToList(), "ID", "Name");
             ViewBag.RestaurantID = new SelectList(_context.Restaurants.ToList(), "ID", "Name");
 
-            return View(tourist);
+            int pageSize = 8;
+            if (pg < 1) pg = 1;
+            int recsCount = tourist.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = tourist.Skip(recSkip).Take(pager.PageSize).ToList();
+            ViewBag.Pager = pager;
+
+            return View(data);
         }
 
         public async Task<IActionResult> Detail(int? id)
